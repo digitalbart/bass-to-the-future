@@ -304,23 +304,79 @@
     }
 
     .bite-play-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
       appearance: none;
       border: 1px solid rgba(53, 208, 255, 0.28);
-      background: rgba(53, 208, 255, 0.12);
+      background: linear-gradient(135deg, rgba(53, 208, 255, 0.18), rgba(53, 208, 255, 0.08));
       color: #eef8ff;
-      padding: 8px 12px;
-      border-radius: 999px;
+      min-height: 58px;
+      min-width: 152px;
+      padding: 12px 18px;
+      border-radius: 18px;
       font: inherit;
-      font-size: 0.82rem;
+      font-size: 0.98rem;
       font-weight: 800;
+      letter-spacing: -0.02em;
       cursor: pointer;
-      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+      box-shadow: 0 12px 28px rgba(53, 208, 255, 0.12);
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .bite-play-toggle:hover {
-      background: rgba(53, 208, 255, 0.18);
+      background: linear-gradient(135deg, rgba(53, 208, 255, 0.24), rgba(53, 208, 255, 0.12));
       border-color: rgba(53, 208, 255, 0.42);
       transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(53, 208, 255, 0.16);
+    }
+
+    .bite-play-icon {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .bite-play-toggle[data-state="play"] .bite-play-icon::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 1px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid #eef8ff;
+    }
+
+    .bite-play-toggle[data-state="pause"] .bite-play-icon::before,
+    .bite-play-toggle[data-state="pause"] .bite-play-icon::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      width: 5px;
+      height: 16px;
+      border-radius: 2px;
+      background: #eef8ff;
+    }
+
+    .bite-play-toggle[data-state="pause"] .bite-play-icon::before {
+      left: 2px;
+    }
+
+    .bite-play-toggle[data-state="pause"] .bite-play-icon::after {
+      right: 2px;
+    }
+
+    .bite-play-toggle-inline {
+      min-height: 48px;
+      min-width: 136px;
+      padding: 10px 16px;
+      border-radius: 16px;
+      font-size: 0.92rem;
+      box-shadow: 0 10px 22px rgba(53, 208, 255, 0.1);
     }
 
     .bite-track-wrap {
@@ -558,10 +614,10 @@
 
     .season-planner-head {
       display: grid;
-      grid-template-columns: minmax(320px, 0.78fr) minmax(520px, 0.92fr);
-      gap: 16px;
-      align-items: center;
-      padding: 18px;
+      grid-template-columns: minmax(300px, 0.74fr) minmax(500px, 0.9fr);
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
       border-radius: 24px;
       background:
         linear-gradient(135deg, rgba(53, 208, 255, 0.08), transparent 42%),
@@ -589,16 +645,16 @@
     .preset-stack {
       display: grid;
       gap: 10px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-self: center;
+      grid-template-columns: minmax(160px, 0.9fr) minmax(180px, 0.96fr);
+      align-self: start;
       justify-self: start;
-      width: min(100%, 1040px);
+      width: min(100%, 680px);
     }
 
     .preset-group {
       display: grid;
       gap: 6px;
-      padding: 12px;
+      padding: 10px 12px;
       border-radius: 18px;
       background: rgba(6, 16, 32, 0.42);
       border: 1px solid rgba(255, 255, 255, 0.06);
@@ -610,8 +666,8 @@
 
     .season-planner-title {
       display: grid;
-      gap: 8px;
-      align-content: center;
+      gap: 10px;
+      align-content: start;
       min-height: 100%;
       padding-right: 6px;
     }
@@ -629,6 +685,15 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      align-items: center;
+    }
+
+    .preset-transport {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      grid-column: 1 / 2;
+      align-self: start;
     }
 
     .preset-chip {
@@ -819,19 +884,6 @@
       background: #35d0ff;
       box-shadow: 0 0 16px rgba(53, 208, 255, 0.55);
       flex: 0 0 auto;
-    }
-
-    .sunrise-lane {
-      position: absolute;
-      left: var(--lane-left, 34%);
-      width: var(--lane-width, 20%);
-      bottom: 58px;
-      height: 40px;
-      border-radius: 999px;
-      background: var(--season-lane);
-      border: 1px solid var(--season-lane-border);
-      box-shadow: 0 0 24px rgba(142, 230, 255, 0.12);
-      transition: left 0.2s ease, width 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .sunrise-foot {
@@ -2905,8 +2957,7 @@
           <div class="eyebrow">01 // Operations</div>
           <h3>Simple plan, real costs, and a live compare widget.</h3>
         </div>
-          <p class="muted">This is the part people actually screenshot and send around.</p>
-        </div>
+      </div>
 
       <div class="ops-grid">
         <aside class="panel list-card" id="cost-lab-panel">
@@ -3089,6 +3140,12 @@
                     <button class="preset-chip" type="button" data-bite-month="october">October</button>
                   </div>
                 </div>
+                <div class="preset-transport">
+                  <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false" data-state="pause">
+                    <span class="bite-play-icon" aria-hidden="true"></span>
+                    <span id="bite-play-label">Pause</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -3115,7 +3172,6 @@
               <div class="sunrise-arc" aria-hidden="true"></div>
               <div class="sunrise-time-float" id="bite-sunrise-time-float">06:43</div>
               <div class="sunrise-peak-tag" id="bite-sunrise-peak-tag">Gray-light push</div>
-              <div class="sunrise-lane" id="bite-sunrise-lane" aria-hidden="true"></div>
               <div class="sunrise-orb" id="bite-sunrise-orb" aria-hidden="true"></div>
               <div class="sunrise-foot">
                 <span id="bite-foot-left">Pre-dawn setup</span>
@@ -3152,7 +3208,10 @@
                   <div class="bite-time" id="bite-time-label">05:15</div>
                   <div class="bite-slider-meta">
                     <div class="bite-phase" id="bite-phase-label">Gray light peak</div>
-                    <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false">Play</button>
+                    <button class="bite-play-toggle bite-play-toggle-inline" type="button" aria-pressed="false" data-state="pause">
+                      <span class="bite-play-icon" aria-hidden="true"></span>
+                      <span class="bite-play-label">Pause</span>
+                    </button>
                   </div>
                 </div>
                 <div class="bite-track-wrap">
@@ -4552,7 +4611,7 @@
     const costLicenseSelect = document.getElementById("cost-license");
     const costMealCheckbox = document.getElementById("cost-meal");
     const biteTimeRange = document.getElementById("bite-time-range");
-    const bitePlayToggle = document.getElementById("bite-play-toggle");
+    const bitePlayToggles = [...document.querySelectorAll(".bite-play-toggle")];
     const bitePeriodButtons = [...document.querySelectorAll("[data-bite-period]")];
     const biteLocationButtons = [...document.querySelectorAll("[data-bite-location]")];
     const biteMonthButtons = [...document.querySelectorAll("[data-bite-month]")];
@@ -5013,11 +5072,6 @@
         sunriseOrb.style.setProperty("--sun-x", `${((windowPreset.anchor - min) / (max - min)) * 100}%`);
       }
 
-      const sunriseLane = document.getElementById("bite-sunrise-lane");
-      if (sunriseLane) {
-        sunriseLane.style.setProperty("--lane-left", `${left}%`);
-        sunriseLane.style.setProperty("--lane-width", `${width}%`);
-      }
     }
 
     function applyBitePreset(resetSlider = false) {
@@ -5128,9 +5182,12 @@
     }
 
     function syncBitePlayToggle() {
-      if (!bitePlayToggle) return;
-      bitePlayToggle.textContent = biteIsPlaying ? "Pause" : "Play";
-      bitePlayToggle.setAttribute("aria-pressed", biteIsPlaying ? "true" : "false");
+      bitePlayToggles.forEach((toggle) => {
+        const label = toggle.querySelector(".bite-play-label");
+        if (label) label.textContent = biteIsPlaying ? "Pause" : "Play";
+        toggle.setAttribute("aria-pressed", biteIsPlaying ? "true" : "false");
+        toggle.setAttribute("data-state", biteIsPlaying ? "pause" : "play");
+      });
     }
 
     function stopBitePlayback() {
@@ -5644,25 +5701,31 @@
 
     biteLocationButtons.forEach((button) => {
       button.addEventListener("click", () => {
+        const resumePlayback = biteIsPlaying;
         biteState.location = button.dataset.biteLocation;
         stopBitePlayback();
         applyBitePreset(true);
+        if (resumePlayback) startBitePlayback();
       });
     });
 
     bitePeriodButtons.forEach((button) => {
       button.addEventListener("click", () => {
+        const resumePlayback = biteIsPlaying;
         biteState.period = button.dataset.bitePeriod;
         stopBitePlayback();
         applyBitePreset(true);
+        if (resumePlayback) startBitePlayback();
       });
     });
 
     biteMonthButtons.forEach((button) => {
       button.addEventListener("click", () => {
+        const resumePlayback = biteIsPlaying;
         biteState.month = button.dataset.biteMonth;
         stopBitePlayback();
         applyBitePreset(true);
+        if (resumePlayback) startBitePlayback();
       });
     });
 
@@ -5671,10 +5734,10 @@
       applyBitePreset(true);
     }
 
-    if (bitePlayToggle) {
-      bitePlayToggle.addEventListener("click", toggleBitePlayback);
-      syncBitePlayToggle();
-    }
+    bitePlayToggles.forEach((toggle) => {
+      toggle.addEventListener("click", toggleBitePlayback);
+    });
+    syncBitePlayToggle();
 
     const compareWidgetList = document.getElementById("compare-widget-list");
     if (compareWidgetList) {
@@ -5691,6 +5754,7 @@
 
     renderCostLab();
     setCharter("seahawk");
+    startBitePlayback();
   </script>
 </body>
 </html>
