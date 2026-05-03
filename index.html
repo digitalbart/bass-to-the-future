@@ -158,6 +158,12 @@
       align-items: stretch;
     }
 
+    .map-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
     .panel {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -251,6 +257,54 @@
       min-height: 100%;
       overflow: hidden;
       background: linear-gradient(160deg, rgba(9, 24, 47, 0.98), rgba(6, 14, 27, 0.98));
+    }
+
+    .overview-map-card {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .overview-map-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .overview-map-head h3 {
+      margin: 8px 0 4px;
+      font-size: 1.9rem;
+      letter-spacing: -0.05em;
+    }
+
+    .overview-map-head p {
+      margin: 0;
+      color: #d8e5fb;
+      line-height: 1.55;
+    }
+
+    .overview-map-frame {
+      position: relative;
+      min-height: 560px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .overview-map-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .overview-map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .map-stage {
@@ -1103,6 +1157,7 @@
 
     @media (max-width: 1024px) {
       .hero-grid,
+      .map-overview-grid,
       .overview-grid,
       .ops-grid,
       .host-grid,
@@ -1225,80 +1280,78 @@
   <main class="shell">
     <section class="hero">
       <div class="hero-grid">
-        <aside class="panel map-card">
-          <div class="map-stage">
-            <div class="map-switcher" aria-label="Harbor map switcher">
-              <button class="map-chip is-active" type="button" data-map="stjoe">St. Joe</button>
-              <button class="map-chip" type="button" data-map="saugatuck">Saugatuck</button>
+        <article class="panel hero-copy">
+          <div class="eyebrow">Strategic Expedition Overview</div>
+          <h2>Lake Michigan salmon trip, cleaned up for a fast group call.</h2>
+          <p>
+            This top section is just the overview: both harbors visible at once, all the obvious charter-map pins on
+            screen, and no buried click path. The deeper boat-by-boat breakdown lives right below.
+          </p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#directory">Jump to harbor directory</a>
+            <a class="button button-secondary" href="#intel">Open trip console</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>10</strong>
+              current charter picks
             </div>
+            <div class="stat">
+              <strong>2</strong>
+              harbor maps live at once
+            </div>
+            <div class="stat">
+              <strong>Late Aug</strong>
+              into early Sep 2026
+            </div>
+          </div>
+        </article>
 
-            <div class="map-frame-wrap">
+        <div class="map-overview-grid">
+          <article class="panel overview-map-card">
+            <div class="overview-map-head">
+              <div>
+                <div class="eyebrow">St. Joseph / Benton Harbor</div>
+                <h3>Sharper fishing-first launch.</h3>
+                <p>Best quick read if the group wants the cleaner salmon angle and tighter dock-day logistics.</p>
+              </div>
+              <div class="tag tag-primary">All pins visible</div>
+            </div>
+            <div class="overview-map-frame">
               <iframe
-                class="map-embed is-active"
-                data-map-frame="stjoe"
                 src="https://www.google.com/maps?q=St+Joseph+Michigan+fishing+charters&z=12&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="St. Joseph fishing charter map"
+                title="St. Joseph fishing charter overview map"
               ></iframe>
+            </div>
+            <div class="overview-map-actions">
+              <a class="button button-primary" href="https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open St. Joe map</a>
+            </div>
+          </article>
+
+          <article class="panel overview-map-card">
+            <div class="overview-map-head">
+              <div>
+                <div class="eyebrow">Saugatuck / Douglas</div>
+                <h3>Better town energy after the boat.</h3>
+                <p>Best quick read if the group wants a real charter morning plus a more walkable vacation-town afternoon.</p>
+              </div>
+              <div class="tag tag-soft">All pins visible</div>
+            </div>
+            <div class="overview-map-frame">
               <iframe
-                class="map-embed"
-                data-map-frame="saugatuck"
                 src="https://www.google.com/maps?q=Saugatuck+Michigan+fishing+charters&z=12&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="Saugatuck fishing charter map"
+                title="Saugatuck fishing charter overview map"
               ></iframe>
-
-              <div class="map-overlay">
-                <aside class="map-sidebar">
-                  <div class="harbor-summary">
-                    <div class="eyebrow">Strategic Expedition Overview</div>
-                    <div class="eyebrow" id="hero-map-kicker">St. Joseph Harbor</div>
-                    <h3 id="hero-map-title">Sharper fishing-first launch.</h3>
-                    <p id="hero-map-copy">Sea Hawk and Originator give St. Joe the strongest top-end charter pair if the group wants the cleanest shot at a serious salmon morning.</p>
-                  </div>
-
-                  <div class="venue-list" id="hero-venue-list"></div>
-
-                  <article class="venue-detail">
-                    <div class="venue-detail-top">
-                      <div>
-                        <div class="eyebrow"><span id="hero-venue-harbor">St. Joseph</span> // <span id="hero-venue-badge">Top pick</span></div>
-                        <h4 id="hero-venue-name">Sea Hawk</h4>
-                        <div class="venue-boat-line" id="hero-venue-boat">36' Tiara</div>
-                        <p id="hero-venue-subtitle">High-action salmon focus with verified current rates.</p>
-                      </div>
-                      <div class="tag tag-primary" id="hero-venue-price-tag">$900 AM</div>
-                    </div>
-
-                    <img id="hero-venue-photo" class="venue-photo" alt="">
-
-                    <div class="venue-meta">
-                      <div class="venue-meta-item">
-                        <strong>Rate Snapshot</strong>
-                        <span id="hero-venue-rate">$900 for 1-4 anglers, 7-hour morning trip</span>
-                      </div>
-                      <div class="venue-meta-item">
-                        <strong>Dock + Contact</strong>
-                        <span id="hero-venue-contact">Pier 1000 Marina, Benton Harbor • 269-208-3923</span>
-                      </div>
-                    </div>
-
-                    <div class="venue-review" id="hero-venue-review">Official site surfaces recent Google reviews and a visible 4.8 rating display.</div>
-
-                    <div class="map-action-row">
-                      <a class="button button-primary" id="hero-venue-map" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open Map</a>
-                      <a class="button button-secondary" id="hero-venue-reviews" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Reviews</a>
-                      <a class="button button-secondary" id="hero-venue-site" href="https://fishseahawk.com/" target="_blank" rel="noreferrer">Website</a>
-                      <a class="button button-secondary" id="hero-venue-directions" href="https://www.google.com/maps/dir/?api=1&destination=1000%20Riverview%20Dr%20%2325%2C%20Benton%20Harbor%2C%20MI%2049022" target="_blank" rel="noreferrer">Directions</a>
-                    </div>
-                  </article>
-                </aside>
-              </div>
             </div>
-          </div>
-        </aside>
+            <div class="overview-map-actions">
+              <a class="button button-primary" href="https://www.google.com/maps/search/Saugatuck+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open Saugatuck map</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -2181,68 +2234,6 @@
     const fleetButtons = [...document.querySelectorAll(".fleet-option")];
     const tabButtons = [...document.querySelectorAll(".tab-button")];
     const tabPanels = [...document.querySelectorAll(".tab-panel")];
-    const mapChips = [...document.querySelectorAll(".map-chip")];
-    const mapFrames = [...document.querySelectorAll(".map-embed")];
-    const heroVenueList = document.getElementById("hero-venue-list");
-    let activeHeroMap = "stjoe";
-    let activeHeroVenue = "seahawk";
-
-    function renderHeroVenueDetail() {
-      const mapData = heroMapData[activeHeroMap];
-      const venue = mapData.venues.find((item) => item.id === activeHeroVenue) || mapData.venues[0];
-      if (!venue) return;
-      const activeFrame = document.querySelector(`.map-embed[data-map-frame="${activeHeroMap}"]`);
-      const photo = document.getElementById("hero-venue-photo");
-
-      document.getElementById("hero-venue-badge").textContent = venue.badge;
-      document.getElementById("hero-venue-harbor").textContent = venue.harbor || mapData.kicker;
-      document.getElementById("hero-venue-name").textContent = venue.name;
-      document.getElementById("hero-venue-boat").textContent = venue.boat || "";
-      document.getElementById("hero-venue-subtitle").textContent = venue.subtitle;
-      document.getElementById("hero-venue-price-tag").textContent = venue.priceTag;
-      document.getElementById("hero-venue-rate").textContent = venue.rate;
-      document.getElementById("hero-venue-contact").textContent = venue.contact;
-      document.getElementById("hero-venue-review").textContent = venue.review;
-      document.getElementById("hero-venue-map").href = venue.map;
-      document.getElementById("hero-venue-reviews").href = venue.reviews;
-      document.getElementById("hero-venue-site").href = venue.site;
-      document.getElementById("hero-venue-directions").href = venue.directions;
-
-      if (venue.photo) {
-        photo.src = venue.photo;
-        photo.alt = `${venue.name} boat photo`;
-        photo.classList.add("is-visible");
-      } else {
-        photo.removeAttribute("src");
-        photo.alt = "";
-        photo.classList.remove("is-visible");
-      }
-
-      if (activeFrame && venue.embed && activeFrame.src !== venue.embed) {
-        activeFrame.src = venue.embed;
-      }
-
-      [...heroVenueList.querySelectorAll(".venue-button")].forEach((button) => {
-        button.classList.toggle("is-active", button.dataset.venue === venue.id);
-      });
-    }
-
-    function renderHeroVenueList() {
-      const mapData = heroMapData[activeHeroMap];
-      heroVenueList.innerHTML = mapData.venues.map((venue) => `
-        <button class="venue-button ${venue.id === activeHeroVenue ? "is-active" : ""}" type="button" data-venue="${venue.id}">
-          <strong>${venue.name}</strong>
-          <span>${venue.blurb}</span>
-        </button>
-      `).join("");
-
-      [...heroVenueList.querySelectorAll(".venue-button")].forEach((button) => {
-        button.addEventListener("click", () => {
-          activeHeroVenue = button.dataset.venue;
-          renderHeroVenueDetail();
-        });
-      });
-    }
 
     function renderHarborDirectory(containerId, harborKey) {
       const container = document.getElementById(containerId);
@@ -2294,27 +2285,6 @@
       `).join("");
     }
 
-    function setHeroMap(key) {
-      const mapData = heroMapData[key];
-      if (!mapData) return;
-      activeHeroMap = key;
-      activeHeroVenue = mapData.venues[0].id;
-
-      document.getElementById("hero-map-kicker").textContent = mapData.kicker;
-      document.getElementById("hero-map-title").textContent = mapData.title;
-      document.getElementById("hero-map-copy").textContent = mapData.copy;
-      renderHeroVenueList();
-      renderHeroVenueDetail();
-
-      mapChips.forEach((chip) => {
-        chip.classList.toggle("is-active", chip.dataset.map === key);
-      });
-
-      mapFrames.forEach((frame) => {
-        frame.classList.toggle("is-active", frame.dataset.mapFrame === key);
-      });
-    }
-
     function setCharter(key) {
       const charter = charterData[key];
       if (!charter) return;
@@ -2345,10 +2315,6 @@
       button.addEventListener("click", () => setCharter(button.dataset.charter));
     });
 
-    mapChips.forEach((chip) => {
-      chip.addEventListener("click", () => setHeroMap(chip.dataset.map));
-    });
-
     tabButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const target = button.getAttribute("aria-controls");
@@ -2363,7 +2329,7 @@
 
     renderHarborDirectory("directory-stjoe", "stjoe");
     renderHarborDirectory("directory-saugatuck", "saugatuck");
-    setHeroMap(activeHeroMap);
+    setCharter("seahawk");
   </script>
 </body>
 </html>
