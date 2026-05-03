@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salmon Run 2026 | Lake Michigan Trip Brief</title>
+  <meta
+    name="description"
+    content="A polished trip brief for a late-summer Lake Michigan salmon charter out of St. Joseph or Saugatuck."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #0d1830;
+      --panel: rgba(12, 25, 48, 0.82);
+      --panel-strong: rgba(17, 32, 61, 0.95);
+      --line: rgba(82, 168, 255, 0.18);
+      --line-strong: rgba(82, 168, 255, 0.4);
+      --text: #edf4ff;
+      --muted: #95a9c9;
+      --cyan: #35d0ff;
+      --cyan-2: #8ee6ff;
+      --gold: #ffd36a;
+      --green: #7ef7bb;
+      --red: #ff8b8b;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1440px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Sora", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(53, 208, 255, 0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(126, 247, 187, 0.08), transparent 24%),
+        linear-gradient(180deg, #0b1730 0%, #08111f 55%, #060d18 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(130, 181, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(130, 181, 255, 0.08) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      position: relative;
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow,
+    .mono {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(82, 168, 255, 0.16);
+    }
+
+    .site-header .shell {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 22px rgba(53, 208, 255, 0.7);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .hero {
+      padding: 22px 0 30px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-copy {
+      padding: 36px;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(53, 208, 255, 0.1), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 100%);
+    }
+
+    .hero-copy h2 {
+      margin: 12px 0 16px;
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-copy p {
+      margin: 0 0 26px;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 58ch;
+      color: #dbe9ff;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.05em;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--cyan), #0da6ff);
+      color: #04101f;
+      box-shadow: 0 14px 30px rgba(53, 208, 255, 0.24);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .map-card {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+      background: linear-gradient(160deg, rgba(9, 24, 47, 0.98), rgba(6, 14, 27, 0.98));
+    }
+
+    .map-stage {
+      position: relative;
+      min-height: 100%;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .map-switcher {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      gap: 10px;
+      align-self: flex-start;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(4, 12, 24, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .map-chip {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 700;
+      color: var(--text);
+      background: transparent;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .map-chip.is-active {
+      color: #04101f;
+      background: linear-gradient(135deg, var(--cyan-2), var(--cyan));
+    }
+
+    .map-frame-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 780px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .map-frame-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(5, 12, 24, 0.08), rgba(5, 12, 24, 0.35) 100%),
+        radial-gradient(circle at top left, rgba(53, 208, 255, 0.14), transparent 28%);
+    }
+
+    .map-embed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: none;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    .map-embed.is-active {
+      display: block;
+    }
+
+    .map-overlay {
+      position: absolute;
+      inset: 22px;
+      z-index: 2;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      pointer-events: none;
+    }
+
+    .map-sidebar {
+      pointer-events: auto;
+      width: min(430px, 100%);
+      height: 100%;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(5, 12, 24, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    .map-sidebar h3 {
+      margin: 8px 0 8px;
+      font-size: 2.15rem;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+    }
+
+    .map-sidebar p {
+      margin: 0;
+      color: #d8e5fb;
+      line-height: 1.6;
+    }
+
+    .harbor-summary {
+      display: grid;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+
+    .venue-list {
+      display: grid;
+      gap: 8px;
+      max-height: 250px;
+      overflow: auto;
+      padding-right: 4px;
+      flex: 0 1 auto;
+    }
+
+    .venue-button {
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      padding: 12px 14px;
+      border-radius: 18px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .venue-button:hover,
+    .venue-button.is-active {
+      background: rgba(53, 208, 255, 0.12);
+      border-color: rgba(53, 208, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .venue-button strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .venue-button span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.35;
+    }
+
+    .venue-detail {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: auto;
+      flex: 0 0 auto;
+    }
+
+    .venue-detail-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .venue-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 16px;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .venue-photo.is-visible {
+      display: block;
+    }
+
+    .venue-detail-top h4 {
+      margin: 6px 0 4px;
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .venue-boat-line {
+      color: var(--cyan-2);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .venue-meta {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .venue-meta-item {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(5, 12, 24, 0.46);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .venue-meta-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--cyan-2);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .venue-review {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--cyan);
+      color: #dce9ff;
+      font-style: italic;
+    }
+
+    .map-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .map-action-row .button {
+      padding: 12px 16px;
+      font-size: 0.88rem;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .intel-panel {
+      padding: 30px;
+    }
+
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0 26px;
+    }
+
+    .tab-button {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .tab-button:hover,
+    .tab-button[aria-selected="true"] {
+      background: rgba(53, 208, 255, 0.12);
+      border-color: rgba(53, 208, 255, 0.34);
+      transform: translateY(-1px);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.is-active {
+      display: block;
+    }
+
+    .console-grid,
+    .port-grid,
+    .booking-grid,
+    .calendar-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .console-grid {
+      grid-template-columns: 320px 1fr;
+    }
+
+    .port-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .booking-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .calendar-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .fleet-list,
+    .console-card,
+    .calendar-card,
+    .port-card,
+    .booking-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .fleet-list {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .fleet-option {
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .fleet-option:hover,
+    .fleet-option.is-active {
+      background: rgba(53, 208, 255, 0.1);
+      border-color: rgba(53, 208, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .fleet-option strong,
+    .console-card h4,
+    .calendar-card h4,
+    .port-card h4,
+    .booking-card h4 {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .fleet-option span {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .console-card {
+      background:
+        linear-gradient(180deg, rgba(53, 208, 255, 0.08), transparent 35%),
+        rgba(255, 255, 255, 0.03);
+    }
+
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .console-header h4 {
+      margin: 8px 0 6px;
+      font-size: 2rem;
+    }
+
+    .console-copy {
+      color: #d8e5fb;
+      line-height: 1.72;
+      margin-bottom: 18px;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .data-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(6, 16, 32, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .data-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cyan-2);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .data-item span {
+      color: #eef5ff;
+      line-height: 1.55;
+    }
+
+    .console-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .booking-card p,
+    .calendar-card p,
+    .port-card p {
+      color: #d8e5fb;
+      line-height: 1.7;
+    }
+
+    .booking-card strong {
+      color: var(--cyan-2);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading h3 {
+      margin: 10px 0 0;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      letter-spacing: -0.05em;
+    }
+
+    .directory-shell {
+      display: grid;
+      gap: 26px;
+    }
+
+    .harbor-block {
+      padding: 26px;
+    }
+
+    .harbor-block-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .harbor-block-head h4 {
+      margin: 8px 0 0;
+      font-size: 2rem;
+      letter-spacing: -0.05em;
+    }
+
+    .harbor-directory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .boat-card {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .boat-card-photo {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: block;
+    }
+
+    .boat-card-photo.is-placeholder {
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .boat-card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .boat-card-top h5 {
+      margin: 6px 0 4px;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+    }
+
+    .boat-subline {
+      color: var(--cyan-2);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .boat-captain {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .boat-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .boat-meta {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(5, 12, 24, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .boat-meta strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--cyan-2);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .boat-review {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--cyan);
+      color: #dce9ff;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .boat-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .boat-actions .button {
+      padding: 11px 15px;
+      font-size: 0.86rem;
+    }
+
+    .overview-grid,
+    .charter-grid,
+    .ops-grid,
+    .host-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .overview-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .charter-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ops-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .host-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .brief-card,
+    .compare-card,
+    .charter-card,
+    .timeline-card,
+    .list-card,
+    .host-card {
+      padding: 28px;
+    }
+
+    .brief-card p,
+    .compare-card p,
+    .timeline-card p,
+    .list-card p,
+    .host-card p {
+      line-height: 1.7;
+      color: #d8e5fb;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .highlight {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .compare-rows {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 1fr;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+    }
+
+    .compare-row strong {
+      color: var(--cyan-2);
+    }
+
+    .charter-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 100%),
+        var(--panel-strong);
+    }
+
+    .charter-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .charter-card h4 {
+      margin: 6px 0 8px;
+      font-size: 1.65rem;
+      letter-spacing: -0.05em;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .tag-primary {
+      color: #04101f;
+      background: linear-gradient(135deg, var(--cyan-2), var(--cyan));
+    }
+
+    .tag-soft {
+      color: var(--cyan-2);
+      background: rgba(53, 208, 255, 0.1);
+      border: 1px solid rgba(53, 208, 255, 0.16);
+    }
+
+    .quote {
+      padding: 18px;
+      border-left: 3px solid var(--cyan);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      font-style: italic;
+      color: #d9e7fd;
+      line-height: 1.75;
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .bullet-list li {
+      display: flex;
+      gap: 10px;
+      line-height: 1.6;
+      color: #d8e5fb;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    .cost-box {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .cost-total {
+      margin-top: 10px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(53, 208, 255, 0.12), rgba(13, 166, 255, 0.08));
+      border: 1px solid rgba(53, 208, 255, 0.18);
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+    }
+
+    .cost-total strong {
+      font-size: 2.3rem;
+      letter-spacing: -0.06em;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .timeline-step time {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--cyan);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .chip.good {
+      color: var(--green);
+      border-color: rgba(126, 247, 187, 0.25);
+      background: rgba(126, 247, 187, 0.08);
+    }
+
+    .chip.warn {
+      color: var(--gold);
+      border-color: rgba(255, 211, 106, 0.26);
+      background: rgba(255, 211, 106, 0.08);
+    }
+
+    .chip.no {
+      color: var(--red);
+      border-color: rgba(255, 139, 139, 0.26);
+      background: rgba(255, 139, 139, 0.08);
+    }
+
+    .host-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .host-card .button {
+      margin-top: auto;
+    }
+
+    .site-footer {
+      padding: 36px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .overview-grid,
+      .ops-grid,
+      .host-grid,
+      .charter-grid,
+      .harbor-directory-grid,
+      .console-grid,
+      .port-grid,
+      .booking-grid,
+      .calendar-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .site-header .shell,
+      .section-heading,
+      .hero-stats,
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header .shell,
+      .header-meta,
+      .compare-row,
+      .timeline-step {
+        display: block;
+      }
+
+      .header-meta {
+        font-size: 0.75rem;
+      }
+
+      .hero-copy,
+      .intel-panel,
+      .brief-card,
+      .compare-card,
+      .charter-card,
+      .timeline-card,
+      .list-card,
+      .host-card {
+        padding: 22px;
+      }
+
+      .hero-stats,
+      .highlights {
+        display: grid;
+      }
+
+      .compare-row {
+        padding: 14px;
+      }
+
+      .compare-row span,
+      .compare-row strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .map-frame-wrap {
+        min-height: 680px;
+      }
+
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .console-header {
+        display: block;
+      }
+
+      .map-overlay {
+        inset: 14px;
+      }
+
+      .map-sidebar {
+        width: 100%;
+        padding: 16px;
+      }
+
+      .map-sidebar h3 {
+        font-size: 1.55rem;
+      }
+
+      .map-switcher {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .map-chip {
+        flex: 1;
+        text-align: center;
+      }
+
+      .venue-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <h1>EXPEDITION_HQ // SALMON RUN 2026</h1>
+      </div>
+      <div class="header-meta mono">
+        <span>Late Aug / Early Sep</span>
+        <span>St. Joseph + Saugatuck</span>
+        <span>Lake Michigan</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <aside class="panel map-card">
+          <div class="map-stage">
+            <div class="map-switcher" aria-label="Harbor map switcher">
+              <button class="map-chip is-active" type="button" data-map="stjoe">St. Joe</button>
+              <button class="map-chip" type="button" data-map="saugatuck">Saugatuck</button>
+            </div>
+
+            <div class="map-frame-wrap">
+              <iframe
+                class="map-embed is-active"
+                data-map-frame="stjoe"
+                src="https://www.google.com/maps?q=St+Joseph+Michigan+fishing+charters&z=12&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="St. Joseph fishing charter map"
+              ></iframe>
+              <iframe
+                class="map-embed"
+                data-map-frame="saugatuck"
+                src="https://www.google.com/maps?q=Saugatuck+Michigan+fishing+charters&z=12&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Saugatuck fishing charter map"
+              ></iframe>
+
+              <div class="map-overlay">
+                <aside class="map-sidebar">
+                  <div class="harbor-summary">
+                    <div class="eyebrow">Strategic Expedition Overview</div>
+                    <div class="eyebrow" id="hero-map-kicker">St. Joseph Harbor</div>
+                    <h3 id="hero-map-title">Sharper fishing-first launch.</h3>
+                    <p id="hero-map-copy">Sea Hawk and Originator give St. Joe the strongest top-end charter pair if the group wants the cleanest shot at a serious salmon morning.</p>
+                  </div>
+
+                  <div class="venue-list" id="hero-venue-list"></div>
+
+                  <article class="venue-detail">
+                    <div class="venue-detail-top">
+                      <div>
+                        <div class="eyebrow"><span id="hero-venue-harbor">St. Joseph</span> // <span id="hero-venue-badge">Top pick</span></div>
+                        <h4 id="hero-venue-name">Sea Hawk</h4>
+                        <div class="venue-boat-line" id="hero-venue-boat">36' Tiara</div>
+                        <p id="hero-venue-subtitle">High-action salmon focus with verified current rates.</p>
+                      </div>
+                      <div class="tag tag-primary" id="hero-venue-price-tag">$900 AM</div>
+                    </div>
+
+                    <img id="hero-venue-photo" class="venue-photo" alt="">
+
+                    <div class="venue-meta">
+                      <div class="venue-meta-item">
+                        <strong>Rate Snapshot</strong>
+                        <span id="hero-venue-rate">$900 for 1-4 anglers, 7-hour morning trip</span>
+                      </div>
+                      <div class="venue-meta-item">
+                        <strong>Dock + Contact</strong>
+                        <span id="hero-venue-contact">Pier 1000 Marina, Benton Harbor • 269-208-3923</span>
+                      </div>
+                    </div>
+
+                    <div class="venue-review" id="hero-venue-review">Official site surfaces recent Google reviews and a visible 4.8 rating display.</div>
+
+                    <div class="map-action-row">
+                      <a class="button button-primary" id="hero-venue-map" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open Map</a>
+                      <a class="button button-secondary" id="hero-venue-reviews" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Reviews</a>
+                      <a class="button button-secondary" id="hero-venue-site" href="https://fishseahawk.com/" target="_blank" rel="noreferrer">Website</a>
+                      <a class="button button-secondary" id="hero-venue-directions" href="https://www.google.com/maps/dir/?api=1&destination=1000%20Riverview%20Dr%20%2325%2C%20Benton%20Harbor%2C%20MI%2049022" target="_blank" rel="noreferrer">Directions</a>
+                    </div>
+                  </article>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="directory">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 // Full Harbor Directory</div>
+          <h3>The real shit: every charter grouped by harbor.</h3>
+        </div>
+        <p class="muted">Top stays quick. This layer is where the whole group can compare boats, captains, pricing, dock logistics, and map/review links without hunting around.</p>
+      </div>
+
+      <div class="directory-shell">
+        <article class="panel harbor-block">
+          <div class="harbor-block-head">
+            <div>
+              <div class="eyebrow">St. Joseph / Benton Harbor</div>
+              <h4>Cleaner salmon-first harbor setup.</h4>
+            </div>
+            <div class="tag tag-primary">5 current picks</div>
+          </div>
+          <div class="harbor-directory-grid" id="directory-stjoe"></div>
+        </article>
+
+        <article class="panel harbor-block">
+          <div class="harbor-block-head">
+            <div>
+              <div class="eyebrow">Saugatuck / Douglas</div>
+              <h4>Better town flow after the boat.</h4>
+            </div>
+            <div class="tag tag-soft">5 current picks</div>
+          </div>
+          <div class="harbor-directory-grid" id="directory-saugatuck"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">02 // Mission Brief</div>
+          <h3>A better decision page for the group.</h3>
+        </div>
+        <p class="muted">Built to read quickly on desktop or phone without giant dead space.</p>
+      </div>
+
+      <div class="overview-grid">
+        <article class="panel brief-card">
+          <p>
+            Late August through early September 2026 is the sweet spot for a Lake Michigan salmon trip because mature
+            Chinook and Coho begin staging outside harbor mouths before the spawning push. That creates the kind of
+            aggressive morning bite most groups are hoping to pay for.
+          </p>
+          <div class="highlights">
+            <div class="highlight">
+              <div class="eyebrow">Top St. Joseph Pick</div>
+              <p>Sea Hawk for a serious, high-action charter with strong fish-finding reputation.</p>
+            </div>
+            <div class="highlight">
+              <div class="eyebrow">Most Stable Boat</div>
+              <p>Originator if your group values comfort and size when Lake Michigan gets choppy.</p>
+            </div>
+            <div class="highlight">
+              <div class="eyebrow">Best For Beginners</div>
+              <p>MIRYHA in Saugatuck for a more relaxed, town-friendly charter option.</p>
+            </div>
+            <div class="highlight">
+              <div class="eyebrow">Tournament Energy</div>
+              <p>Best Chance Too if the group wants elite-level execution and tournament pedigree.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel compare-card">
+          <div class="eyebrow">Harbor Comparison</div>
+          <div class="compare-rows">
+            <div class="compare-row">
+              <strong>Fishing edge</strong>
+              <span>St. Joseph</span>
+              <span>Better early staging reputation for salmon</span>
+            </div>
+            <div class="compare-row">
+              <strong>Town vibe</strong>
+              <span>Saugatuck</span>
+              <span>Better if you want a walkable vacation-town feel</span>
+            </div>
+            <div class="compare-row">
+              <strong>Best start</strong>
+              <span>05:15 dock arrival</span>
+              <span>Gray-light bite matters more than sleeping in</span>
+            </div>
+            <div class="compare-row">
+              <strong>Target species</strong>
+              <span>Chinook, Coho</span>
+              <span>Also Lake Trout and Steelhead in the mix</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="intel">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">03 // Trip Console</div>
+          <h3>Maps, reviews, rates, date windows, and booking moves.</h3>
+        </div>
+        <p class="muted">This is the expanded planning layer you were aiming for at the start.</p>
+      </div>
+
+      <div class="panel intel-panel">
+        <div class="tab-bar" role="tablist" aria-label="Trip Console Tabs">
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet" id="btn-fleet">Fleet Intel</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-dates" id="btn-dates">Dates</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ports" id="btn-ports">Town Ops</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-booking" id="btn-booking">Booking Flow</button>
+        </div>
+
+        <section class="tab-panel is-active" role="tabpanel" id="tab-fleet" aria-labelledby="btn-fleet">
+          <div class="console-grid">
+            <div class="fleet-list">
+              <button class="fleet-option is-active" type="button" data-charter="seahawk">
+                <strong>Sea Hawk</strong>
+                <span>St. Joseph flagship. Strongest verified morning-rate info and an easy top pick.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="originator">
+                <strong>Originator</strong>
+                <span>36' Tiara with hard top, wide deck, heat and A/C. Comfort-first St. Joe choice.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="miryha">
+                <strong>MIRYHA</strong>
+                <span>Saugatuck captain with strong local reputation and a full-day / half-day price ladder.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="bestchance">
+                <strong>Best Chance Too</strong>
+                <span>Tournament-heavy Saugatuck option with the most aggressive competitive pedigree.</span>
+              </button>
+            </div>
+
+            <article class="console-card">
+              <div class="console-header">
+                <div>
+                  <div class="eyebrow" id="console-port">St. Joseph</div>
+                  <h4 id="console-name">Sea Hawk</h4>
+                  <div class="muted" id="console-tagline">High-action salmon focus with verified current rates.</div>
+                </div>
+                <div class="tag tag-primary" id="console-badge">Top pick</div>
+              </div>
+
+              <p class="console-copy" id="console-copy">
+                Sea Hawk’s current site makes this one easy to trust for planning: the morning trip is clearly listed,
+                the boat details are visible, and the dock/contact info are current enough to turn straight into a booking.
+              </p>
+
+              <div class="data-grid">
+                <div class="data-item">
+                  <strong>Rate Snapshot</strong>
+                  <span id="console-rate">$900 for 1-4 anglers, 7-hour morning trip</span>
+                </div>
+                <div class="data-item">
+                  <strong>Boat / Platform</strong>
+                  <span id="console-boat">36' Tiara, built for big-water stability</span>
+                </div>
+                <div class="data-item">
+                  <strong>Prime Window</strong>
+                  <span id="console-window">Late August through early September for staging Chinook and Coho</span>
+                </div>
+                <div class="data-item">
+                  <strong>Dock + Contact</strong>
+                  <span id="console-contact">Pier 1000 Marina, Benton Harbor • 269-208-3923</span>
+                </div>
+                <div class="data-item">
+                  <strong>Review Angle</strong>
+                  <span id="console-review">Official site surfaces recent Google review testimonials and a 4.8 rating.</span>
+                </div>
+                <div class="data-item">
+                  <strong>Best For</strong>
+                  <span id="console-fit">Groups that want the cleanest “book a killer captain and go” answer.</span>
+                </div>
+              </div>
+
+              <div class="quote" id="console-quote">
+                “Over 40 years” plus a clearly posted rates page gives this option the least guesswork for the group.
+              </div>
+
+              <div class="console-links">
+                <a class="button button-primary" id="console-map" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open Google Maps</a>
+                <a class="button button-secondary" id="console-reviews" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Open reviews</a>
+                <a class="button button-secondary" id="console-site" href="https://fishseahawk.com/" target="_blank" rel="noreferrer">Open official site</a>
+                <a class="button button-secondary" id="console-call" href="tel:2692083923">Call captain</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" id="tab-dates" aria-labelledby="btn-dates">
+          <div class="calendar-grid">
+            <article class="calendar-card">
+              <div class="eyebrow">Window A</div>
+              <h4>Friday, August 21 to Sunday, August 30, 2026</h4>
+              <p>Best choice if your group wants the strongest chance at staging salmon before Labor Day traffic picks up too much.</p>
+              <div class="chip-row">
+                <span class="chip good">Best balance</span>
+                <span class="chip warn">Book early</span>
+              </div>
+            </article>
+            <article class="calendar-card">
+              <div class="eyebrow">Window B</div>
+              <h4>Thursday, September 3 to Monday, September 7, 2026</h4>
+              <p>Very strong holiday window, but marinas, restaurants, and rooms can get tighter. Great if the group wants full town energy.</p>
+              <div class="chip-row">
+                <span class="chip good">Prime run timing</span>
+                <span class="chip warn">Holiday pricing pressure</span>
+              </div>
+            </article>
+            <article class="calendar-card">
+              <div class="eyebrow">Backup Plan</div>
+              <h4>Midweek mornings win</h4>
+              <p>If you can go Tuesday through Thursday, you usually get cleaner booking options, easier lodging, and less harbor congestion.</p>
+              <div class="chip-row">
+                <span class="chip good">Cleaner logistics</span>
+                <span class="chip good">Often easier to rebook</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" id="tab-ports" aria-labelledby="btn-ports">
+          <div class="port-grid">
+            <article class="port-card">
+              <div class="eyebrow">St. Joseph Ops</div>
+              <h4>Performance-first launch town</h4>
+              <p>Choose this harbor if the group mainly cares about maximizing the salmon shot and keeping charter selection tight and efficient.</p>
+              <ul class="bullet-list">
+                <li>Primary charter cluster: Sea Hawk and Originator.</li>
+                <li>Best Google Maps actions: marinas, charter docks, bluff dining, nearby hotels.</li>
+                <li>Good for an early dock report and less “tourist day” pressure.</li>
+              </ul>
+              <div class="cta-row">
+                <a class="button button-secondary" href="https://www.google.com/maps/search/St.+Joseph+MI+marina/" target="_blank" rel="noreferrer">Marinas</a>
+                <a class="button button-secondary" href="https://www.google.com/maps/search/restaurants+near+St.+Joseph+MI+bluff/" target="_blank" rel="noreferrer">Dining</a>
+                <a class="button button-secondary" href="https://www.google.com/maps/search/hotels+near+St.+Joseph+MI+marina/" target="_blank" rel="noreferrer">Hotels</a>
+              </div>
+            </article>
+            <article class="port-card">
+              <div class="eyebrow">Saugatuck Ops</div>
+              <h4>Vacation-town launch with better hangout energy</h4>
+              <p>Choose this side if the charter is part of a bigger social weekend and you want easier riverfront walking, bars, and downtown movement.</p>
+              <ul class="bullet-list">
+                <li>Primary charter cluster: MIRYHA and Best Chance Too.</li>
+                <li>Good fit for “boat in the morning, town in the afternoon.”</li>
+                <li>Worth booking rooms early for prime late-summer weekends.</li>
+              </ul>
+              <div class="cta-row">
+                <a class="button button-secondary" href="https://www.google.com/maps/search/Saugatuck+MI+marina/" target="_blank" rel="noreferrer">Marinas</a>
+                <a class="button button-secondary" href="https://www.google.com/maps/search/restaurants+near+Water+St+Saugatuck+MI/" target="_blank" rel="noreferrer">Dining</a>
+                <a class="button button-secondary" href="https://www.google.com/maps/search/hotels+near+Saugatuck+MI+downtown/" target="_blank" rel="noreferrer">Hotels</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" id="tab-booking" aria-labelledby="btn-booking">
+          <div class="booking-grid">
+            <article class="booking-card">
+              <strong>Step 1</strong>
+              <h4>Pick harbor</h4>
+              <p>Decide whether the trip is fishing-first in St. Joseph or social-weekend-first in Saugatuck.</p>
+            </article>
+            <article class="booking-card">
+              <strong>Step 2</strong>
+              <h4>Lock captain</h4>
+              <p>Call the top two options for your exact date range and ask for morning availability first.</p>
+            </article>
+            <article class="booking-card">
+              <strong>Step 3</strong>
+              <h4>Reserve rooms</h4>
+              <p>Book refundable lodging right after the charter deposit so the weekend does not get boxed in.</p>
+            </article>
+            <article class="booking-card">
+              <strong>Step 4</strong>
+              <h4>Issue the plan</h4>
+              <p>Send the group the dock time, med plan, license link, and what drinks are actually allowed.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="charters">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">04 // Charter Board</div>
+          <h3>Four sourced options, cleaned up and corrected.</h3>
+        </div>
+        <p class="muted">The weaker placeholders are gone. These now line up with current websites and local listings.</p>
+      </div>
+
+      <div class="charter-grid">
+        <article class="panel charter-card">
+          <div class="charter-top">
+            <div>
+              <div class="tag tag-soft">St. Joseph</div>
+              <h4>Sea Hawk</h4>
+              <div class="muted">Best for high-action salmon focus</div>
+            </div>
+            <div class="tag tag-primary">Top pick</div>
+          </div>
+          <div class="quote">
+            Legendary for keeping guests on active fish and strong for groups who want the “book the best guide”
+            answer without overthinking it.
+          </div>
+          <ul class="bullet-list">
+            <li>Typical rate: about $900 for a 7-hour morning trip for up to 4, then extra per added guest.</li>
+            <li>Includes tackle, bait, and fish cleaning on most standard trips.</li>
+            <li>Best fit for anglers who care more about the fishing than the marina scene.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open map</a>
+            <a class="button button-secondary" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+          </div>
+        </article>
+
+        <article class="panel charter-card">
+          <div class="charter-top">
+            <div>
+              <div class="tag tag-soft">St. Joseph</div>
+              <h4>Originator</h4>
+              <div class="muted">Best for stability and bigger-water comfort</div>
+            </div>
+            <div class="tag tag-primary">Big boat</div>
+          </div>
+          <div class="quote">
+            Originator’s 36' Tiara plus hard top, heat, A/C, and wide fishing deck make it the strongest comfort-and-space
+            answer on the St. Joseph side.
+          </div>
+          <ul class="bullet-list">
+            <li>Current St. Joseph listing shows a 6-hour trip at $900 for 1-4, then $1,000 for 5 and $1,100 for 6.</li>
+            <li>Best platform for a crew that values deck space, wider weather margin, and easy movement onboard.</li>
+            <li>Good match for larger groups or mixed-experience anglers.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.google.com/maps/search/Originator+Fishing+Charter+St.+Joseph+MI/" target="_blank" rel="noreferrer">Open map</a>
+            <a class="button button-secondary" href="https://www.google.com/search?q=Originator+Fishing+Charter+St.+Joseph+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+          </div>
+        </article>
+
+        <article class="panel charter-card">
+          <div class="charter-top">
+            <div>
+              <div class="tag tag-soft">Saugatuck</div>
+              <h4>MIRYHA</h4>
+              <div class="muted">Best for classic Saugatuck salmon chartering</div>
+            </div>
+            <div class="tag tag-primary">Easy pick</div>
+          </div>
+          <div class="quote">
+            Captain Mike’s operation is a cleaner sourced Saugatuck pick here: established local presence, direct pricing,
+            and a good fit for groups that want real fishing without a hyper-tournament tone.
+          </div>
+          <ul class="bullet-list">
+            <li>Current pricing shows half-day trips at $900 for 1-4 and full-day trips at $1,100 for 1-4.</li>
+            <li>Strong fit for a group that wants Saugatuck charm with a captain who knows those local waters deeply.</li>
+            <li>Helpful if the trip is as much about the town day as the actual catch.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.google.com/maps/search/MIRYHA+Charters+Saugatuck+MI/" target="_blank" rel="noreferrer">Open map</a>
+            <a class="button button-secondary" href="https://www.google.com/search?q=MIRYHA+Charters+Saugatuck+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+          </div>
+        </article>
+
+        <article class="panel charter-card">
+          <div class="charter-top">
+            <div>
+              <div class="tag tag-soft">Saugatuck</div>
+              <h4>Best Chance Too</h4>
+              <div class="muted">Best for tournament-caliber execution</div>
+            </div>
+            <div class="tag tag-primary">Premium</div>
+          </div>
+          <div class="quote">
+            If the group wants the decorated-name answer in Saugatuck, this is it. The tournament pedigree and 36' Tiara
+            setup make it the sharpest high-performance option in town.
+          </div>
+          <ul class="bullet-list">
+            <li>Current site shows 7-hour Best Chance Too pricing at $950 for 1-2, $1,050 for 3-4, and $1,150 for 5-6.</li>
+            <li>Appeals to anglers who want modern electronics, disciplined trolling, and serious competitive energy.</li>
+            <li>Best if “we want the strongest boat team available” is the deciding factor.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.google.com/maps/search/Best+Chance+Too+Saugatuck+MI/" target="_blank" rel="noreferrer">Open map</a>
+            <a class="button button-secondary" href="https://www.google.com/search?q=Best+Chance+Too+Saugatuck+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">05 // Operations</div>
+          <h3>Simple plan, real costs, no surprises.</h3>
+        </div>
+        <p class="muted">This is the part people actually screenshot and send around.</p>
+      </div>
+
+      <div class="ops-grid">
+        <article class="panel timeline-card">
+          <div class="eyebrow">Morning attack plan</div>
+          <div class="timeline">
+            <div class="timeline-step">
+              <time>05:15</time>
+              <div>
+                <strong>Dock arrival</strong>
+                <p>Show up early, get gear settled, take motion meds before boarding if anyone needs them.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <time>06:00</time>
+              <div>
+                <strong>Lines in</strong>
+                <p>Gray light is prime. Expect the first couple of hours to matter most for active staging salmon.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <time>13:00</time>
+              <div>
+                <strong>Return and clean fish</strong>
+                <p>Mate handles filleting while the group resets, tips out, and decides on the lunch plan.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <time>14:30</time>
+              <div>
+                <strong>Catch-and-cook meal</strong>
+                <p>Take the cleaned fillets to a participating local restaurant for the payoff meal.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="panel list-card">
+          <div class="eyebrow">Estimated cost per person</div>
+          <div class="cost-box">
+            <div class="cost-row">
+              <span class="muted">Charter base</span>
+              <strong>$237.50</strong>
+            </div>
+            <div class="cost-row">
+              <span class="muted">20% mate gratuity</span>
+              <strong>$47.50</strong>
+            </div>
+            <div class="cost-row">
+              <span class="muted">Michigan daily license</span>
+              <strong>$10.00</strong>
+            </div>
+            <div class="cost-row">
+              <span class="muted">Catch-and-cook meal</span>
+              <strong>$25.00</strong>
+            </div>
+          </div>
+          <div class="cost-total">
+            <div>
+              <div class="eyebrow">Total estimate</div>
+              <span class="muted">based on 4 anglers</span>
+            </div>
+            <strong>$320</strong>
+          </div>
+
+          <div class="chip-row">
+            <span class="chip good">Beer or wine okay</span>
+            <span class="chip no">No hard liquor</span>
+            <span class="chip no">No glass bottles</span>
+            <span class="chip warn">Polarized glasses</span>
+            <span class="chip warn">Dramamine night before if needed</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">06 // Rules And Prep</div>
+          <h3>The stuff that saves the day.</h3>
+        </div>
+        <p class="muted">Useful details that should stay visible instead of getting buried.</p>
+      </div>
+
+      <div class="overview-grid">
+        <article class="panel list-card">
+          <div class="eyebrow">Michigan trip rules</div>
+          <ul class="bullet-list">
+            <li>Anglers age 17 and up need a valid Michigan fishing license.</li>
+            <li>For short trips, the 24-hour nonresident option is usually the cleanest move.</li>
+            <li>Daily salmonid limits and species-specific rules can change, so confirm final limits before travel.</li>
+            <li>Most charter crews allow moderate beer or wine, but hard liquor is commonly prohibited.</li>
+          </ul>
+        </article>
+
+        <article class="panel list-card">
+          <div class="eyebrow">Pack like a pro</div>
+          <ul class="bullet-list">
+            <li>Polarized sunglasses, a non-cotton layer, and soft-soled shoes with grip.</li>
+            <li>Small cooler for transport after fish cleaning if the captain does not provide storage bags.</li>
+            <li>Motion-sickness plan before the boat leaves, not after the lake turns on you.</li>
+            <li>Cash for mate tip, launch snacks, and any cook-your-catch fee.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="after-trip">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">07 // After The Boat</div>
+          <h3>Use the page for trip decisions, not dev notes.</h3>
+        </div>
+        <p class="muted">This section now stays inside the trip world and helps the group decide what happens after lines come in.</p>
+      </div>
+
+      <div class="host-grid">
+        <article class="panel host-card">
+          <div class="tag tag-primary">St. Joseph</div>
+          <h4>Fast dock-to-lunch flow</h4>
+          <p>
+            Better if the group wants to fish hard, clean up, eat, and keep the day efficient without turning the whole thing
+            into a downtown crawl.
+          </p>
+          <ul class="bullet-list">
+            <li>Good for a performance-first charter day built around the morning bite.</li>
+            <li>Maps well to dock, lunch, hotel, and out.</li>
+            <li>Best if your crew is there mainly for the salmon.</li>
+          </ul>
+          <a class="button button-secondary" href="https://www.google.com/maps/search/restaurants+near+St.+Joseph+MI+bluff/" target="_blank" rel="noreferrer">Open St. Joseph food map</a>
+        </article>
+
+        <article class="panel host-card">
+          <div class="tag tag-soft">Saugatuck</div>
+          <h4>Best social-weekend energy</h4>
+          <p>
+            Better if the charter is one piece of a broader lake-town weekend and the group wants more walkable post-boat options.
+          </p>
+          <ul class="bullet-list">
+            <li>Works well for “fish in the morning, bars and dinner after.”</li>
+            <li>Easier to turn into a full weekend instead of a single excursion.</li>
+            <li>Best if the trip needs more vibe than just efficiency.</li>
+          </ul>
+          <a class="button button-secondary" href="https://www.google.com/maps/search/restaurants+near+Water+St+Saugatuck+MI/" target="_blank" rel="noreferrer">Open Saugatuck food map</a>
+        </article>
+
+        <article class="panel host-card">
+          <div class="tag tag-soft">Decision</div>
+          <h4>Simple group answer</h4>
+          <p>
+            If the group wants the shortest answer, book St. Joseph for the stronger fishing angle and keep Saugatuck as the backup if town atmosphere matters more.
+          </p>
+          <ul class="bullet-list">
+            <li>Top captain confidence: Sea Hawk.</li>
+            <li>Top comfort platform: Originator.</li>
+            <li>Top Saugatuck prestige pick: Best Chance Too.</li>
+          </ul>
+          <a class="button button-secondary" href="#intel">Back to trip console</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p class="mono">Tight lines // salmon run 2026 // static site build</p>
+  </footer>
+
+  <script>
+    const heroMapData = {
+      stjoe: {
+        kicker: "St. Joseph Harbor",
+        title: "Sharper fishing-first launch.",
+        copy: "Sea Hawk and Originator give St. Joe the strongest top-end charter pair if the group wants the cleanest shot at a serious salmon morning.",
+        venues: [
+          {
+            id: "seahawk",
+            name: "Sea Hawk",
+            blurb: "Top current-rate pick with clean booking info.",
+            badge: "Top pick",
+            harbor: "St. Joseph",
+            captain: "Captain Russ Clark",
+            boat: "36' Tiara",
+            subtitle: "High-action salmon focus with verified current rates.",
+            priceTag: "$900 AM",
+            rate: "$900 for 1-4 anglers, 7-hour morning trip",
+            contact: "Pier 1000 Marina, Benton Harbor • 269-208-3923",
+            review: "Official site surfaces recent Google reviews and a visible 4.8 rating display.",
+            socials: "Official site features current Google review pull-through and active contact info.",
+            photo: "https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg",
+            map: "https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D",
+            reviews: "https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews",
+            site: "https://fishseahawk.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=1000%20Riverview%20Dr%20%2325%2C%20Benton%20Harbor%2C%20MI%2049022",
+            embed: "https://www.google.com/maps?q=Sea+Hawk+Fishing+Charters+St.+Joseph+1000+Riverview+Dr+Benton+Harbor+MI&z=16&output=embed"
+          },
+          {
+            id: "originator",
+            name: "Originator",
+            blurb: "Comfort-first 36' Tiara platform.",
+            badge: "Big boat",
+            harbor: "St. Joseph",
+            captain: "Captain Jerry Link",
+            boat: "36' Tiara with hard top / climate control",
+            subtitle: "Wide deck, hard top, heat and A/C.",
+            priceTag: "$900+",
+            rate: "$900 for 1-4, $1,000 for 5, $1,100 for 6",
+            contact: "250 Anchors Way, St. Joseph • 269-207-2551",
+            review: "Regional tourism listing shows current 2026 reviews and active booking info.",
+            socials: "Facebook, Tripadvisor, and Twitter are linked directly from the official site.",
+            photo: "https://www.originatorcharters.com/49085_charter_fishing_exp_72.jpg",
+            map: "https://www.google.com/maps/search/Originator+Fishing+Charter+St.+Joseph+MI/",
+            reviews: "https://www.google.com/search?q=Originator+Fishing+Charter+St.+Joseph+reviews",
+            site: "https://www.originatorcharters.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=250%20Anchors%20Way%2C%20St.%20Joseph%2C%20MI%2049085",
+            embed: "https://www.google.com/maps?q=Originator+Fishing+Charter+250+Anchors+Way+St+Joseph+MI&z=16&output=embed"
+          },
+          {
+            id: "bigbird",
+            name: "Big Bird",
+            blurb: "Strong visual and social footprint.",
+            badge: "Visual pick",
+            harbor: "St. Joseph",
+            captain: "Captain Eric Conder",
+            boat: "34' SeaRay 340 Express Cruiser",
+            subtitle: "34' SeaRay 340 Express Cruiser with clear late-summer rates.",
+            priceTag: "$900 AM",
+            rate: "7-hour AM $900 for 1-4, $1,000 for 5, $1,100 for 6",
+            contact: "Pier 1000 / Anchors Way area • 269-243-0633",
+            review: "Official site has strong gallery coverage plus Facebook, Instagram, and Tripadvisor links.",
+            socials: "Strongest social footprint in the St. Joe group with Facebook, Instagram, and Tripadvisor linked.",
+            photo: "https://www.bigbirdcharters.com/wp-content/uploads/2022/05/cache_19286493.jpg",
+            map: "https://www.google.com/maps/search/Big+Bird+Charters+St.+Joseph+MI/",
+            reviews: "https://www.google.com/search?q=Big+Bird+Charters+St.+Joseph+reviews",
+            site: "https://www.bigbirdcharters.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=1000%20Riverview%20Dr%2C%20Benton%20Harbor%2C%20MI%2049022",
+            embed: "https://www.google.com/maps?q=Big+Bird+Charters+St+Joseph+Michigan&z=16&output=embed"
+          },
+          {
+            id: "coldwater",
+            name: "Coldwater Charters",
+            blurb: "Veteran multi-boat operator.",
+            badge: "Fleet pick",
+            harbor: "St. Joseph",
+            captain: "Coldwater charter team",
+            boat: "31' Tiara fleet: Salmon Express II / III",
+            subtitle: "Salmon Express II and III, both 31' Tiaras.",
+            priceTag: "$900 AM",
+            rate: "7-hour AM $900 for 1-4; PM 5-hour $800 for 1-4",
+            contact: "690 Fisherman's Rd, St. Joseph • 517-617-0282",
+            review: "Rates page is still live and current enough to support a serious comparison, though the site is less polished.",
+            socials: "More old-school than social-first, but the published rates still make it easy to compare.",
+            photo: "",
+            map: "https://www.google.com/maps/search/Coldwater+Charters+St.+Joseph+MI/",
+            reviews: "https://www.google.com/search?q=Coldwater+Charters+St.+Joseph+reviews",
+            site: "https://coldwatercharters.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=690%20Fishermans%20Rd%2C%20St.%20Joseph%2C%20MI%2049085",
+            embed: "https://www.google.com/maps?q=Coldwater+Charters+690+Fishermans+Rd+St+Joseph+MI&z=16&output=embed"
+          },
+          {
+            id: "fishstalker",
+            name: "Fish Stalker",
+            blurb: "Value-looking published pricing.",
+            badge: "Value pick",
+            harbor: "St. Joseph",
+            captain: "Captain Kevin Roberts",
+            boat: "31' Tiara",
+            subtitle: "31' Tiara out of Brian's Marina.",
+            priceTag: "$800 7HR",
+            rate: "7-hour $800 for 1-4; 5-hour $700 for 1-4",
+            contact: "Brian's Marina, 285 Anchors Way • 269-425-8651",
+            review: "Official site shows 2026 copyright and clear pricing, which makes it one of the better value comparisons.",
+            socials: "Modern site with active 2026 updates and a catch-and-cook tie-in.",
+            photo: "https://fishstalker.net/wp-content/uploads/2013/04/Fish-stalker-about2.jpg",
+            map: "https://www.google.com/maps/search/Fish+Stalker+Charters+St.+Joseph+MI/",
+            reviews: "https://www.google.com/search?q=Fish+Stalker+Charters+St.+Joseph+reviews",
+            site: "https://fishstalker.net/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=285%20Anchors%20Way%2C%20St.%20Joseph%2C%20MI%2049085",
+            embed: "https://www.google.com/maps?q=Fish+Stalker+Brian's+Marina+285+Anchors+Way+St+Joseph+MI&z=16&output=embed"
+          }
+        ]
+      },
+      saugatuck: {
+        kicker: "Saugatuck / Douglas",
+        title: "Better town energy after the boat.",
+        copy: "Best Chance Too and MIRYHA make the Saugatuck side stronger if you want a real charter morning that flows into a more walkable lake-town afternoon.",
+        venues: [
+          {
+            id: "bestchancetoo",
+            name: "Best Chance Too",
+            blurb: "Tournament-grade Saugatuck name.",
+            badge: "Premium",
+            harbor: "Saugatuck",
+            captain: "Captain Dave Engel",
+            boat: "36' Tiara yacht",
+            subtitle: "Hard-core fishing reputation with strong price ladder.",
+            priceTag: "$950+",
+            rate: "$950 for 1-2, $1,050 for 3-4, $1,150 for 5-6",
+            contact: "650 S Water Street, Saugatuck • 616-292-4812",
+            review: "Official site emphasizes 40+ years and major tournament success around Lake Michigan.",
+            socials: "The site spotlights the Engel crew and tournament legacy front and center.",
+            photo: "https://static.wixstatic.com/media/7aa0c4_59c2353028c042c8b3b4482448fba483f000.jpg/v1/fill/w_1280,h_720,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa0c4_59c2353028c042c8b3b4482448fba483f000.jpg",
+            map: "https://www.google.com/maps/search/Best+Chance+Too+Saugatuck+MI/",
+            reviews: "https://www.google.com/search?q=Best+Chance+Too+Saugatuck+reviews",
+            site: "https://www.bestchancetoo.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=650%20S%20Water%20Street%2C%20Saugatuck%2C%20MI%2049453",
+            embed: "https://www.google.com/maps?q=Best+Chance+Too+650+S+Water+Street+Saugatuck+MI&z=16&output=embed"
+          },
+          {
+            id: "bestchance",
+            name: "Best Chance",
+            blurb: "30' Sea Ray with lower entry price.",
+            badge: "Mid-tier",
+            harbor: "Saugatuck",
+            captain: "Captain Hunter Engel",
+            boat: "30' Sea Ray",
+            subtitle: "Half-day and full-day ladder from the same strong fleet.",
+            priceTag: "$750 HD",
+            rate: "Half-day $750 / $850 / $950; full-day $950 / $1,050 / $1,150",
+            contact: "650 S Water Street, Saugatuck • 616-218-4718",
+            review: "Same fleet reputation as the flagship with a friendlier starting point for smaller groups.",
+            socials: "Shares the same Best Chance booking hub and fleet reputation as the flagship.",
+            photo: "https://static.wixstatic.com/media/7aa0c4_f30df449a1ea4e6cbf4eab6d53d4baf3~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/7aa0c4_f30df449a1ea4e6cbf4eab6d53d4baf3~mv2.jpeg",
+            map: "https://www.google.com/maps/search/Best+Chance+Saugatuck+MI/",
+            reviews: "https://www.google.com/search?q=Best+Chance+Charter+Fishing+Saugatuck+reviews",
+            site: "https://www.bestchancetoo.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=650%20S%20Water%20Street%2C%20Saugatuck%2C%20MI%2049453",
+            embed: "https://www.google.com/maps?q=Best+Chance+Charter+Fishing+650+S+Water+Street+Saugatuck+MI&z=16&output=embed"
+          },
+          {
+            id: "bestchancejr",
+            name: "Best Chance Jr.",
+            blurb: "Same fleet, lighter-footprint option.",
+            badge: "Fleet alt",
+            harbor: "Saugatuck",
+            captain: "Captain Zack Engel",
+            boat: "30' Sea Ray",
+            subtitle: "30' Sea Ray with the same price ladder as Best Chance.",
+            priceTag: "$750 HD",
+            rate: "Half-day $750 / $850 / $950; full-day $950 / $1,050 / $1,150",
+            contact: "650 S Water Street, Saugatuck • 616-218-4638",
+            review: "Good fallback if the flagship is booked and you still want the Best Chance program.",
+            socials: "Newest boat in the Best Chance family with the same main booking and marina setup.",
+            photo: "https://static.wixstatic.com/media/7aa0c4_38e49948986747f2b43b12d7d7f67da3~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/7aa0c4_38e49948986747f2b43b12d7d7f67da3~mv2.jpeg",
+            map: "https://www.google.com/maps/search/Best+Chance+Jr+Saugatuck+MI/",
+            reviews: "https://www.google.com/search?q=Best+Chance+Jr+Saugatuck+reviews",
+            site: "https://www.bestchancetoo.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=650%20S%20Water%20Street%2C%20Saugatuck%2C%20MI%2049453",
+            embed: "https://www.google.com/maps?q=Best+Chance+Jr+650+S+Water+Street+Saugatuck+MI&z=16&output=embed"
+          },
+          {
+            id: "miryha",
+            name: "MIRYHA",
+            blurb: "Relaxed town-friendly charter option.",
+            badge: "Town pick",
+            harbor: "Saugatuck",
+            captain: "Captain Mike Harney",
+            boat: "Largest local platform / up to 6 passengers",
+            subtitle: "Classic Saugatuck salmon charter with posted pricing.",
+            priceTag: "$900 HD",
+            rate: "$900 half-day for 1-4, $1,100 full-day for 1-4",
+            contact: "868 Holland St, Saugatuck • 616-836-0439",
+            review: "Saugatuck tourism and the charter site both position it as a local staple.",
+            socials: "Site and social metadata point to Saugatuck Charter Fishing on Facebook and Capt Mike on X/Twitter.",
+            photo: "https://saugatuckcharterfishing.com/wp-content/uploads/2013/08/1003186_159791760880230_687386286_n.jpg",
+            map: "https://www.google.com/maps/search/MIRYHA+Charters+Saugatuck+MI/",
+            reviews: "https://www.google.com/search?q=MIRYHA+Charters+Saugatuck+reviews",
+            site: "https://saugatuckcharterfishing.com/",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=868%20Holland%20St%2C%20Saugatuck%2C%20MI%2049453",
+            embed: "https://www.google.com/maps?q=MIRYHA+Charters+868+Holland+St+Saugatuck+MI&z=16&output=embed"
+          },
+          {
+            id: "bluechip",
+            name: "Blue Chip",
+            blurb: "Big Lake Outfitters charter boat.",
+            badge: "Alt pick",
+            harbor: "Saugatuck",
+            captain: "Big Lake Outfitters charter team",
+            boat: "31' Open Tiara",
+            subtitle: "31' Open Tiara out of the Port of Saugatuck.",
+            priceTag: "$800 HD",
+            rate: "Half-day $800 for 1-4, $1,000 for 5-6; full-day $1,000 / $1,200",
+            contact: "640 Water Street, Saugatuck • 269-857-4762",
+            review: "Official pages clearly publish rates and boat name, though the presentation is lighter than Best Chance.",
+            socials: "Big Lake Outfitters doubles as the town tackle and rentals hub, which helps the logistics side.",
+            photo: "https://images.squarespace-cdn.com/content/v1/570d15a927d4bdd488f3035f/1465414161174-ZLOHGI82CST42DLVP2PK/0202.jpg",
+            map: "https://www.google.com/maps/search/Big+Lake+Outfitters+Saugatuck+MI/",
+            reviews: "https://www.google.com/search?q=Big+Lake+Outfitters+Saugatuck+reviews",
+            site: "https://www.biglakeoutfitters.com/charterfishing",
+            directions: "https://www.google.com/maps/dir/?api=1&destination=640%20Water%20Street%2C%20Saugatuck%2C%20MI%2049453",
+            embed: "https://www.google.com/maps?q=Big+Lake+Outfitters+640+Water+Street+Saugatuck+MI&z=16&output=embed"
+          }
+        ]
+      }
+    };
+
+    const charterData = {
+      seahawk: {
+        port: "St. Joseph",
+        name: "Sea Hawk",
+        tagline: "High-action salmon focus with verified current rates.",
+        badge: "Top pick",
+        copy:
+          "Sea Hawk’s current site makes this one easy to trust for planning: the morning trip is clearly listed, the boat details are visible, and the dock and contact info are straightforward enough to turn directly into a booking.",
+        rate: "$900 for 1-4 anglers, 7-hour morning trip",
+        boat: "36' Tiara with advanced electronics and fish-cleaning included",
+        window: "August and September are listed for Chinook and Coho on the current fish calendar",
+        contact: "Pier 1000 Marina, Benton Harbor • 269-208-3923",
+        review: "Official site surfaces recent Google reviews and a visible 4.8 rating display.",
+        fit: "Groups that want the cleanest \"book a killer captain and go\" answer.",
+        quote: "\"Over 40 years\" plus a clearly posted rates page gives this option the least guesswork for the group.",
+        map: "https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D",
+        reviews: "https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews",
+        site: "https://fishseahawk.com/",
+        call: "tel:2692083923"
+      },
+      originator: {
+        port: "St. Joseph",
+        name: "Originator",
+        tagline: "Comfort-first St. Joe platform with wide-deck big-boat feel.",
+        badge: "Big boat",
+        copy:
+          "Originator is the strongest answer if you want big-water comfort and a premium-feeling platform without leaving the St. Joseph zone. The public listings clearly call out the 36' Tiara, climate control, and six-person pricing ladder.",
+        rate: "$900 for 1-4, $1,000 for 5, $1,100 for 6",
+        boat: "36' Tiara with hard top, 14' deck, heat and A/C",
+        window: "Lake Michigan charter season targets salmon and trout from spring into fall",
+        contact: "250 Anchors Way, St. Joseph • 269-207-2551",
+        review: "Regional tourism listing shows current 2026 reviews and active booking info.",
+        fit: "Crews that want more room, weather cushion, and a polished charter platform.",
+        quote: "This is the easiest answer when somebody in the group asks, \"Which boat feels the most legit and comfortable?\"",
+        map: "https://www.google.com/maps/search/Originator+Fishing+Charter+St.+Joseph+MI/",
+        reviews: "https://www.google.com/search?q=Originator+Fishing+Charter+St.+Joseph+reviews",
+        site: "https://www.originatorcharters.com/",
+        call: "tel:2692072551"
+      },
+      miryha: {
+        port: "Saugatuck",
+        name: "MIRYHA",
+        tagline: "Classic Saugatuck salmon charter with published half-day and full-day pricing.",
+        badge: "Town pick",
+        copy:
+          "MIRYHA gives the page a better sourced Saugatuck option than the original draft had. There is a direct price ladder, a named captain, and a strong fit for groups that want a real charter plus a more laid-back town flow.",
+        rate: "$900 half-day for 1-4, $1,100 full-day for 1-4",
+        boat: "Large-group Saugatuck platform for up to six passengers",
+        window: "Late summer fits the local king, coho, steelhead, and lake trout mix",
+        contact: "868 Holland St, Saugatuck • 616-836-0439",
+        review: "Saugatuck tourism and the charter site both position it as a local staple.",
+        fit: "Groups that want the Saugatuck version of a dependable, low-drama booking.",
+        quote: "If the plan is fish hard in the morning and have an actual town day after, this slot makes sense.",
+        map: "https://www.google.com/maps/search/MIRYHA+Charters+Saugatuck+MI/",
+        reviews: "https://www.google.com/search?q=MIRYHA+Charters+Saugatuck+reviews",
+        site: "https://saugatuckcharterfishing.com/",
+        call: "tel:6168360439"
+      },
+      bestchance: {
+        port: "Saugatuck",
+        name: "Best Chance Too",
+        tagline: "Tournament-grade Saugatuck operator with the strongest competitive reputation.",
+        badge: "Premium",
+        copy:
+          "Best Chance Too is the sharpest Saugatuck answer for the group that wants the most serious tournament DNA. The current site publishes rate ladders for all-day and half-day trips and leans hard into the charter team’s tournament record.",
+        rate: "$950 for 1-2, $1,050 for 3-4, $1,150 for 5-6",
+        boat: "36' Tiara with Humminbird autopilot, radar, Fish Hawk, and Optimum downriggers",
+        window: "Prime late-summer morning starts with full-day and half-day options",
+        contact: "650 S Water Street, Saugatuck • 616-292-4812",
+        review: "Official site emphasizes 40+ years and major tournament success around Lake Michigan.",
+        fit: "Crews chasing the most hard-core fishing reputation in Saugatuck.",
+        quote: "This is the one you pick when somebody says, \"Who are the killers over there?\"",
+        map: "https://www.google.com/maps/search/Best+Chance+Too+Saugatuck+MI/",
+        reviews: "https://www.google.com/search?q=Best+Chance+Too+Saugatuck+reviews",
+        site: "https://www.bestchancetoo.com/",
+        call: "tel:6162924812"
+      }
+    };
+
+    const fleetButtons = [...document.querySelectorAll(".fleet-option")];
+    const tabButtons = [...document.querySelectorAll(".tab-button")];
+    const tabPanels = [...document.querySelectorAll(".tab-panel")];
+    const mapChips = [...document.querySelectorAll(".map-chip")];
+    const mapFrames = [...document.querySelectorAll(".map-embed")];
+    const heroVenueList = document.getElementById("hero-venue-list");
+    let activeHeroMap = "stjoe";
+    let activeHeroVenue = "seahawk";
+
+    function renderHeroVenueDetail() {
+      const mapData = heroMapData[activeHeroMap];
+      const venue = mapData.venues.find((item) => item.id === activeHeroVenue) || mapData.venues[0];
+      if (!venue) return;
+      const activeFrame = document.querySelector(`.map-embed[data-map-frame="${activeHeroMap}"]`);
+      const photo = document.getElementById("hero-venue-photo");
+
+      document.getElementById("hero-venue-badge").textContent = venue.badge;
+      document.getElementById("hero-venue-harbor").textContent = venue.harbor || mapData.kicker;
+      document.getElementById("hero-venue-name").textContent = venue.name;
+      document.getElementById("hero-venue-boat").textContent = venue.boat || "";
+      document.getElementById("hero-venue-subtitle").textContent = venue.subtitle;
+      document.getElementById("hero-venue-price-tag").textContent = venue.priceTag;
+      document.getElementById("hero-venue-rate").textContent = venue.rate;
+      document.getElementById("hero-venue-contact").textContent = venue.contact;
+      document.getElementById("hero-venue-review").textContent = venue.review;
+      document.getElementById("hero-venue-map").href = venue.map;
+      document.getElementById("hero-venue-reviews").href = venue.reviews;
+      document.getElementById("hero-venue-site").href = venue.site;
+      document.getElementById("hero-venue-directions").href = venue.directions;
+
+      if (venue.photo) {
+        photo.src = venue.photo;
+        photo.alt = `${venue.name} boat photo`;
+        photo.classList.add("is-visible");
+      } else {
+        photo.removeAttribute("src");
+        photo.alt = "";
+        photo.classList.remove("is-visible");
+      }
+
+      if (activeFrame && venue.embed && activeFrame.src !== venue.embed) {
+        activeFrame.src = venue.embed;
+      }
+
+      [...heroVenueList.querySelectorAll(".venue-button")].forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.venue === venue.id);
+      });
+    }
+
+    function renderHeroVenueList() {
+      const mapData = heroMapData[activeHeroMap];
+      heroVenueList.innerHTML = mapData.venues.map((venue) => `
+        <button class="venue-button ${venue.id === activeHeroVenue ? "is-active" : ""}" type="button" data-venue="${venue.id}">
+          <strong>${venue.name}</strong>
+          <span>${venue.blurb}</span>
+        </button>
+      `).join("");
+
+      [...heroVenueList.querySelectorAll(".venue-button")].forEach((button) => {
+        button.addEventListener("click", () => {
+          activeHeroVenue = button.dataset.venue;
+          renderHeroVenueDetail();
+        });
+      });
+    }
+
+    function renderHarborDirectory(containerId, harborKey) {
+      const container = document.getElementById(containerId);
+      const mapData = heroMapData[harborKey];
+      if (!container || !mapData) return;
+
+      container.innerHTML = mapData.venues.map((venue) => `
+        <article class="boat-card">
+          ${venue.photo
+            ? `<img class="boat-card-photo" src="${venue.photo}" alt="${venue.name} charter boat photo" loading="lazy">`
+            : `<div class="boat-card-photo is-placeholder">Official rate + dock info verified</div>`
+          }
+          <div class="boat-card-top">
+            <div>
+              <div class="eyebrow">${venue.harbor}</div>
+              <h5>${venue.name}</h5>
+              <div class="boat-subline">${venue.boat}</div>
+              <div class="boat-captain">${venue.captain || "Captain info on request"}</div>
+            </div>
+            <div class="tag tag-primary">${venue.priceTag}</div>
+          </div>
+          <p>${venue.subtitle}</p>
+          <div class="boat-meta-grid">
+            <div class="boat-meta">
+              <strong>Rate Snapshot</strong>
+              <span>${venue.rate}</span>
+            </div>
+            <div class="boat-meta">
+              <strong>Dock + Phone</strong>
+              <span>${venue.contact}</span>
+            </div>
+            <div class="boat-meta">
+              <strong>Captain / Crew</strong>
+              <span>${venue.captain || "See official listing"}</span>
+            </div>
+            <div class="boat-meta">
+              <strong>Social / Web Read</strong>
+              <span>${venue.socials || "Official website and review links live."}</span>
+            </div>
+          </div>
+          <div class="boat-review">${venue.review}</div>
+          <div class="boat-actions">
+            <a class="button button-primary" href="${venue.map}" target="_blank" rel="noreferrer">Open Map</a>
+            <a class="button button-secondary" href="${venue.reviews}" target="_blank" rel="noreferrer">Reviews</a>
+            <a class="button button-secondary" href="${venue.site}" target="_blank" rel="noreferrer">Website</a>
+            <a class="button button-secondary" href="${venue.directions}" target="_blank" rel="noreferrer">Directions</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function setHeroMap(key) {
+      const mapData = heroMapData[key];
+      if (!mapData) return;
+      activeHeroMap = key;
+      activeHeroVenue = mapData.venues[0].id;
+
+      document.getElementById("hero-map-kicker").textContent = mapData.kicker;
+      document.getElementById("hero-map-title").textContent = mapData.title;
+      document.getElementById("hero-map-copy").textContent = mapData.copy;
+      renderHeroVenueList();
+      renderHeroVenueDetail();
+
+      mapChips.forEach((chip) => {
+        chip.classList.toggle("is-active", chip.dataset.map === key);
+      });
+
+      mapFrames.forEach((frame) => {
+        frame.classList.toggle("is-active", frame.dataset.mapFrame === key);
+      });
+    }
+
+    function setCharter(key) {
+      const charter = charterData[key];
+      if (!charter) return;
+
+      document.getElementById("console-port").textContent = charter.port;
+      document.getElementById("console-name").textContent = charter.name;
+      document.getElementById("console-tagline").textContent = charter.tagline;
+      document.getElementById("console-badge").textContent = charter.badge;
+      document.getElementById("console-copy").textContent = charter.copy;
+      document.getElementById("console-rate").textContent = charter.rate;
+      document.getElementById("console-boat").textContent = charter.boat;
+      document.getElementById("console-window").textContent = charter.window;
+      document.getElementById("console-contact").textContent = charter.contact;
+      document.getElementById("console-review").textContent = charter.review;
+      document.getElementById("console-fit").textContent = charter.fit;
+      document.getElementById("console-quote").textContent = charter.quote;
+      document.getElementById("console-map").href = charter.map;
+      document.getElementById("console-reviews").href = charter.reviews;
+      document.getElementById("console-site").href = charter.site;
+      document.getElementById("console-call").href = charter.call;
+
+      fleetButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.charter === key);
+      });
+    }
+
+    fleetButtons.forEach((button) => {
+      button.addEventListener("click", () => setCharter(button.dataset.charter));
+    });
+
+    mapChips.forEach((chip) => {
+      chip.addEventListener("click", () => setHeroMap(chip.dataset.map));
+    });
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("aria-controls");
+        tabButtons.forEach((item) => {
+          item.setAttribute("aria-selected", String(item === button));
+        });
+        tabPanels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.id === target);
+        });
+      });
+    });
+
+    renderHarborDirectory("directory-stjoe", "stjoe");
+    renderHarborDirectory("directory-saugatuck", "saugatuck");
+    setHeroMap(activeHeroMap);
+  </script>
+</body>
+</html>
