@@ -429,43 +429,50 @@
     .venue-list {
       display: grid;
       gap: 8px;
-      max-height: 250px;
+      max-height: 360px;
       overflow: auto;
       padding-right: 4px;
       flex: 0 1 auto;
     }
 
     .venue-button {
-      appearance: none;
       width: 100%;
-      text-align: left;
-      cursor: pointer;
-      padding: 12px 14px;
-      border-radius: 18px;
+      padding: 10px 12px;
+      border-radius: 16px;
       color: var(--text);
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
-    .venue-button:hover,
-    .venue-button.is-active {
+    .venue-button:hover {
       background: rgba(53, 208, 255, 0.12);
       border-color: rgba(53, 208, 255, 0.3);
-      transform: translateY(-1px);
     }
 
     .venue-button strong {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+      font-size: 0.96rem;
       letter-spacing: -0.03em;
     }
 
     .venue-button span {
       display: block;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .venue-mini-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 6px;
+      color: #d8e5fb;
+      font-size: 0.76rem;
       line-height: 1.35;
     }
 
@@ -1258,6 +1265,24 @@
 
       .venue-meta {
         grid-template-columns: 1fr;
+      }
+
+      .venue-list {
+        max-height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .map-frame-wrap {
+        min-height: 560px;
+      }
+
+      .map-sidebar {
+        padding: 14px;
+      }
+
+      .venue-list {
+        max-height: 280px;
       }
     }
   </style>
@@ -2207,6 +2232,45 @@
     const fleetButtons = [...document.querySelectorAll(".fleet-option")];
     const tabButtons = [...document.querySelectorAll(".tab-button")];
     const tabPanels = [...document.querySelectorAll(".tab-panel")];
+    const mapChips = [...document.querySelectorAll(".map-chip")];
+    const mapFrames = [...document.querySelectorAll(".map-embed")];
+    const heroVenueList = document.getElementById("hero-venue-list");
+    let activeHeroMap = "stjoe";
+
+    function renderHeroVenueList(key) {
+      const mapData = heroMapData[key];
+      if (!mapData || !heroVenueList) return;
+
+      document.getElementById("hero-map-kicker").textContent = mapData.kicker;
+      document.getElementById("hero-map-title").textContent = mapData.title;
+      document.getElementById("hero-map-copy").textContent = "Tiny harbor list up top. Full rates, reviews, captains, and photos are in the directory below.";
+      document.getElementById("hero-harbor-map").href =
+        key === "stjoe"
+          ? "https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/"
+          : "https://www.google.com/maps/search/Saugatuck+Michigan+fishing+charters/";
+
+      heroVenueList.innerHTML = mapData.venues.map((venue) => `
+        <div class="venue-button">
+          <strong><span>${venue.name}</span><span>${venue.priceTag}</span></strong>
+          <span>${venue.boat}</span>
+          <div class="venue-mini-meta">
+            <span>${venue.captain || "Captain listed on official site"}</span>
+            <span>${venue.contact.split(" • ")[1] || venue.contact}</span>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function setHeroMap(key) {
+      activeHeroMap = key;
+      mapChips.forEach((chip) => {
+        chip.classList.toggle("is-active", chip.dataset.map === key);
+      });
+      mapFrames.forEach((frame) => {
+        frame.classList.toggle("is-active", frame.dataset.mapFrame === key);
+      });
+      renderHeroVenueList(key);
+    }
 
     function renderHarborDirectory(containerId, harborKey) {
       const container = document.getElementById(containerId);
@@ -2288,6 +2352,10 @@
       button.addEventListener("click", () => setCharter(button.dataset.charter));
     });
 
+    mapChips.forEach((chip) => {
+      chip.addEventListener("click", () => setHeroMap(chip.dataset.map));
+    });
+
     tabButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const target = button.getAttribute("aria-controls");
@@ -2302,6 +2370,7 @@
 
     renderHarborDirectory("directory-stjoe", "stjoe");
     renderHarborDirectory("directory-saugatuck", "saugatuck");
+    setHeroMap(activeHeroMap);
     setCharter("seahawk");
   </script>
 </body>
