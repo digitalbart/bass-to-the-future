@@ -831,6 +831,43 @@
       display: block;
     }
 
+    .console-video-block {
+      margin: 18px 0;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: none;
+      gap: 12px;
+    }
+
+    .console-video-block.is-visible {
+      display: grid;
+    }
+
+    .console-video-frame {
+      width: 100%;
+      min-height: 340px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .console-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      border: 0;
+      display: block;
+    }
+
+    .console-video-note {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
     .console-map-frame iframe {
       width: 100%;
       height: 100%;
@@ -2429,6 +2466,22 @@
                 </div>
               </div>
 
+              <div class="console-video-block" id="console-video-block">
+                <div class="eyebrow">Boat Video</div>
+                <div class="console-video-frame">
+                  <iframe
+                    id="console-video-embed"
+                    src=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    title="Boat video"
+                  ></iframe>
+                </div>
+                <div class="console-video-note" id="console-video-note">Verified boat or charter footage.</div>
+              </div>
+
               <div class="data-grid">
                 <div class="data-item">
                   <strong>Rate Snapshot</strong>
@@ -2471,6 +2524,10 @@
                   <span id="console-social">Official site links its live Google listing and current review pull-through.</span>
                 </div>
                 <div class="data-item">
+                  <strong>Video</strong>
+                  <span id="console-video">YouTube search ready for current trip videos and boat footage.</span>
+                </div>
+                <div class="data-item">
                   <strong>Best For</strong>
                   <span id="console-fit">Groups that want the cleanest “book a killer captain and go” answer.</span>
                 </div>
@@ -2483,6 +2540,7 @@
               <div class="console-links">
                 <a class="button button-primary" id="console-map" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open Google Maps</a>
                 <a class="button button-secondary" id="console-reviews" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Open reviews</a>
+                <a class="button button-secondary" id="console-youtube" href="https://www.youtube.com/results?search_query=Sea+Hawk+Fishing+Charters+St.+Joseph" target="_blank" rel="noreferrer">YouTube</a>
                 <a class="button button-secondary" id="console-site" href="https://fishseahawk.com/" target="_blank" rel="noreferrer">Open official site</a>
                 <a class="button button-secondary" id="console-call" href="tel:2692083923">Call captain</a>
               </div>
@@ -2665,12 +2723,19 @@
       <div class="overview-grid">
         <article class="panel list-card">
           <div class="eyebrow">Michigan trip rules</div>
+          <p>Checked against the 2026 Michigan DNR regulations and license pages for the parts most relevant to a Lake Michigan salmon trip.</p>
           <ul class="bullet-list">
-            <li>Anglers age 17 and up need a valid Michigan fishing license.</li>
-            <li>For short trips, the 24-hour nonresident option is usually the cleanest move.</li>
-            <li>Daily salmonid limits and species-specific rules can change, so confirm final limits before travel.</li>
+            <li>Anglers age 17 and up need a Michigan fishing license. The 2026 license year runs from April 1, 2026 through March 31, 2027.</li>
+            <li>Daily all-species license is $10 for residents or nonresidents, and the purchaser sets the 24-hour start time.</li>
+            <li>Annual nonresident all-species license is $76, plus the $1 DNR Sportcard fee listed by the state.</li>
+            <li>If anyone plans to fish inland trout or salmon waters before or after the charter, the 2026 digest says to check the county exceptions and Michigan Fishing Maps because seasons and tackle rules can change by waterbody.</li>
+            <li>The 2026 regulations also clarified bead fishing for trout and salmon: a bead on the hook, or pegged no more than 4 inches above a single-pointed hook, counts as an artificial lure.</li>
             <li>Most charter crews allow moderate beer or wine, but hard liquor is commonly prohibited.</li>
           </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.michigan.gov/dnr/things-to-do/fishing/license-info" target="_blank" rel="noreferrer">License info</a>
+            <a class="button button-secondary" href="https://www.michigan.gov/dnr/-/media/Project/Websites/dnr/Documents/LED/digests/2026-Michigan-Fishing-Regulations_web_accessible.pdf" target="_blank" rel="noreferrer">2026 regs PDF</a>
+          </div>
         </article>
 
         <article class="panel list-card">
@@ -3266,6 +3331,51 @@
         count: 15,
         source: "TripAdvisor",
         label: "3.9★ TripAdvisor for Big Lake Outfitters (15)"
+      }
+    };
+
+    const videoData = {
+      seahawk: {
+        embed: "https://www.youtube.com/embed/rhrdTLaLeIM",
+        note: "Boat or charter footage supplied for this page.",
+        label: "YouTube search for Sea Hawk trips, boat footage, and salmon action",
+        url: "https://www.youtube.com/results?search_query=Sea+Hawk+Fishing+Charters+St.+Joseph"
+      },
+      originator: {
+        label: "YouTube search for Originator charter videos and St. Joseph lake footage",
+        url: "https://www.youtube.com/results?search_query=Originator+Fishing+Charter+St.+Joseph"
+      },
+      bigbird: {
+        label: "YouTube search for Big Bird charter videos and boat footage",
+        url: "https://www.youtube.com/results?search_query=Big+Bird+Charters+St.+Joseph+Michigan"
+      },
+      coldwater: {
+        label: "YouTube search for Coldwater Charters salmon trip videos",
+        url: "https://www.youtube.com/results?search_query=Coldwater+Charters+St.+Joseph+Michigan"
+      },
+      fishstalker: {
+        label: "YouTube search for Fish Stalker charter footage and salmon runs",
+        url: "https://www.youtube.com/results?search_query=Fish+Stalker+St.+Joseph+Michigan+charter"
+      },
+      miryha: {
+        label: "YouTube search for MIRYHA / Saugatuck charter trip footage",
+        url: "https://www.youtube.com/results?search_query=MIRYHA+Charters+Saugatuck"
+      },
+      bestchancetoo: {
+        label: "YouTube search for Best Chance Too tournament and charter footage",
+        url: "https://www.youtube.com/results?search_query=Best+Chance+Too+Saugatuck"
+      },
+      bestchance: {
+        label: "YouTube search for Best Chance Saugatuck charter footage",
+        url: "https://www.youtube.com/results?search_query=Best+Chance+Charters+Saugatuck"
+      },
+      bestchancejr: {
+        label: "YouTube search for Best Chance Jr. Saugatuck charter footage",
+        url: "https://www.youtube.com/results?search_query=Best+Chance+Jr+Saugatuck"
+      },
+      bluechip: {
+        label: "YouTube search for Blue Chip / Big Lake Outfitters charter footage",
+        url: "https://www.youtube.com/results?search_query=Blue+Chip+Big+Lake+Outfitters+Saugatuck"
       }
     };
 
@@ -3870,6 +3980,7 @@
       const charter = charterData[key];
       const venue = venueLookup[key] || {};
       const rating = ratingData[key];
+      const video = videoData[key];
       if (!charter) return;
       const embedSrc = venue.embed || `https://www.google.com/maps?q=${encodeURIComponent(`${charter.name} ${charter.port} Michigan`)}&z=14&output=embed`;
 
@@ -3895,16 +4006,32 @@
         : charter.review;
       document.getElementById("console-policy").textContent = charter.policy;
       document.getElementById("console-social").textContent = charter.social;
+      document.getElementById("console-video").textContent = video
+        ? video.label
+        : "No clean video lead stored for this charter yet.";
       document.getElementById("console-fit").textContent = charter.fit;
       document.getElementById("console-quote").textContent = charter.quote;
       document.getElementById("console-map").href = charter.map;
       document.getElementById("console-reviews").href = charter.reviews;
+      document.getElementById("console-youtube").href = video ? video.url : "https://www.youtube.com/";
       document.getElementById("console-site").href = charter.site;
       document.getElementById("console-call").href = charter.call;
       document.getElementById("console-photo").src = venue.photo || "https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg";
       document.getElementById("console-photo").alt = `${charter.name} charter boat photo`;
       document.getElementById("console-embed").src = embedSrc;
       document.getElementById("console-embed").title = `${charter.name} map`;
+      const consoleVideoBlock = document.getElementById("console-video-block");
+      const consoleVideoEmbed = document.getElementById("console-video-embed");
+      const consoleVideoNote = document.getElementById("console-video-note");
+      if (consoleVideoBlock && consoleVideoEmbed && consoleVideoNote) {
+        const hasEmbed = Boolean(video && video.embed);
+        consoleVideoBlock.classList.toggle("is-visible", hasEmbed);
+        consoleVideoEmbed.src = hasEmbed ? video.embed : "";
+        consoleVideoEmbed.title = `${charter.name} boat video`;
+        consoleVideoNote.textContent = hasEmbed
+          ? (video.note || "Verified boat or charter footage.")
+          : "No verified boat-specific video is embedded for this charter yet.";
+      }
 
       fleetButtons.forEach((button) => {
         button.classList.toggle("is-active", button.dataset.charter === key);
