@@ -517,7 +517,7 @@
       font-size: clamp(2.4rem, 4vw, 4.1rem);
       line-height: 0.98;
       letter-spacing: -0.06em;
-      max-width: 10ch;
+      max-width: 12ch;
     }
 
     .hero-overview-copy p {
@@ -525,6 +525,119 @@
       max-width: 62ch;
       color: #dbe9ff;
       line-height: 1.72;
+    }
+
+    .season-planner-head {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .season-planner-title h2 {
+      margin: 8px 0 10px;
+      font-size: clamp(2rem, 3.3vw, 3.3rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      max-width: 14ch;
+    }
+
+    .season-planner-title p {
+      margin: 0;
+      max-width: 60ch;
+      color: #dbe9ff;
+      line-height: 1.72;
+    }
+
+    .preset-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .preset-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .preset-label {
+      color: var(--cyan-2);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .preset-chip {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .preset-chip:hover,
+    .preset-chip.is-active {
+      border-color: rgba(53, 208, 255, 0.45);
+      background: rgba(53, 208, 255, 0.16);
+      color: #f5fbff;
+      transform: translateY(-1px);
+    }
+
+    .season-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .season-meta-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .season-meta-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 1.3rem;
+      letter-spacing: -0.04em;
+    }
+
+    .season-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .season-impact-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .season-impact-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .season-impact-card span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
     .hero-harbor-grid {
@@ -2090,6 +2203,8 @@
       .booking-grid,
       .calendar-grid,
       .hero-harbor-grid,
+      .season-meta-grid,
+      .season-impact-grid,
       .bite-widget,
       .bite-signal-grid {
         grid-template-columns: 1fr;
@@ -2134,6 +2249,13 @@
         font-size: 0.75rem;
       }
 
+      .preset-row {
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: thin;
+        flex-wrap: nowrap;
+      }
+
       .compare-widget {
         padding: 22px;
       }
@@ -2163,6 +2285,10 @@
 
       .hero-overview-head {
         display: block;
+      }
+
+      .season-planner-title h2 {
+        font-size: 2.2rem;
       }
 
       .bite-time {
@@ -2519,13 +2645,33 @@
       <div class="hero-grid">
         <section class="panel hero-overview">
           <div class="hero-overview-head">
-            <div class="hero-overview-copy">
-              <div class="eyebrow">Strategic Expedition Overview</div>
-              <h2>Pick the harbor fast, then compare the fleet for real.</h2>
-              <p>
-                The Google map up top was getting in the way, so this version opens with the cleaner decision layer:
-                quick harbor reads, best-fit boats, and direct jumps into the boat directory, conditions, and cost lab.
-              </p>
+            <div class="season-planner-head">
+              <div class="season-planner-title">
+                <div class="eyebrow">Strategic Expedition Overview</div>
+                <h2>Season + harbor bite planner.</h2>
+                <p>
+                  Flip month and harbor, then scrub the clock. The widget shifts the bite window using representative
+                  sunrise timing, seasonal staging patterns, and the different St. Joe vs. Saugatuck setup.
+                </p>
+              </div>
+              <div class="preset-stack">
+                <div class="preset-group">
+                  <div class="preset-label">Harbor preset</div>
+                  <div class="preset-row" id="bite-location-row">
+                    <button class="preset-chip is-active" type="button" data-bite-location="stjoe">St. Joe</button>
+                    <button class="preset-chip" type="button" data-bite-location="saugatuck">Saugatuck</button>
+                  </div>
+                </div>
+                <div class="preset-group">
+                  <div class="preset-label">Season preset</div>
+                  <div class="preset-row" id="bite-month-row">
+                    <button class="preset-chip" type="button" data-bite-month="july">July</button>
+                    <button class="preset-chip" type="button" data-bite-month="august">August</button>
+                    <button class="preset-chip is-active" type="button" data-bite-month="september">September</button>
+                    <button class="preset-chip" type="button" data-bite-month="october">October</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="cta-row">
               <a class="button button-primary" href="#intel">Open boat directory</a>
@@ -2533,26 +2679,45 @@
             </div>
           </div>
 
+          <div class="season-meta-grid">
+            <div class="season-meta-card">
+              <div class="eyebrow">Current harbor</div>
+              <strong id="bite-preset-harbor">St. Joseph</strong>
+            </div>
+            <div class="season-meta-card">
+              <div class="eyebrow">Current month</div>
+              <strong id="bite-preset-month">September</strong>
+            </div>
+            <div class="season-meta-card">
+              <div class="eyebrow">Representative sunrise</div>
+              <strong id="bite-preset-sunrise">07:24</strong>
+            </div>
+            <div class="season-meta-card">
+              <div class="eyebrow">Gray-light lane</div>
+              <strong id="bite-preset-window">06:39-07:54</strong>
+            </div>
+          </div>
+
           <div class="hero-stats">
             <div class="stat">
-              <strong>10</strong>
-              <span class="muted">current charter picks across both harbors</span>
+              <strong id="bite-stat-species">Kings staging</strong>
+              <span class="muted" id="bite-stat-species-copy">Mature salmon are setting up near the harbor mouth.</span>
             </div>
             <div class="stat">
-              <strong>05:15</strong>
-              <span class="muted">ideal dock arrival for the gray-light bite</span>
+              <strong id="bite-stat-arrival">06:25</strong>
+              <span class="muted" id="bite-stat-arrival-copy">Best dock-arrival target for the first clean low-light pass.</span>
             </div>
             <div class="stat">
-              <strong>$320</strong>
-              <span class="muted">typical per-person target with meal and tip</span>
+              <strong id="bite-stat-water">58-64°F</strong>
+              <span class="muted" id="bite-stat-water-copy">Typical near-harbor surface band for this preset.</span>
             </div>
           </div>
 
           <div class="bite-widget">
             <div class="bite-widget-copy">
               <div class="eyebrow">Bite Window Widget</div>
-              <h3>Track the gray-light push before the fish slide deeper.</h3>
-              <p>Slide through the morning and watch how light level, wind, wave shape, and Lake Michigan surface temp shift the likely bite. This is a planning tool for late-August / early-September staging salmon, not a guarantee.</p>
+              <h3 id="bite-headline">Track the sunrise push before the fish slide deeper.</h3>
+              <p id="bite-summary">This preset favors a disciplined early pass: low-angle light, staging kings near harbor structure, and a better top-third water-column shot before the sun climbs.</p>
               <div class="bite-timeline">
                 <div class="bite-slider-head">
                   <div class="bite-time" id="bite-time-label">05:15</div>
@@ -2562,15 +2727,15 @@
                   <div class="bite-track">
                     <div class="bite-greylight" aria-hidden="true"></div>
                   </div>
-                  <input class="bite-range" id="bite-time-range" type="range" min="0" max="540" step="15" value="75" aria-label="Fishing bite time of day slider">
+                  <input class="bite-range" id="bite-time-range" type="range" min="255" max="780" step="15" value="435" aria-label="Fishing bite time of day slider">
                 </div>
                 <div class="bite-scale">
-                  <span>04:00</span>
-                  <span>05:30</span>
-                  <span>07:00</span>
-                  <span>09:00</span>
-                  <span>11:00</span>
-                  <span>13:00</span>
+                  <span id="bite-scale-1">04:45</span>
+                  <span id="bite-scale-2">05:45</span>
+                  <span id="bite-scale-3">06:45</span>
+                  <span id="bite-scale-4">07:45</span>
+                  <span id="bite-scale-5">09:15</span>
+                  <span id="bite-scale-6">10:45</span>
                 </div>
               </div>
             </div>
@@ -2598,7 +2763,7 @@
                 </div>
                 <div class="bite-signal">
                   <strong>Lake Temp</strong>
-                  <span id="bite-water">50°F St. Joe / 48.7°F Holland-side</span>
+                  <span id="bite-water">58-64°F near harbor</span>
                 </div>
                 <div class="bite-signal">
                   <strong>Weather Read</strong>
@@ -2608,45 +2773,21 @@
             </div>
           </div>
 
-          <div class="hero-harbor-grid">
-            <article class="hero-harbor-card">
-              <div class="hero-harbor-top">
-                <div>
-                  <div class="eyebrow">St. Joseph / Benton Harbor</div>
-                  <h3>Sharper salmon-first launch.</h3>
-                </div>
-                <div class="tag tag-primary">Fishing edge</div>
-              </div>
-              <p>Best if the group wants the cleanest morning charter shot and tighter dock-day logistics.</p>
-              <ul class="hero-harbor-list">
-                <li><strong>Sea Hawk</strong><span>$900 AM</span></li>
-                <li><strong>Originator</strong><span>36' Tiara</span></li>
-                <li><strong>Big Bird</strong><span>34' SeaRay</span></li>
-              </ul>
-              <div class="cta-row">
-                <a class="button button-secondary" href="https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open harbor map</a>
-                <a class="button button-secondary" href="#intel">View St. Joe boats</a>
-              </div>
+          <div class="season-impact-grid">
+            <article class="season-impact-card">
+              <div class="eyebrow">What location changes</div>
+              <strong id="bite-impact-location-title">St. Joe runs slightly cleaner for the direct salmon shot.</strong>
+              <span id="bite-impact-location">St. Joseph tends to fit the sharper harbor-mouth king setup, while Saugatuck leans a little more weather-sensitive and town-friendly once the boat is done.</span>
             </article>
-
-            <article class="hero-harbor-card">
-              <div class="hero-harbor-top">
-                <div>
-                  <div class="eyebrow">Saugatuck / Douglas</div>
-                  <h3>Better town flow after the boat.</h3>
-                </div>
-                <div class="tag tag-soft">Town edge</div>
-              </div>
-              <p>Best if the group wants a real charter morning followed by a more walkable, vacation-town afternoon.</p>
-              <ul class="hero-harbor-list">
-                <li><strong>MIRYHA</strong><span>$900 half day</span></li>
-                <li><strong>Best Chance Too</strong><span>36' Tiara</span></li>
-                <li><strong>Blue Chip</strong><span>$800 half day</span></li>
-              </ul>
-              <div class="cta-row">
-                <a class="button button-secondary" href="https://www.google.com/maps/search/Saugatuck+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open harbor map</a>
-                <a class="button button-secondary" href="#intel">View Saugatuck boats</a>
-              </div>
+            <article class="season-impact-card">
+              <div class="eyebrow">What the month changes</div>
+              <strong id="bite-impact-season-title">September pushes the classic staging window.</strong>
+              <span id="bite-impact-season">As the season moves from July into October, sunrise shifts later, surface temperatures fall, and the fish move from scattered summer water toward tighter pre-spawn structure.</span>
+            </article>
+            <article class="season-impact-card">
+              <div class="eyebrow">What time of day changes</div>
+              <strong id="bite-impact-time-title">Gray light is the easiest screenshot window.</strong>
+              <span id="bite-impact-time">Before and just after sunrise, low-angle light keeps fish higher and more aggressive. Once the sun gets up, captains usually have to work deeper and troll more precisely.</span>
             </article>
           </div>
         </section>
@@ -3844,6 +3985,8 @@
     const costLicenseSelect = document.getElementById("cost-license");
     const costMealCheckbox = document.getElementById("cost-meal");
     const biteTimeRange = document.getElementById("bite-time-range");
+    const biteLocationButtons = [...document.querySelectorAll("[data-bite-location]")];
+    const biteMonthButtons = [...document.querySelectorAll("[data-bite-month]")];
     const venueLookup = Object.values(heroMapData)
       .flatMap((group) => group.venues)
       .reduce((acc, venue) => {
@@ -3858,6 +4001,148 @@
       tip: 20,
       license: 10,
       meal: true
+    };
+    const biteState = {
+      location: "stjoe",
+      month: "september"
+    };
+    const bitePresetData = {
+      stjoe: {
+        label: "St. Joseph",
+        harborNote: "St. Joseph runs a touch more direct for staging kings stacked near the harbor mouth.",
+        july: {
+          label: "July",
+          sunrise: 387,
+          water: "66-72°F near harbor",
+          season: "Summer steelhead + coho mix",
+          arrival: 347,
+          windowStart: 342,
+          windowEnd: 417,
+          headline: "Long dawn, roaming summer fish, cleaner early surface play.",
+          summary: "July gives you more daylight and warmer top water. Fish can still be spread out, so the best top-third bite often comes fast and then loosens up.",
+          locationEffect: "St. Joe is still the cleaner direct run if the group wants a disciplined charter-first morning.",
+          seasonEffect: "July is less pure staging and more roaming summer water, so speed, temp breaks, and early light matter more than a single tight harbor stack.",
+          timeEffect: "Before sunrise the spread can still work high. Once the sun clears the horizon, surface fish often separate faster than in September.",
+          speciesCopy: "Coho + steelhead mix",
+          weather: "Cloud cover and a little chop keep the top-water window open longer in midsummer."
+        },
+        august: {
+          label: "August",
+          sunrise: 418,
+          water: "64-70°F near harbor",
+          season: "Pre-staging kings building",
+          arrival: 378,
+          windowStart: 373,
+          windowEnd: 448,
+          headline: "Pre-staging kings start loading and gray light matters more.",
+          summary: "August sharpens the morning shot. Mature kings start stacking closer to harbor structure, and the first clean low-light troll gets more valuable.",
+          locationEffect: "St. Joe often gets the edge for a straight harbor-mouth king play as the late-summer setup firms up.",
+          seasonEffect: "August is the bridge month: still some summer spread, but more mature fish are turning into real harbor targets.",
+          timeEffect: "The first 45 minutes around sunrise matter more now. After that, fish start sliding and the easy top-water read fades.",
+          speciesCopy: "Kings start staging",
+          weather: "Small southwest chop usually helps; bright flat water shortens the easy morning push."
+        },
+        september: {
+          label: "September",
+          sunrise: 444,
+          water: "58-64°F near harbor",
+          season: "Peak staging salmon",
+          arrival: 404,
+          windowStart: 399,
+          windowEnd: 474,
+          headline: "Classic staging window with the best gray-light king shot.",
+          summary: "September is the cleanest version of the trip brief. Mature kings are concentrated, sunrise is later, and the pre-sunrise launch lines up well with a hard first-light pass.",
+          locationEffect: "St. Joe fits the sharper salmon-first run if the group wants the most direct harbor-mouth staging look.",
+          seasonEffect: "September is the sweet spot for mature staging fish before the full spawn push scatters the cleanest harbor setup.",
+          timeEffect: "Gray light through shortly after sunrise is the easiest screenshot bite. Full sun usually pushes the fish deeper and tighter.",
+          speciesCopy: "Kings staging",
+          weather: "Light chop helps; hard southwest wind can dirty the cleanest inside bite."
+        },
+        october: {
+          label: "October",
+          sunrise: 472,
+          water: "50-57°F near harbor",
+          season: "Spawn push + colder mornings",
+          arrival: 432,
+          windowStart: 427,
+          windowEnd: 502,
+          headline: "Later sunrise, colder water, tighter but more aggressive surges.",
+          summary: "October brings colder surface water and a later morning rhythm. The fish can still crack at first light, but the pattern gets more selective and tied to the push phase.",
+          locationEffect: "St. Joe can still produce, but by October you are leaning more on the captain reading how tight the spawn push is that week.",
+          seasonEffect: "October is less pure staging and more active transition into the spawn run, which can compress the clean bite windows.",
+          timeEffect: "The later sunrise buys more setup time, but once the sun gets up the fish often pin down to tighter lanes and cleaner structure.",
+          speciesCopy: "Spawn-push kings",
+          weather: "Cold calm mornings can still fire, but bigger fronts move the pattern around faster."
+        }
+      },
+      saugatuck: {
+        label: "Saugatuck",
+        harborNote: "Saugatuck often runs a little more weather-sensitive, with a slightly cooler Holland-side read and more town-friendly day flow afterward.",
+        july: {
+          label: "July",
+          sunrise: 389,
+          water: "64-70°F Holland-side",
+          season: "Summer coho + steelhead mix",
+          arrival: 349,
+          windowStart: 344,
+          windowEnd: 419,
+          headline: "Long midsummer dawn with more roaming water than stacked harbor fish.",
+          summary: "July on the Saugatuck side still rewards an early launch, but this is more of a broad summer pattern than a pure harbor staging shot.",
+          locationEffect: "Saugatuck trades a little direct salmon edge for a looser vacation-town flow once the boat is done.",
+          seasonEffect: "July is still summer water here, so you are reading temp, bait, and light more than a locked-in staging lane.",
+          timeEffect: "Low light is still best, but the morning bite can disperse quicker if the surface slicks off.",
+          speciesCopy: "Coho + steelhead mix",
+          weather: "A little texture on the water helps this side a lot when the sun climbs."
+        },
+        august: {
+          label: "August",
+          sunrise: 420,
+          water: "62-68°F Holland-side",
+          season: "Kings loading later-summer water",
+          arrival: 380,
+          windowStart: 375,
+          windowEnd: 450,
+          headline: "August gets sharper, but the harbor read still benefits from weather help.",
+          summary: "Saugatuck in August starts looking more like a real staging play, especially when lake conditions keep fish close and active around the harbor zone.",
+          locationEffect: "This side works well if the group wants real fishing plus a more walkable town day once the trip is done.",
+          seasonEffect: "August is where the Saugatuck side starts feeling more serious for kings without losing the easier town logistics.",
+          timeEffect: "The best bite still clusters around first light, but wind direction matters a little more here than the St. Joe side.",
+          speciesCopy: "Kings building",
+          weather: "Chop and cloud cover usually help keep the early lanes honest."
+        },
+        september: {
+          label: "September",
+          sunrise: 446,
+          water: "56-62°F Holland-side",
+          season: "Strong staging window",
+          arrival: 406,
+          windowStart: 401,
+          windowEnd: 476,
+          headline: "September is the cleanest Saugatuck preset for staging kings and town flow.",
+          summary: "This is the strongest Saugatuck version of the trip: later sunrise, cooler water, and a real chance at a hard gray-light king shot before rolling into town after the boat.",
+          locationEffect: "Saugatuck gives up a little direct salmon edge, but it still works really well if the group values the whole day, not just the first troll pass.",
+          seasonEffect: "September is the most dependable month here for combining a serious charter with a clean late-summer harbor pattern.",
+          timeEffect: "Just before and after sunrise is still the premium lane. Once full sun hits, the read usually turns more technical.",
+          speciesCopy: "Kings staging",
+          weather: "This side usually wants some texture on the water; slick bright mornings can make the later pass tougher."
+        },
+        october: {
+          label: "October",
+          sunrise: 474,
+          water: "49-55°F Holland-side",
+          season: "Colder push water",
+          arrival: 434,
+          windowStart: 429,
+          windowEnd: 504,
+          headline: "Later sunrise and colder water, with shorter cleaner surges.",
+          summary: "October is still fishable here, but the window gets more selective. The harbor pattern can tighten quickly depending on weather and how far the push has progressed.",
+          locationEffect: "By October this side is more of a choose-your-week play than an automatic late-summer call.",
+          seasonEffect: "Fish are more transition-driven now, and the difference between a hot morning and a grind can tighten a lot.",
+          timeEffect: "The later sunrise is nice for setup, but once the light gets up you are often working more precise and less forgiving water.",
+          speciesCopy: "Transition push",
+          weather: "Cold fronts and bigger wind shifts move the best water around faster this month."
+        }
+      }
     };
 
     function renderHarborDirectory(containerId, harborKey) {
@@ -3919,48 +4204,59 @@
     }
 
     function formatMinutesToTime(totalMinutes) {
-      const hours = Math.floor(totalMinutes / 60) + 4;
+      const hours = Math.floor(totalMinutes / 60);
       const minutes = totalMinutes % 60;
       return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
     }
 
-    function getBiteModel(totalMinutes) {
-      const hour = 4 + (totalMinutes / 60);
-      let score = 42;
+    function getActiveBitePreset() {
+      return bitePresetData[biteState.location]?.[biteState.month];
+    }
+
+    function updateBitePresetChips() {
+      biteLocationButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.biteLocation === biteState.location);
+      });
+      biteMonthButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.biteMonth === biteState.month);
+      });
+    }
+
+    function getBiteModel(totalMinutes, preset) {
+      const delta = totalMinutes - preset.sunrise;
+      const seasonBonus = biteState.month === "september" ? 6 : biteState.month === "august" ? 2 : biteState.month === "october" ? -2 : -6;
+      const locationBonus = biteState.location === "stjoe" ? 3 : 0;
+      let score = 34 + seasonBonus + locationBonus;
       let phase = "Pre-dawn setup";
       let sunlight = "Dark to first blue light";
       let depth = "Suspended and roaming";
-      let weather = "Low light keeps the early window open.";
+      let weather = preset.weather;
 
-      if (hour >= 5 && hour <= 6.5) {
-        score = 82 + Math.max(0, 10 - Math.abs(hour - 5.75) * 18);
+      if (delta >= -45 && delta <= 30) {
+        score = 84 + seasonBonus + locationBonus - Math.abs(delta + 5) * 0.18;
         phase = "Gray light peak";
         sunlight = "Low-angle gray light";
-        depth = "Surface to upper column";
-        weather = "Light chop and cloud cover usually help this best.";
-      } else if (hour > 6.5 && hour <= 8.5) {
-        score = 68 - ((hour - 6.5) * 10);
-        phase = "Morning feed taper";
+        depth = "Surface to upper-third water";
+      } else if (delta > 30 && delta <= 120) {
+        score = 70 + seasonBonus + locationBonus - (delta - 30) * 0.18;
+        phase = "Sunrise taper";
         sunlight = "Sun climbing over the lake";
         depth = "Upper to mid column";
-        weather = "Still fishable, but the clean top-water shot starts fading.";
-      } else if (hour > 8.5 && hour <= 10.5) {
-        score = 46 - ((hour - 8.5) * 8);
+      } else if (delta > 120 && delta <= 240) {
+        score = 48 + seasonBonus + locationBonus - (delta - 120) * 0.1;
         phase = "Sun-up adjustment";
         sunlight = "Full sun pressure";
-        depth = "Mid column and tighter structure";
-        weather = "More trolling precision, less easy first-light aggression.";
-      } else if (hour > 10.5) {
-        score = 28;
+        depth = "Mid column and tighter lanes";
+      } else if (delta > 240) {
+        score = 28 + seasonBonus;
         phase = "Late-morning grind";
         sunlight = "Bright overhead light";
         depth = "Deeper and more selective";
-        weather = "Still possible, but usually not the screenshot bite window.";
-      }
-
-      if (totalMinutes >= 255 && totalMinutes <= 315) {
-        score += 4;
-        weather = "This is the cleanest overlap of light, calm control, and active staging fish.";
+      } else if (delta < -45) {
+        score = 44 + seasonBonus + Math.max(0, (45 + delta) * 0.08);
+        phase = "Pre-dawn build";
+        sunlight = "Blue-black to first gray";
+        depth = "Roaming and rising";
       }
 
       return {
@@ -3972,10 +4268,72 @@
       };
     }
 
+    function syncBitePresetSummary(preset) {
+      document.getElementById("bite-preset-harbor").textContent = bitePresetData[biteState.location].label;
+      document.getElementById("bite-preset-month").textContent = preset.label;
+      document.getElementById("bite-preset-sunrise").textContent = formatMinutesToTime(preset.sunrise);
+      document.getElementById("bite-preset-window").textContent = `${formatMinutesToTime(preset.windowStart)}-${formatMinutesToTime(preset.windowEnd)}`;
+      document.getElementById("bite-stat-species").textContent = preset.speciesCopy;
+      document.getElementById("bite-stat-species-copy").textContent = preset.season;
+      document.getElementById("bite-stat-arrival").textContent = formatMinutesToTime(preset.arrival);
+      document.getElementById("bite-stat-arrival-copy").textContent = `Representative dock-arrival target for ${bitePresetData[biteState.location].label}.`;
+      document.getElementById("bite-stat-water").textContent = preset.water.replace(" near harbor", "").replace(" Holland-side", "");
+      document.getElementById("bite-stat-water-copy").textContent = `Typical surface band for ${preset.label.toLowerCase()} on the ${bitePresetData[biteState.location].label} side.`;
+      document.getElementById("bite-headline").textContent = preset.headline;
+      document.getElementById("bite-summary").textContent = preset.summary;
+      document.getElementById("bite-impact-location-title").textContent = bitePresetData[biteState.location].harborNote;
+      document.getElementById("bite-impact-location").textContent = preset.locationEffect;
+      document.getElementById("bite-impact-season-title").textContent = `${preset.label} changes the shape of the morning.`;
+      document.getElementById("bite-impact-season").textContent = preset.seasonEffect;
+      document.getElementById("bite-impact-time-title").textContent = `Sunrise is around ${formatMinutesToTime(preset.sunrise)} for this preset.`;
+      document.getElementById("bite-impact-time").textContent = preset.timeEffect;
+    }
+
+    function syncBiteScale(preset) {
+      const labels = [
+        preset.sunrise - 120,
+        preset.sunrise - 60,
+        preset.sunrise,
+        preset.sunrise + 60,
+        preset.sunrise + 150,
+        preset.sunrise + 240
+      ];
+      labels.forEach((value, index) => {
+        const node = document.getElementById(`bite-scale-${index + 1}`);
+        if (node) node.textContent = formatMinutesToTime(value);
+      });
+
+      const min = Number(biteTimeRange.min);
+      const max = Number(biteTimeRange.max);
+      const left = ((preset.windowStart - min) / (max - min)) * 100;
+      const width = ((preset.windowEnd - preset.windowStart) / (max - min)) * 100;
+      const greylight = document.querySelector(".bite-greylight");
+      if (greylight) {
+        greylight.style.left = `${left}%`;
+        greylight.style.width = `${width}%`;
+      }
+    }
+
+    function applyBitePreset(resetSlider = false) {
+      const preset = getActiveBitePreset();
+      if (!preset || !biteTimeRange) return;
+      biteTimeRange.min = String(preset.sunrise - 120);
+      biteTimeRange.max = String(preset.sunrise + 240);
+      if (resetSlider || Number(biteTimeRange.value) < Number(biteTimeRange.min) || Number(biteTimeRange.value) > Number(biteTimeRange.max)) {
+        biteTimeRange.value = String(preset.arrival);
+      }
+      updateBitePresetChips();
+      syncBitePresetSummary(preset);
+      syncBiteScale(preset);
+      renderBiteWidget();
+    }
+
     function renderBiteWidget() {
       if (!biteTimeRange) return;
+      const preset = getActiveBitePreset();
+      if (!preset) return;
       const totalMinutes = Number(biteTimeRange.value);
-      const model = getBiteModel(totalMinutes);
+      const model = getBiteModel(totalMinutes, preset);
       const timeText = formatMinutesToTime(totalMinutes);
 
       document.getElementById("bite-time-label").textContent = timeText;
@@ -3984,17 +4342,18 @@
       document.getElementById("bite-score-fill").style.width = `${model.score}%`;
       document.getElementById("bite-sunlight").textContent = model.sunlight;
       document.getElementById("bite-depth").textContent = model.depth;
+      document.getElementById("bite-water").textContent = preset.water;
       document.getElementById("bite-weather").textContent = model.weather;
 
       const scoreLabel = document.getElementById("bite-score-label");
       if (model.score >= 85) {
-        scoreLabel.textContent = "Prime gray-light bite. This is the window worth rolling out of bed for.";
+        scoreLabel.textContent = `Prime ${preset.label.toLowerCase()} gray-light shot. This is the window worth planning the dock report around.`;
       } else if (model.score >= 65) {
         scoreLabel.textContent = "Still strong, but the fish are starting to slide and spread out.";
       } else if (model.score >= 40) {
-        scoreLabel.textContent = "Usable morning water, but no longer the easy first-light shot.";
+        scoreLabel.textContent = "Usable water, but the easy first-light edge is fading and captain adjustments matter more.";
       } else {
-        scoreLabel.textContent = "More grind than surge. You are leaning on captain adjustments here.";
+        scoreLabel.textContent = "More grind than surge. You are leaning on deeper precision and less on a clean low-light shove.";
       }
     }
 
@@ -4462,6 +4821,20 @@
       });
     }
 
+    biteLocationButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        biteState.location = button.dataset.biteLocation;
+        applyBitePreset(true);
+      });
+    });
+
+    biteMonthButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        biteState.month = button.dataset.biteMonth;
+        applyBitePreset(true);
+      });
+    });
+
     if (biteTimeRange) {
       biteTimeRange.addEventListener("input", renderBiteWidget);
       let biteDirection = 1;
@@ -4474,10 +4847,12 @@
         }
         if (!biteLastTick) biteLastTick = timestamp;
         if (timestamp - biteLastTick > 1400) {
+          const min = Number(biteTimeRange.min);
+          const max = Number(biteTimeRange.max);
           const next = Number(biteTimeRange.value) + (biteDirection * 15);
-          if (next >= 315) {
+          if (next >= max) {
             biteDirection = -1;
-          } else if (next <= 45) {
+          } else if (next <= min) {
             biteDirection = 1;
           }
           biteTimeRange.value = String(Number(biteTimeRange.value) + (biteDirection * 15));
@@ -4486,7 +4861,7 @@
         }
         window.requestAnimationFrame(animateBiteWidget);
       }
-      renderBiteWidget();
+      applyBitePreset(true);
       window.requestAnimationFrame(animateBiteWidget);
     }
 
