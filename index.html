@@ -236,6 +236,217 @@
       margin-top: 28px;
     }
 
+    .bite-widget {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 18px;
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(53, 208, 255, 0.08), transparent 42%),
+        rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(53, 208, 255, 0.16);
+    }
+
+    .bite-widget-copy h3 {
+      margin: 8px 0 10px;
+      font-size: 2rem;
+      letter-spacing: -0.05em;
+    }
+
+    .bite-widget-copy p {
+      margin: 0;
+      color: #dbe9ff;
+      line-height: 1.7;
+      max-width: 62ch;
+    }
+
+    .bite-timeline {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(6, 16, 32, 0.46);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .bite-slider-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .bite-time {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+    }
+
+    .bite-phase {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #eef5ff;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .bite-track-wrap {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .bite-track {
+      position: relative;
+      height: 16px;
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, rgba(40, 61, 97, 0.95) 0%, rgba(92, 125, 172, 0.9) 28%, rgba(255, 208, 120, 0.95) 42%, rgba(86, 187, 255, 0.92) 58%, rgba(21, 36, 63, 0.98) 100%);
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .bite-greylight {
+      position: absolute;
+      top: -6px;
+      bottom: -6px;
+      left: 17.5%;
+      width: 14%;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 28px rgba(142, 230, 255, 0.18);
+      pointer-events: none;
+    }
+
+    .bite-range {
+      position: absolute;
+      inset: -8px 0 auto;
+      width: 100%;
+      appearance: none;
+      background: transparent;
+      margin: 0;
+    }
+
+    .bite-range::-webkit-slider-runnable-track {
+      height: 16px;
+      background: transparent;
+    }
+
+    .bite-range::-moz-range-track {
+      height: 16px;
+      background: transparent;
+    }
+
+    .bite-range::-webkit-slider-thumb {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #f3f8ff;
+      border: 3px solid #35d0ff;
+      box-shadow: 0 0 0 6px rgba(53, 208, 255, 0.16);
+      margin-top: -3px;
+      cursor: pointer;
+    }
+
+    .bite-range::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #f3f8ff;
+      border: 3px solid #35d0ff;
+      box-shadow: 0 0 0 6px rgba(53, 208, 255, 0.16);
+      cursor: pointer;
+    }
+
+    .bite-scale {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .bite-widget-meta {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .bite-score-card,
+    .bite-signal-grid {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(6, 16, 32, 0.46);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .bite-score-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      margin-top: 10px;
+    }
+
+    .bite-score {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.07em;
+      line-height: 1;
+    }
+
+    .bite-score-label {
+      font-size: 0.92rem;
+      color: var(--muted);
+      text-align: right;
+      max-width: 18ch;
+    }
+
+    .bite-score-bar {
+      margin-top: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .bite-score-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #5f86ff 0%, #35d0ff 55%, #ffd36a 100%);
+      transition: width 0.25s ease;
+    }
+
+    .bite-signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .bite-signal {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bite-signal strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cyan-2);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
     .stat {
       padding: 16px;
       border-radius: var(--radius-md);
@@ -1878,7 +2089,9 @@
       .conditions-grid,
       .booking-grid,
       .calendar-grid,
-      .hero-harbor-grid {
+      .hero-harbor-grid,
+      .bite-widget,
+      .bite-signal-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1950,6 +2163,14 @@
 
       .hero-overview-head {
         display: block;
+      }
+
+      .bite-time {
+        font-size: 2rem;
+      }
+
+      .bite-score {
+        font-size: 2.4rem;
       }
 
       .console-grid {
@@ -2324,6 +2545,66 @@
             <div class="stat">
               <strong>$320</strong>
               <span class="muted">typical per-person target with meal and tip</span>
+            </div>
+          </div>
+
+          <div class="bite-widget">
+            <div class="bite-widget-copy">
+              <div class="eyebrow">Bite Window Widget</div>
+              <h3>Track the gray-light push before the fish slide deeper.</h3>
+              <p>Slide through the morning and watch how light level, wind, wave shape, and Lake Michigan surface temp shift the likely bite. This is a planning tool for late-August / early-September staging salmon, not a guarantee.</p>
+              <div class="bite-timeline">
+                <div class="bite-slider-head">
+                  <div class="bite-time" id="bite-time-label">05:15</div>
+                  <div class="bite-phase" id="bite-phase-label">Gray light peak</div>
+                </div>
+                <div class="bite-track-wrap">
+                  <div class="bite-track">
+                    <div class="bite-greylight" aria-hidden="true"></div>
+                  </div>
+                  <input class="bite-range" id="bite-time-range" type="range" min="0" max="540" step="15" value="75" aria-label="Fishing bite time of day slider">
+                </div>
+                <div class="bite-scale">
+                  <span>04:00</span>
+                  <span>05:30</span>
+                  <span>07:00</span>
+                  <span>09:00</span>
+                  <span>11:00</span>
+                  <span>13:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bite-widget-meta">
+              <div class="bite-score-card">
+                <div class="eyebrow">Lake Michigan bite score</div>
+                <div class="bite-score-line">
+                  <div class="bite-score" id="bite-score-value">82</div>
+                  <div class="bite-score-label" id="bite-score-label">Prime early shot before full sun takes over.</div>
+                </div>
+                <div class="bite-score-bar">
+                  <div class="bite-score-fill" id="bite-score-fill"></div>
+                </div>
+              </div>
+
+              <div class="bite-signal-grid">
+                <div class="bite-signal">
+                  <strong>Sunlight</strong>
+                  <span id="bite-sunlight">Low-angle gray light</span>
+                </div>
+                <div class="bite-signal">
+                  <strong>Fish Position</strong>
+                  <span id="bite-depth">Surface to upper column</span>
+                </div>
+                <div class="bite-signal">
+                  <strong>Lake Temp</strong>
+                  <span id="bite-water">50°F St. Joe / 48.7°F Holland-side</span>
+                </div>
+                <div class="bite-signal">
+                  <strong>Weather Read</strong>
+                  <span id="bite-weather">Light chop helps; hard southwest blow can scatter the clean bite.</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -3562,6 +3843,7 @@
     const costTipLabel = document.getElementById("cost-tip-label");
     const costLicenseSelect = document.getElementById("cost-license");
     const costMealCheckbox = document.getElementById("cost-meal");
+    const biteTimeRange = document.getElementById("bite-time-range");
     const venueLookup = Object.values(heroMapData)
       .flatMap((group) => group.venues)
       .reduce((acc, venue) => {
@@ -3634,6 +3916,86 @@
         currency: "USD",
         minimumFractionDigits: 2
       }).format(value);
+    }
+
+    function formatMinutesToTime(totalMinutes) {
+      const hours = Math.floor(totalMinutes / 60) + 4;
+      const minutes = totalMinutes % 60;
+      return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+    }
+
+    function getBiteModel(totalMinutes) {
+      const hour = 4 + (totalMinutes / 60);
+      let score = 42;
+      let phase = "Pre-dawn setup";
+      let sunlight = "Dark to first blue light";
+      let depth = "Suspended and roaming";
+      let weather = "Low light keeps the early window open.";
+
+      if (hour >= 5 && hour <= 6.5) {
+        score = 82 + Math.max(0, 10 - Math.abs(hour - 5.75) * 18);
+        phase = "Gray light peak";
+        sunlight = "Low-angle gray light";
+        depth = "Surface to upper column";
+        weather = "Light chop and cloud cover usually help this best.";
+      } else if (hour > 6.5 && hour <= 8.5) {
+        score = 68 - ((hour - 6.5) * 10);
+        phase = "Morning feed taper";
+        sunlight = "Sun climbing over the lake";
+        depth = "Upper to mid column";
+        weather = "Still fishable, but the clean top-water shot starts fading.";
+      } else if (hour > 8.5 && hour <= 10.5) {
+        score = 46 - ((hour - 8.5) * 8);
+        phase = "Sun-up adjustment";
+        sunlight = "Full sun pressure";
+        depth = "Mid column and tighter structure";
+        weather = "More trolling precision, less easy first-light aggression.";
+      } else if (hour > 10.5) {
+        score = 28;
+        phase = "Late-morning grind";
+        sunlight = "Bright overhead light";
+        depth = "Deeper and more selective";
+        weather = "Still possible, but usually not the screenshot bite window.";
+      }
+
+      if (totalMinutes >= 255 && totalMinutes <= 315) {
+        score += 4;
+        weather = "This is the cleanest overlap of light, calm control, and active staging fish.";
+      }
+
+      return {
+        score: Math.max(10, Math.min(99, Math.round(score))),
+        phase,
+        sunlight,
+        depth,
+        weather
+      };
+    }
+
+    function renderBiteWidget() {
+      if (!biteTimeRange) return;
+      const totalMinutes = Number(biteTimeRange.value);
+      const model = getBiteModel(totalMinutes);
+      const timeText = formatMinutesToTime(totalMinutes);
+
+      document.getElementById("bite-time-label").textContent = timeText;
+      document.getElementById("bite-phase-label").textContent = model.phase;
+      document.getElementById("bite-score-value").textContent = String(model.score);
+      document.getElementById("bite-score-fill").style.width = `${model.score}%`;
+      document.getElementById("bite-sunlight").textContent = model.sunlight;
+      document.getElementById("bite-depth").textContent = model.depth;
+      document.getElementById("bite-weather").textContent = model.weather;
+
+      const scoreLabel = document.getElementById("bite-score-label");
+      if (model.score >= 85) {
+        scoreLabel.textContent = "Prime gray-light bite. This is the window worth rolling out of bed for.";
+      } else if (model.score >= 65) {
+        scoreLabel.textContent = "Still strong, but the fish are starting to slide and spread out.";
+      } else if (model.score >= 40) {
+        scoreLabel.textContent = "Usable morning water, but no longer the easy first-light shot.";
+      } else {
+        scoreLabel.textContent = "More grind than surge. You are leaning on captain adjustments here.";
+      }
     }
 
     function resolvePackagePrice(pkg, group) {
@@ -4098,6 +4460,34 @@
         costState.meal = costMealCheckbox.checked;
         renderCostLab();
       });
+    }
+
+    if (biteTimeRange) {
+      biteTimeRange.addEventListener("input", renderBiteWidget);
+      let biteDirection = 1;
+      let biteLastTick = 0;
+      function animateBiteWidget(timestamp) {
+        if (!biteTimeRange) return;
+        if (document.hidden) {
+          window.requestAnimationFrame(animateBiteWidget);
+          return;
+        }
+        if (!biteLastTick) biteLastTick = timestamp;
+        if (timestamp - biteLastTick > 1400) {
+          const next = Number(biteTimeRange.value) + (biteDirection * 15);
+          if (next >= 315) {
+            biteDirection = -1;
+          } else if (next <= 45) {
+            biteDirection = 1;
+          }
+          biteTimeRange.value = String(Number(biteTimeRange.value) + (biteDirection * 15));
+          renderBiteWidget();
+          biteLastTick = timestamp;
+        }
+        window.requestAnimationFrame(animateBiteWidget);
+      }
+      renderBiteWidget();
+      window.requestAnimationFrame(animateBiteWidget);
     }
 
     const compareWidgetList = document.getElementById("compare-widget-list");
