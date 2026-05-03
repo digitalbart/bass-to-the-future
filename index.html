@@ -43,7 +43,7 @@
       --radius-xl: 32px;
       --radius-lg: 24px;
       --radius-md: 18px;
-      --max: 1440px;
+      --max: 1700px;
     }
 
     * {
@@ -283,6 +283,95 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       color: var(--text);
       background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-overview {
+      display: grid;
+      gap: 22px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(53, 208, 255, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 100%);
+    }
+
+    .hero-overview-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      align-items: end;
+    }
+
+    .hero-overview-copy h2 {
+      margin: 12px 0 14px;
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+    }
+
+    .hero-overview-copy p {
+      margin: 0;
+      max-width: 62ch;
+      color: #dbe9ff;
+      line-height: 1.72;
+    }
+
+    .hero-harbor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .hero-harbor-card {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .hero-harbor-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .hero-harbor-card h3 {
+      margin: 6px 0 8px;
+      font-size: 1.75rem;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-harbor-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #dbe9ff;
+    }
+
+    .hero-harbor-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(6, 16, 32, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.92rem;
+    }
+
+    .hero-harbor-list strong {
+      font-size: 0.98rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-harbor-list span {
+      color: var(--muted);
+      white-space: nowrap;
     }
 
     .map-card {
@@ -1029,7 +1118,7 @@
     }
 
     .ops-grid {
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr;
     }
 
     .host-grid {
@@ -1200,23 +1289,23 @@
     .cost-lab-controls {
       display: grid;
       gap: 14px;
-      margin-top: 18px;
     }
 
     .cost-lab-hero {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 18px;
+      grid-template-columns: 220px 1fr;
+      gap: 22px;
       margin-top: 18px;
-      padding: 18px;
+      padding: 22px;
       border-radius: 20px;
       background: linear-gradient(135deg, rgba(53, 208, 255, 0.1), rgba(255, 255, 255, 0.03));
       border: 1px solid rgba(53, 208, 255, 0.18);
+      align-items: center;
     }
 
     .cost-lab-hero img {
       width: 100%;
-      height: 150px;
+      height: 184px;
       object-fit: cover;
       border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1224,7 +1313,7 @@
 
     .cost-lab-hero h4 {
       margin: 6px 0 6px;
-      font-size: 1.7rem;
+      font-size: 1.38rem;
       letter-spacing: -0.05em;
     }
 
@@ -1248,6 +1337,136 @@
       color: #eef5ff;
       font-size: 0.82rem;
       font-weight: 700;
+    }
+
+    .cost-compare-deck {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.74fr) minmax(760px, 1.26fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .cost-secondary-panel {
+      padding: 22px;
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(53, 208, 255, 0.08), transparent 44%),
+        rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(53, 208, 255, 0.14);
+    }
+
+    .compare-select-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .compare-pair-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .compare-boat-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: grid;
+      gap: 14px;
+    }
+
+    .compare-boat-card.is-primary {
+      border-color: rgba(53, 208, 255, 0.28);
+      background: rgba(53, 208, 255, 0.08);
+    }
+
+    .compare-boat-visuals {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .compare-boat-photo {
+      width: 100%;
+      height: 220px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .compare-boat-map {
+      min-height: 220px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .compare-boat-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      border: 0;
+      display: block;
+    }
+
+    .compare-boat-card h5 {
+      margin: 6px 0 6px;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .compare-boat-card p {
+      margin: 0 0 12px;
+      color: #d8e5fb;
+      line-height: 1.58;
+    }
+
+    .compare-boat-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .compare-boat-metric {
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(5, 12, 24, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .compare-boat-metric strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--cyan-2);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .compare-boat-total {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .compare-boat-total strong {
+      font-size: 1.8rem;
+      letter-spacing: -0.05em;
     }
 
     .field-label {
@@ -1391,6 +1610,8 @@
     }
 
     .compare-widget-row {
+      appearance: none;
+      width: 100%;
       display: grid;
       grid-template-columns: minmax(0, 1.25fr) minmax(180px, 1fr) 92px;
       gap: 14px;
@@ -1399,16 +1620,60 @@
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+
+    .compare-widget-row:hover,
+    .compare-widget-row.is-active {
+      border-color: rgba(53, 208, 255, 0.28);
+      background: rgba(53, 208, 255, 0.08);
+      transform: translateY(-1px);
     }
 
     .compare-widget-row strong {
       display: block;
       margin-bottom: 4px;
+      color: var(--text);
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .compare-widget-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .compare-rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(53, 208, 255, 0.12);
+      border: 1px solid rgba(53, 208, 255, 0.2);
+      color: #eef5ff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .compare-rating-pill.is-empty {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
     }
 
     .compare-widget-row span {
       color: var(--muted);
       font-size: 0.9rem;
+      line-height: 1.45;
     }
 
     .compare-bar {
@@ -1427,6 +1692,7 @@
     }
 
     .compare-price {
+      color: var(--text);
       font-size: 1.1rem;
       font-weight: 800;
       letter-spacing: -0.04em;
@@ -1566,7 +1832,8 @@
       .console-grid,
       .conditions-grid,
       .booking-grid,
-      .calendar-grid {
+      .calendar-grid,
+      .hero-harbor-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1574,7 +1841,12 @@
       .cost-meta-grid,
       .conditions-grid,
       .season-row,
-      .compare-widget-row {
+      .compare-widget-row,
+      .cost-compare-deck,
+      .compare-select-row,
+      .compare-pair-grid,
+      .compare-boat-metrics,
+      .compare-boat-visuals {
         grid-template-columns: 1fr;
       }
 
@@ -1588,6 +1860,7 @@
       .site-header .shell,
       .section-heading,
       .hero-stats,
+      .hero-overview-head,
       .highlights {
         grid-template-columns: 1fr;
       }
@@ -1614,6 +1887,7 @@
       }
 
       .hero-copy,
+      .hero-overview,
       .intel-panel,
       .brief-card,
       .compare-card,
@@ -1627,6 +1901,10 @@
       .hero-stats,
       .highlights {
         display: grid;
+      }
+
+      .hero-overview-head {
+        display: block;
       }
 
       .console-grid {
@@ -1682,6 +1960,26 @@
 
       .package-chip {
         white-space: nowrap;
+      }
+
+      .console-cost-grid,
+      .cost-lab-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .console-cost-photo,
+      .cost-lab-hero img {
+        width: 100%;
+        height: auto;
+      }
+
+      .compare-boat-photo,
+      .compare-boat-map iframe {
+        height: auto;
+      }
+
+      .console-cost-total {
+        text-align: left;
       }
 
       .compare-row {
@@ -1798,166 +2096,283 @@
   </header>
 
   <main class="shell">
-    <section class="hero">
-      <div class="hero-grid">
-        <aside class="panel map-card">
-          <div class="map-stage">
-            <div class="map-switcher" aria-label="Harbor map switcher">
-              <button class="map-chip is-active" type="button" data-map="stjoe">St. Joe</button>
-              <button class="map-chip" type="button" data-map="saugatuck">Saugatuck</button>
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 // Operations</div>
+          <h3>Simple plan, real costs, and a live compare widget.</h3>
+        </div>
+          <p class="muted">This is the part people actually screenshot and send around.</p>
+        </div>
+
+      <div class="ops-grid">
+        <aside class="panel list-card" id="cost-lab-panel">
+          <div class="eyebrow">Dynamic cost lab</div>
+          <div class="cost-lab-hero">
+            <img id="cost-hero-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg" alt="Selected charter image">
+            <div>
+              <div class="eyebrow" id="cost-hero-port">St. Joseph</div>
+              <h4 id="cost-hero-name">Sea Hawk</h4>
+              <p id="cost-hero-copy">Synced to the active fleet pick so the price math stays tied to the actual charter, harbor, trip format, and contact logic you are looking at above.</p>
+              <div class="cost-lab-badges">
+                <span class="cost-lab-badge" id="cost-hero-captain">Captain Russ Clark</span>
+                <span class="cost-lab-badge" id="cost-hero-boat">36' Tiara</span>
+                <span class="cost-lab-badge" id="cost-hero-review">Visible Google rating and rates page</span>
+              </div>
+              <div class="muted" style="margin-top:12px;font-size:0.9rem;">Change the boat here, in Boat Directory, or in the compare rows below and the same selected charter stays synced across the page.</div>
+            </div>
+          </div>
+
+          <div class="cost-compare-deck">
+            <div>
+              <div class="cost-lab-controls">
+                <div>
+                  <div class="field-label">Package</div>
+                  <div class="package-row" id="cost-package-row"></div>
+                </div>
+
+                <div class="range-wrap">
+                  <div class="range-top">
+                    <span>Group size</span>
+                    <strong id="cost-group-label">4 anglers</strong>
+                  </div>
+                  <input class="range-control" id="cost-group" type="range" min="1" max="6" step="1" value="4">
+                </div>
+
+                <div class="range-wrap">
+                  <div class="range-top">
+                    <span>Mate tip</span>
+                    <strong id="cost-tip-label">20%</strong>
+                  </div>
+                  <input class="range-control" id="cost-tip" type="range" min="15" max="25" step="1" value="20">
+                </div>
+
+                <div class="toggle-grid">
+                  <div class="toggle-card">
+                    <label class="field-label" for="cost-license">License</label>
+                    <select class="select-control" id="cost-license">
+                      <option value="10">Michigan daily - $10</option>
+                      <option value="77">Michigan annual - $77</option>
+                    </select>
+                  </div>
+                  <div class="toggle-card">
+                    <span class="field-label">Meal</span>
+                    <label class="check-inline">
+                      <input id="cost-meal" type="checkbox" checked>
+                      <span>Catch-and-cook meal</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="eyebrow" style="margin-top: 18px;">Estimated cost per person</div>
+              <div class="cost-box">
+                <div class="cost-row">
+                  <span class="muted">Charter base</span>
+                  <strong id="cost-charter-base">$237.50</strong>
+                </div>
+                <div class="cost-row">
+                  <span class="muted">20% mate gratuity</span>
+                  <strong id="cost-gratuity">$47.50</strong>
+                </div>
+                <div class="cost-row">
+                  <span class="muted" id="cost-license-label">Michigan daily license</span>
+                  <strong id="cost-license-value">$10.00</strong>
+                </div>
+                <div class="cost-row">
+                  <span class="muted" id="cost-meal-label">Catch-and-cook meal</span>
+                  <strong id="cost-meal-value">$25.00</strong>
+                </div>
+              </div>
+              <div class="cost-total">
+                <div>
+                  <div class="eyebrow">Total estimate</div>
+                  <span class="muted" id="cost-total-note">based on 4 anglers</span>
+                </div>
+                <strong id="cost-total-value">$320</strong>
+              </div>
+
+              <div class="cost-meta-grid">
+                <div class="cost-meta-card">
+                  <strong>Trip</strong>
+                  <span id="cost-trip-meta">7-hour morning trip</span>
+                </div>
+                <div class="cost-meta-card">
+                  <strong>Port</strong>
+                  <span id="cost-port-meta">St. Joseph</span>
+                </div>
+                <div class="cost-meta-card">
+                  <strong>Review Signal</strong>
+                  <span id="cost-review-meta">Visible Google rating and current rates page</span>
+                </div>
+                <div class="cost-meta-card">
+                  <strong>Boat</strong>
+                  <span id="cost-boat-meta">36' Tiara</span>
+                </div>
+              </div>
+
+              <div class="chip-row">
+                <span class="chip good">Beer or wine okay</span>
+                <span class="chip no">No hard liquor</span>
+                <span class="chip no">No glass bottles</span>
+                <span class="chip warn">Polarized glasses</span>
+                <span class="chip warn">Dramamine night before if needed</span>
+              </div>
             </div>
 
-            <div class="map-frame-wrap">
-              <iframe
-                class="map-embed is-active"
-                data-map-frame="stjoe"
-                src="https://www.google.com/maps?q=St+Joseph+Michigan+fishing+charters&z=12&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="St. Joseph fishing charter map"
-              ></iframe>
-              <iframe
-                class="map-embed"
-                data-map-frame="saugatuck"
-                src="https://www.google.com/maps?q=Saugatuck+Michigan+fishing+charters&z=12&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Saugatuck fishing charter map"
-              ></iframe>
-
-              <div class="map-overlay">
-                <aside class="map-sidebar">
-                  <div class="harbor-summary">
-                    <div class="eyebrow">Strategic Expedition Overview</div>
-                    <div class="eyebrow" id="hero-map-kicker">St. Joseph Harbor</div>
-                    <h3 id="hero-map-title">Sharper fishing-first launch.</h3>
-                    <p id="hero-map-copy">Quick harbor view up top. All the real charter breakdown lives right below.</p>
-                  </div>
-
-                  <div class="venue-list" id="hero-venue-list"></div>
-
-                  <div class="map-action-row">
-                    <a class="button button-primary" id="hero-harbor-map" href="https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open Harbor Map</a>
-                    <a class="button button-secondary" href="#directory">Boat Directory</a>
-                  </div>
-                </aside>
+            <div class="cost-secondary-panel">
+              <div class="compare-select-row">
+                <div>
+                  <label class="field-label" for="cost-boat">Primary boat</label>
+                  <select class="select-control" id="cost-boat"></select>
+                </div>
+                <div>
+                  <label class="field-label" for="compare-boat">Second boat</label>
+                  <select class="select-control" id="compare-boat"></select>
+                </div>
               </div>
+              <div class="compare-pair-grid" id="compare-pair-grid"></div>
             </div>
           </div>
         </aside>
+
+        <article class="panel timeline-card">
+          <div class="eyebrow">Morning attack plan</div>
+          <div class="timeline">
+            <div class="timeline-step">
+              <time>05:15</time>
+              <div>
+                <strong>Dock arrival</strong>
+                <p>Show up early, get gear settled, take motion meds before boarding if anyone needs them.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <time>06:00</time>
+              <div>
+                <strong>Lines in</strong>
+                <p>Gray light is prime. Expect the first couple of hours to matter most for active staging salmon.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <time>13:00</time>
+              <div>
+                <strong>Return and clean fish</strong>
+                <p>Mate handles filleting while the group resets, tips out, and decides on the lunch plan.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <time>14:30</time>
+              <div>
+                <strong>Catch-and-cook meal</strong>
+                <p>Take the cleaned fillets to a participating local restaurant for the payoff meal.</p>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
+
+      <article class="panel compare-widget">
+        <div class="compare-widget-header">
+          <div>
+            <div class="eyebrow">Fleet comparison</div>
+            <h4>Cross-compare all boats at the current group size.</h4>
+          </div>
+          <p class="muted">Each row uses the live widget settings above, then lines the boats up by estimated per-person spend.</p>
+        </div>
+        <div class="compare-widget-list" id="compare-widget-list"></div>
+      </article>
     </section>
 
-    <section class="section" id="directory">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">01 // Full Harbor Directory</div>
-          <h3>Every charter grouped by harbor.</h3>
-        </div>
-        <p class="muted">Top stays quick. This layer is where the whole group can compare boats, captains, pricing, dock logistics, and map/review links without hunting around.</p>
-      </div>
-
-      <div class="directory-shell">
-        <article class="panel harbor-block">
-          <div class="harbor-block-head">
-            <div>
-              <div class="eyebrow">St. Joseph / Benton Harbor</div>
-              <h4>Cleaner salmon-first harbor setup.</h4>
+    <section class="hero">
+      <div class="hero-grid">
+        <section class="panel hero-overview">
+          <div class="hero-overview-head">
+            <div class="hero-overview-copy">
+              <div class="eyebrow">Strategic Expedition Overview</div>
+              <h2>Pick the harbor fast, then compare the fleet for real.</h2>
+              <p>
+                The Google map up top was getting in the way, so this version opens with the cleaner decision layer:
+                quick harbor reads, best-fit boats, and direct jumps into the boat directory, conditions, and cost lab.
+              </p>
             </div>
-            <div class="tag tag-primary">5 current picks</div>
-          </div>
-          <div class="harbor-directory-grid" id="directory-stjoe"></div>
-        </article>
-
-        <article class="panel harbor-block">
-          <div class="harbor-block-head">
-            <div>
-              <div class="eyebrow">Saugatuck / Douglas</div>
-              <h4>Better town flow after the boat.</h4>
-            </div>
-            <div class="tag tag-soft">5 current picks</div>
-          </div>
-          <div class="harbor-directory-grid" id="directory-saugatuck"></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="overview">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">02 // Mission Brief</div>
-          <h3>A better decision page for the group.</h3>
-        </div>
-        <p class="muted">Built to read quickly on desktop or phone without giant dead space.</p>
-      </div>
-
-      <div class="overview-grid">
-        <article class="panel brief-card">
-          <p>
-            Late August through early September 2026 is the sweet spot for a Lake Michigan salmon trip because mature
-            Chinook and Coho begin staging outside harbor mouths before the spawning push. That creates the kind of
-            aggressive morning bite most groups are hoping to pay for.
-          </p>
-          <div class="highlights">
-            <div class="highlight">
-              <div class="eyebrow">Top St. Joseph Pick</div>
-              <p>Sea Hawk for a serious, high-action charter with strong fish-finding reputation.</p>
-            </div>
-            <div class="highlight">
-              <div class="eyebrow">Most Stable Boat</div>
-              <p>Originator if your group values comfort and size when Lake Michigan gets choppy.</p>
-            </div>
-            <div class="highlight">
-              <div class="eyebrow">Best For Beginners</div>
-              <p>MIRYHA in Saugatuck for a more relaxed, town-friendly charter option.</p>
-            </div>
-            <div class="highlight">
-              <div class="eyebrow">Tournament Energy</div>
-              <p>Best Chance Too if the group wants elite-level execution and tournament pedigree.</p>
+            <div class="cta-row">
+              <a class="button button-primary" href="#intel">Open boat directory</a>
+              <a class="button button-secondary" href="#cost-lab-panel">Cost lab</a>
             </div>
           </div>
-        </article>
 
-        <article class="panel compare-card">
-          <div class="eyebrow">Harbor Comparison</div>
-          <div class="compare-rows">
-            <div class="compare-row">
-              <strong>Fishing edge</strong>
-              <span>St. Joseph</span>
-              <span>Better early staging reputation for salmon</span>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>10</strong>
+              <span class="muted">current charter picks across both harbors</span>
             </div>
-            <div class="compare-row">
-              <strong>Town vibe</strong>
-              <span>Saugatuck</span>
-              <span>Better if you want a walkable vacation-town feel</span>
+            <div class="stat">
+              <strong>05:15</strong>
+              <span class="muted">ideal dock arrival for the gray-light bite</span>
             </div>
-            <div class="compare-row">
-              <strong>Best start</strong>
-              <span>05:15 dock arrival</span>
-              <span>Gray-light bite matters more than sleeping in</span>
-            </div>
-            <div class="compare-row">
-              <strong>Target species</strong>
-              <span>Chinook, Coho</span>
-              <span>Also Lake Trout and Steelhead in the mix</span>
+            <div class="stat">
+              <strong>$320</strong>
+              <span class="muted">typical per-person target with meal and tip</span>
             </div>
           </div>
-        </article>
+
+          <div class="hero-harbor-grid">
+            <article class="hero-harbor-card">
+              <div class="hero-harbor-top">
+                <div>
+                  <div class="eyebrow">St. Joseph / Benton Harbor</div>
+                  <h3>Sharper salmon-first launch.</h3>
+                </div>
+                <div class="tag tag-primary">Fishing edge</div>
+              </div>
+              <p>Best if the group wants the cleanest morning charter shot and tighter dock-day logistics.</p>
+              <ul class="hero-harbor-list">
+                <li><strong>Sea Hawk</strong><span>$900 AM</span></li>
+                <li><strong>Originator</strong><span>36' Tiara</span></li>
+                <li><strong>Big Bird</strong><span>34' SeaRay</span></li>
+              </ul>
+              <div class="cta-row">
+                <a class="button button-secondary" href="https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open harbor map</a>
+                <a class="button button-secondary" href="#intel">View St. Joe boats</a>
+              </div>
+            </article>
+
+            <article class="hero-harbor-card">
+              <div class="hero-harbor-top">
+                <div>
+                  <div class="eyebrow">Saugatuck / Douglas</div>
+                  <h3>Better town flow after the boat.</h3>
+                </div>
+                <div class="tag tag-soft">Town edge</div>
+              </div>
+              <p>Best if the group wants a real charter morning followed by a more walkable, vacation-town afternoon.</p>
+              <ul class="hero-harbor-list">
+                <li><strong>MIRYHA</strong><span>$900 half day</span></li>
+                <li><strong>Best Chance Too</strong><span>36' Tiara</span></li>
+                <li><strong>Blue Chip</strong><span>$800 half day</span></li>
+              </ul>
+              <div class="cta-row">
+                <a class="button button-secondary" href="https://www.google.com/maps/search/Saugatuck+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open harbor map</a>
+                <a class="button button-secondary" href="#intel">View Saugatuck boats</a>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
 
     <section class="section" id="intel">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">03 // Trip Console</div>
-          <h3>Maps, reviews, rates, conditions, and booking moves.</h3>
+          <div class="eyebrow">02 // Boat Directory</div>
+          <h3>All boats, grouped in one dense planning panel.</h3>
         </div>
-        <p class="muted">This is the expanded planning layer you were aiming for at the start.</p>
+        <p class="muted">One place for boat details, maps, rates, captains, review sources, conditions, and booking flow.</p>
       </div>
 
       <div class="panel intel-panel">
         <div class="tab-bar" role="tablist" aria-label="Trip Console Tabs">
-          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet" id="btn-fleet">Fleet Intel</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet" id="btn-fleet">Boat Directory</button>
           <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-dates" id="btn-dates">Dates</button>
           <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ports" id="btn-ports">Conditions</button>
           <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-booking" id="btn-booking">Booking Flow</button>
@@ -2096,6 +2511,24 @@
                 <a class="button button-secondary" id="console-site" href="https://fishseahawk.com/" target="_blank" rel="noreferrer">Open official site</a>
                 <a class="button button-secondary" id="console-call" href="tel:2692083923">Call captain</a>
               </div>
+
+              <div class="console-cost-snapshot">
+                <div class="eyebrow">Linked Cost Snapshot</div>
+                <div class="console-cost-grid">
+                  <img class="console-cost-photo" id="console-cost-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg" alt="Sea Hawk boat preview">
+                  <div class="console-cost-copy">
+                    <strong id="console-cost-name">Sea Hawk • 7 hr morning</strong>
+                    <span id="console-cost-copy">4 anglers, daily license, meal on, 20% mate tip. This stays synced with the full cost lab below.</span>
+                  </div>
+                  <div class="console-cost-total">
+                    <strong id="console-cost-total">$320</strong>
+                    <span>Per person</span>
+                  </div>
+                </div>
+                <div class="cta-row" style="margin-top:16px;">
+                  <a class="button button-secondary" href="#cost-lab-panel">Open full cost lab</a>
+                </div>
+              </div>
             </article>
           </div>
         </section>
@@ -2232,7 +2665,7 @@
     <section class="section" id="charters">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">04 // Charter Board</div>
+          <div class="eyebrow">03 // Charter Board</div>
           <h3>Four sourced options, cleaned up and corrected.</h3>
         </div>
         <p class="muted">The weaker placeholders are gone. These now line up with current websites and local listings.</p>
@@ -2340,166 +2773,7 @@
     <section class="section">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">05 // Operations</div>
-          <h3>Simple plan, real costs, and a live compare widget.</h3>
-        </div>
-        <p class="muted">This is the part people actually screenshot and send around.</p>
-      </div>
-
-      <div class="ops-grid">
-        <article class="panel timeline-card">
-          <div class="eyebrow">Morning attack plan</div>
-          <div class="timeline">
-            <div class="timeline-step">
-              <time>05:15</time>
-              <div>
-                <strong>Dock arrival</strong>
-                <p>Show up early, get gear settled, take motion meds before boarding if anyone needs them.</p>
-              </div>
-            </div>
-            <div class="timeline-step">
-              <time>06:00</time>
-              <div>
-                <strong>Lines in</strong>
-                <p>Gray light is prime. Expect the first couple of hours to matter most for active staging salmon.</p>
-              </div>
-            </div>
-            <div class="timeline-step">
-              <time>13:00</time>
-              <div>
-                <strong>Return and clean fish</strong>
-                <p>Mate handles filleting while the group resets, tips out, and decides on the lunch plan.</p>
-              </div>
-            </div>
-            <div class="timeline-step">
-              <time>14:30</time>
-              <div>
-                <strong>Catch-and-cook meal</strong>
-                <p>Take the cleaned fillets to a participating local restaurant for the payoff meal.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="panel list-card">
-          <div class="eyebrow">Dynamic cost lab</div>
-          <div class="cost-lab-controls">
-            <div>
-              <label class="field-label" for="cost-boat">Boat</label>
-              <select class="select-control" id="cost-boat"></select>
-            </div>
-
-            <div>
-              <div class="field-label">Package</div>
-              <div class="package-row" id="cost-package-row"></div>
-            </div>
-
-            <div class="range-wrap">
-              <div class="range-top">
-                <span>Group size</span>
-                <strong id="cost-group-label">4 anglers</strong>
-              </div>
-              <input class="range-control" id="cost-group" type="range" min="1" max="6" step="1" value="4">
-            </div>
-
-            <div class="range-wrap">
-              <div class="range-top">
-                <span>Mate tip</span>
-                <strong id="cost-tip-label">20%</strong>
-              </div>
-              <input class="range-control" id="cost-tip" type="range" min="15" max="25" step="1" value="20">
-            </div>
-
-            <div class="toggle-grid">
-              <div class="toggle-card">
-                <label class="field-label" for="cost-license">License</label>
-                <select class="select-control" id="cost-license">
-                  <option value="10">Michigan daily - $10</option>
-                  <option value="77">Michigan annual - $77</option>
-                </select>
-              </div>
-              <div class="toggle-card">
-                <span class="field-label">Meal</span>
-                <label class="check-inline">
-                  <input id="cost-meal" type="checkbox" checked>
-                  <span>Catch-and-cook meal</span>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="eyebrow" style="margin-top: 18px;">Estimated cost per person</div>
-          <div class="cost-box">
-            <div class="cost-row">
-              <span class="muted">Charter base</span>
-              <strong id="cost-charter-base">$237.50</strong>
-            </div>
-            <div class="cost-row">
-              <span class="muted">20% mate gratuity</span>
-              <strong id="cost-gratuity">$47.50</strong>
-            </div>
-            <div class="cost-row">
-              <span class="muted" id="cost-license-label">Michigan daily license</span>
-              <strong id="cost-license-value">$10.00</strong>
-            </div>
-            <div class="cost-row">
-              <span class="muted" id="cost-meal-label">Catch-and-cook meal</span>
-              <strong id="cost-meal-value">$25.00</strong>
-            </div>
-          </div>
-          <div class="cost-total">
-            <div>
-              <div class="eyebrow">Total estimate</div>
-              <span class="muted" id="cost-total-note">based on 4 anglers</span>
-            </div>
-            <strong id="cost-total-value">$320</strong>
-          </div>
-
-          <div class="cost-meta-grid">
-            <div class="cost-meta-card">
-              <strong>Trip</strong>
-              <span id="cost-trip-meta">7-hour morning trip</span>
-            </div>
-            <div class="cost-meta-card">
-              <strong>Port</strong>
-              <span id="cost-port-meta">St. Joseph</span>
-            </div>
-            <div class="cost-meta-card">
-              <strong>Review Signal</strong>
-              <span id="cost-review-meta">Visible Google rating and current rates page</span>
-            </div>
-            <div class="cost-meta-card">
-              <strong>Boat</strong>
-              <span id="cost-boat-meta">36' Tiara</span>
-            </div>
-          </div>
-
-          <div class="chip-row">
-            <span class="chip good">Beer or wine okay</span>
-            <span class="chip no">No hard liquor</span>
-            <span class="chip no">No glass bottles</span>
-            <span class="chip warn">Polarized glasses</span>
-            <span class="chip warn">Dramamine night before if needed</span>
-          </div>
-        </aside>
-      </div>
-
-      <article class="panel compare-widget">
-        <div class="compare-widget-header">
-          <div>
-            <div class="eyebrow">Fleet comparison</div>
-            <h4>Cross-compare all boats at the current group size.</h4>
-          </div>
-          <p class="muted">Each row uses the live widget settings above, then lines the boats up by estimated per-person spend.</p>
-        </div>
-        <div class="compare-widget-list" id="compare-widget-list"></div>
-      </article>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">06 // Rules And Prep</div>
+          <div class="eyebrow">04 // Rules And Prep</div>
           <h3>The stuff that saves the day.</h3>
         </div>
         <p class="muted">Useful details that should stay visible instead of getting buried.</p>
@@ -2531,7 +2805,7 @@
     <section class="section" id="after-trip">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">07 // After The Boat</div>
+          <div class="eyebrow">05 // After The Boat</div>
           <h3>Use the page for trip decisions, not dev notes.</h3>
         </div>
         <p class="muted">This section now stays inside the trip world and helps the group decide what happens after lines come in.</p>
@@ -3049,6 +3323,69 @@
       }
     };
 
+    const ratingData = {
+      seahawk: {
+        value: 4.8,
+        count: 87,
+        source: "Google",
+        label: "4.8★ Google (87)"
+      },
+      originator: {
+        value: 4.9,
+        count: 17,
+        source: "TripAdvisor",
+        label: "4.9★ TripAdvisor (17)"
+      },
+      bigbird: {
+        value: 5.0,
+        count: 79,
+        source: "TripAdvisor",
+        label: "5.0★ TripAdvisor (79)"
+      },
+      coldwater: {
+        value: 5.0,
+        count: 2,
+        source: "TripAdvisor",
+        label: "5.0★ TripAdvisor (2)"
+      },
+      fishstalker: {
+        value: 5.0,
+        count: 139,
+        source: "FishingBooker",
+        label: "5.0★ FishingBooker (139)"
+      },
+      miryha: {
+        value: null,
+        count: null,
+        source: "Local listings",
+        label: "No major star profile surfaced"
+      },
+      bestchancetoo: {
+        value: 4.9,
+        count: 28,
+        source: "TripAdvisor",
+        label: "4.9★ TripAdvisor (28)"
+      },
+      bestchance: {
+        value: 4.9,
+        count: 28,
+        source: "TripAdvisor",
+        label: "4.9★ TripAdvisor fleet rating (28)"
+      },
+      bestchancejr: {
+        value: 4.9,
+        count: 28,
+        source: "TripAdvisor",
+        label: "4.9★ TripAdvisor fleet rating (28)"
+      },
+      bluechip: {
+        value: 3.9,
+        count: 15,
+        source: "TripAdvisor",
+        label: "3.9★ TripAdvisor for Big Lake Outfitters (15)"
+      }
+    };
+
     const costCompareData = {
       seahawk: {
         port: "St. Joseph",
@@ -3275,12 +3612,10 @@
     const fleetButtons = [...document.querySelectorAll(".fleet-option")];
     const tabButtons = [...document.querySelectorAll(".tab-button")];
     const tabPanels = [...document.querySelectorAll(".tab-panel")];
-    const mapChips = [...document.querySelectorAll(".map-chip")];
-    const mapFrames = [...document.querySelectorAll(".map-embed")];
-    const heroVenueList = document.getElementById("hero-venue-list");
     const shareTripButton = document.getElementById("share-trip");
     const shareTripLabel = document.getElementById("share-trip-label");
     const costBoatSelect = document.getElementById("cost-boat");
+    const compareBoatSelect = document.getElementById("compare-boat");
     const costPackageRow = document.getElementById("cost-package-row");
     const costGroupInput = document.getElementById("cost-group");
     const costGroupLabel = document.getElementById("cost-group-label");
@@ -3294,50 +3629,15 @@
         acc[venue.id] = venue;
         return acc;
       }, {});
-    let activeHeroMap = "stjoe";
     const costState = {
       boat: "seahawk",
+      compareBoat: "originator",
       packageId: "morning7",
       group: 4,
       tip: 20,
       license: 10,
       meal: true
     };
-
-    function renderHeroVenueList(key) {
-      const mapData = heroMapData[key];
-      if (!mapData || !heroVenueList) return;
-
-      document.getElementById("hero-map-kicker").textContent = mapData.kicker;
-      document.getElementById("hero-map-title").textContent = mapData.title;
-      document.getElementById("hero-map-copy").textContent = "Tiny harbor list up top. Full rates, reviews, captains, and photos are in the directory below.";
-      document.getElementById("hero-harbor-map").href =
-        key === "stjoe"
-          ? "https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/"
-          : "https://www.google.com/maps/search/Saugatuck+Michigan+fishing+charters/";
-
-      heroVenueList.innerHTML = mapData.venues.map((venue) => `
-        <div class="venue-button">
-          <strong><span>${venue.name}</span><span>${venue.priceTag}</span></strong>
-          <span>${venue.boat}</span>
-          <div class="venue-mini-meta">
-            <span>${venue.captain || "Captain listed on official site"}</span>
-            <span>${venue.contact.split(" • ")[1] || venue.contact}</span>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function setHeroMap(key) {
-      activeHeroMap = key;
-      mapChips.forEach((chip) => {
-        chip.classList.toggle("is-active", chip.dataset.map === key);
-      });
-      mapFrames.forEach((frame) => {
-        frame.classList.toggle("is-active", frame.dataset.mapFrame === key);
-      });
-      renderHeroVenueList(key);
-    }
 
     function renderHarborDirectory(containerId, harborKey) {
       const container = document.getElementById(containerId);
@@ -3423,11 +3723,22 @@
 
     function renderCostBoatOptions() {
       if (!costBoatSelect) return;
-      costBoatSelect.innerHTML = Object.entries(costCompareData).map(([key, boat]) => {
+      const options = Object.entries(costCompareData).map(([key, boat]) => {
         const title = charterData[key]?.name || key;
         return `<option value="${key}">${title} • ${boat.port}</option>`;
       }).join("");
+      costBoatSelect.innerHTML = options;
+      if (compareBoatSelect) {
+        compareBoatSelect.innerHTML = options;
+      }
       costBoatSelect.value = costState.boat;
+      if (compareBoatSelect) {
+        if (costState.compareBoat === costState.boat) {
+          const fallback = Object.keys(costCompareData).find((key) => key !== costState.boat);
+          if (fallback) costState.compareBoat = fallback;
+        }
+        compareBoatSelect.value = costState.compareBoat;
+      }
     }
 
     function renderCostPackageButtons() {
@@ -3488,31 +3799,124 @@
           return a.totalPerPerson - b.totalPerPerson;
         })
         .map((row) => {
+          const rating = ratingData[row.key];
+          const ratingMarkup = rating
+            ? `<span class="compare-rating-pill ${rating.value === null ? "is-empty" : ""}">${rating.label}</span>`
+            : "";
+
           if (row.totalPerPerson === null) {
             return `
-              <div class="compare-widget-row">
+              <button class="compare-widget-row ${row.key === costState.boat ? "is-active" : ""}" type="button" data-compare-charter="${row.key}">
                 <div>
-                  <strong>${row.name}</strong>
+                  <div class="compare-widget-head">
+                    <strong>${row.name}</strong>
+                    ${ratingMarkup}
+                  </div>
                   <span>${row.boat.port} • current public pricing is not posted for this group size</span>
                 </div>
                 <div class="compare-bar"></div>
                 <div class="compare-price">Call</div>
-              </div>
+              </button>
             `;
           }
 
           const width = `${Math.max(16, (row.totalPerPerson / maxValue) * 100)}%`;
           return `
-            <div class="compare-widget-row">
+            <button class="compare-widget-row ${row.key === costState.boat ? "is-active" : ""}" type="button" data-compare-charter="${row.key}">
               <div>
-                <strong>${row.name}</strong>
-                <span>${row.boat.port} • ${row.pkg.label} • ${row.pkg.hours} hr • ${row.boat.review}</span>
+                <div class="compare-widget-head">
+                  <strong>${row.name}</strong>
+                  ${ratingMarkup}
+                </div>
+                <span>${row.boat.port} • ${row.pkg.label} • ${row.pkg.hours} hr • ${rating ? rating.source : row.boat.review}</span>
               </div>
               <div class="compare-bar"><div class="compare-bar-fill" style="width:${width};"></div></div>
               <div class="compare-price">${formatMoney(row.totalPerPerson)}</div>
-            </div>
+            </button>
           `;
         }).join("");
+    }
+
+    function getCompareScenario(boatKey) {
+      const boat = costCompareData[boatKey];
+      const charter = charterData[boatKey];
+      const venue = venueLookup[boatKey] || {};
+      const rating = ratingData[boatKey];
+      if (!boat || !charter) return null;
+
+      const matchingPackage = boat.packages.find((pkg) => pkg.id === costState.packageId) || boat.packages[0];
+      const total = resolvePackagePrice(matchingPackage, costState.group);
+      const gratuity = total === null ? null : total * (costState.tip / 100);
+      const meal = costState.meal ? 25 : 0;
+      const totalPerPerson = total === null ? null : (total + gratuity) / costState.group + Number(costState.license) + meal;
+
+      return {
+        boat,
+        charter,
+        venue,
+        rating,
+        pkg: matchingPackage,
+        totalPerPerson,
+        photo: venue.photo || "https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg",
+        captain: venue.captain || "Captain listed on official site",
+        embedSrc: venue.embed || `https://www.google.com/maps?q=${encodeURIComponent(`${charter.name} ${charter.port} Michigan`)}&z=14&output=embed`
+      };
+    }
+
+    function renderComparePair() {
+      const container = document.getElementById("compare-pair-grid");
+      if (!container) return;
+
+      const scenarios = [costState.boat, costState.compareBoat]
+        .map((key, index) => ({ scenario: getCompareScenario(key), primary: index === 0 }))
+        .filter((entry) => entry.scenario);
+
+      container.innerHTML = scenarios.map(({ scenario, primary }) => `
+        <article class="compare-boat-card ${primary ? "is-primary" : ""}">
+          <div class="compare-boat-visuals">
+            <img class="compare-boat-photo" src="${scenario.photo}" alt="${scenario.charter.name} charter image">
+            <div class="compare-boat-map">
+              <iframe src="${scenario.embedSrc}" title="${scenario.charter.name} map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <div class="eyebrow">${scenario.boat.port}</div>
+          <h5>${scenario.charter.name}</h5>
+          <p>${scenario.charter.tagline}</p>
+          <div class="compare-boat-metrics">
+            <div class="compare-boat-metric">
+              <strong>Rate</strong>
+              <span>${scenario.charter.rate}</span>
+            </div>
+            <div class="compare-boat-metric">
+              <strong>Package</strong>
+              <span>${scenario.pkg.label} • ${scenario.pkg.hours} hr</span>
+            </div>
+            <div class="compare-boat-metric">
+              <strong>Captain</strong>
+              <span>${scenario.captain}</span>
+            </div>
+            <div class="compare-boat-metric">
+              <strong>Boat</strong>
+              <span>${scenario.boat.boat}</span>
+            </div>
+            <div class="compare-boat-metric">
+              <strong>Contact</strong>
+              <span>${scenario.charter.contact}</span>
+            </div>
+            <div class="compare-boat-metric">
+              <strong>Signal</strong>
+              <span>${scenario.rating ? scenario.rating.label : scenario.boat.review}</span>
+            </div>
+          </div>
+          <div class="compare-boat-total">
+            <div>
+              <div class="eyebrow">${primary ? "Active pick" : "Compare pick"}</div>
+              <span class="muted">${costState.group} angler${costState.group === 1 ? "" : "s"} • ${costState.tip}% tip</span>
+            </div>
+            <strong>${scenario.totalPerPerson === null ? "Call" : formatMoney(scenario.totalPerPerson)}</strong>
+          </div>
+        </article>
+      `).join("");
     }
 
     function renderCostLab() {
@@ -3523,6 +3927,11 @@
       const boat = getActiveCostBoat();
       const pkg = getActiveCostPackage();
       if (!boat || !pkg) return;
+      const charter = charterData[costState.boat];
+      const venue = venueLookup[costState.boat] || {};
+      const rating = ratingData[costState.boat];
+      const photoSrc = venue.photo || "https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg";
+      const captain = venue.captain || "Captain listed on official site";
 
       const charterTotal = resolvePackagePrice(pkg, costState.group);
       const charterBasePerPerson = charterTotal === null ? null : charterTotal / costState.group;
@@ -3554,15 +3963,30 @@
       document.getElementById("cost-total-value").textContent = totalPerPerson === null ? "Call" : formatMoney(totalPerPerson);
       document.getElementById("cost-trip-meta").textContent = `${pkg.label} • ${pkg.hours} hr`;
       document.getElementById("cost-port-meta").textContent = boat.port;
-      document.getElementById("cost-review-meta").textContent = boat.review;
+      document.getElementById("cost-review-meta").textContent = rating ? rating.label : boat.review;
       document.getElementById("cost-boat-meta").textContent = boat.boat;
+      document.getElementById("cost-hero-photo").src = photoSrc;
+      document.getElementById("cost-hero-photo").alt = `${charter.name} charter image`;
+      document.getElementById("cost-hero-port").textContent = "Linked cost snapshot";
+      document.getElementById("cost-hero-name").textContent = "Active charter summary";
+      document.getElementById("cost-hero-copy").textContent = `${charter.name} • ${boat.port} • ${pkg.label}. ${costState.group} angler${costState.group === 1 ? "" : "s"}, ${costState.tip}% tip, ${costState.meal ? "meal on" : "meal off"}, and ${costState.license >= 77 ? "annual" : "daily"} license are driving the same compare math below.`;
+      document.getElementById("cost-hero-captain").textContent = charter.name;
+      document.getElementById("cost-hero-boat").textContent = boat.boat;
+      document.getElementById("cost-hero-review").textContent = rating ? rating.label : captain;
+      document.getElementById("console-cost-photo").src = photoSrc;
+      document.getElementById("console-cost-photo").alt = `${charter.name} charter image`;
+      document.getElementById("console-cost-name").textContent = `${charter.name} • ${pkg.label}`;
+      document.getElementById("console-cost-copy").textContent = `${costState.group} angler${costState.group === 1 ? "" : "s"}, ${costState.license >= 77 ? "annual" : "daily"} license, ${costState.meal ? "meal on" : "meal off"}, ${costState.tip}% mate tip.`;
+      document.getElementById("console-cost-total").textContent = totalPerPerson === null ? "Call" : formatMoney(totalPerPerson);
 
       renderComparisonList();
+      renderComparePair();
     }
 
     function setCharter(key) {
       const charter = charterData[key];
       const venue = venueLookup[key] || {};
+      const rating = ratingData[key];
       if (!charter) return;
       const embedSrc = venue.embed || `https://www.google.com/maps?q=${encodeURIComponent(`${charter.name} ${charter.port} Michigan`)}&z=14&output=embed`;
 
@@ -3578,7 +4002,9 @@
       document.getElementById("console-window").textContent = charter.window;
       document.getElementById("console-species").textContent = charter.species;
       document.getElementById("console-contact").textContent = charter.contact;
-      document.getElementById("console-review").textContent = charter.review;
+      document.getElementById("console-review").textContent = rating
+        ? `${rating.label} • ${charter.review}`
+        : charter.review;
       document.getElementById("console-policy").textContent = charter.policy;
       document.getElementById("console-social").textContent = charter.social;
       document.getElementById("console-fit").textContent = charter.fit;
@@ -3611,10 +4037,6 @@
         setCharter(button.dataset.charter);
         button.blur();
       });
-    });
-
-    mapChips.forEach((chip) => {
-      chip.addEventListener("click", () => setHeroMap(chip.dataset.map));
     });
 
     tabButtons.forEach((button) => {
@@ -3662,8 +4084,21 @@
       costBoatSelect.addEventListener("change", () => {
         costState.boat = costBoatSelect.value;
         ensureCostPackageForBoat();
-        renderCostLab();
         setCharter(costState.boat);
+      });
+    }
+
+    if (compareBoatSelect) {
+      compareBoatSelect.addEventListener("change", () => {
+        costState.compareBoat = compareBoatSelect.value;
+        if (costState.compareBoat === costState.boat) {
+          const fallback = Object.keys(costCompareData).find((key) => key !== costState.boat);
+          if (fallback) {
+            costState.compareBoat = fallback;
+            compareBoatSelect.value = fallback;
+          }
+        }
+        renderCostLab();
       });
     }
 
@@ -3704,10 +4139,20 @@
       });
     }
 
-    renderHarborDirectory("directory-stjoe", "stjoe");
-    renderHarborDirectory("directory-saugatuck", "saugatuck");
+    const compareWidgetList = document.getElementById("compare-widget-list");
+    if (compareWidgetList) {
+      compareWidgetList.addEventListener("click", (event) => {
+        const row = event.target.closest("[data-compare-charter]");
+        if (!row) return;
+        const nextBoat = row.dataset.compareCharter;
+        if (!nextBoat || !costCompareData[nextBoat]) return;
+        costState.boat = nextBoat;
+        ensureCostPackageForBoat();
+        setCharter(nextBoat);
+      });
+    }
+
     renderCostLab();
-    setHeroMap(activeHeroMap);
     setCharter("seahawk");
   </script>
 </body>
