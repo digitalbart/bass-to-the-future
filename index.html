@@ -1280,78 +1280,51 @@
   <main class="shell">
     <section class="hero">
       <div class="hero-grid">
-        <article class="panel hero-copy">
-          <div class="eyebrow">Strategic Expedition Overview</div>
-          <h2>Lake Michigan salmon trip, cleaned up for a fast group call.</h2>
-          <p>
-            This top section is just the overview: both harbors visible at once, all the obvious charter-map pins on
-            screen, and no buried click path. The deeper boat-by-boat breakdown lives right below.
-          </p>
-          <div class="cta-row">
-            <a class="button button-primary" href="#directory">Jump to harbor directory</a>
-            <a class="button button-secondary" href="#intel">Open trip console</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>10</strong>
-              current charter picks
+        <aside class="panel map-card">
+          <div class="map-stage">
+            <div class="map-switcher" aria-label="Harbor map switcher">
+              <button class="map-chip is-active" type="button" data-map="stjoe">St. Joe</button>
+              <button class="map-chip" type="button" data-map="saugatuck">Saugatuck</button>
             </div>
-            <div class="stat">
-              <strong>2</strong>
-              harbor maps live at once
-            </div>
-            <div class="stat">
-              <strong>Late Aug</strong>
-              into early Sep 2026
-            </div>
-          </div>
-        </article>
 
-        <div class="map-overview-grid">
-          <article class="panel overview-map-card">
-            <div class="overview-map-head">
-              <div>
-                <div class="eyebrow">St. Joseph / Benton Harbor</div>
-                <h3>Sharper fishing-first launch.</h3>
-                <p>Best quick read if the group wants the cleaner salmon angle and tighter dock-day logistics.</p>
-              </div>
-              <div class="tag tag-primary">All pins visible</div>
-            </div>
-            <div class="overview-map-frame">
+            <div class="map-frame-wrap">
               <iframe
+                class="map-embed is-active"
+                data-map-frame="stjoe"
                 src="https://www.google.com/maps?q=St+Joseph+Michigan+fishing+charters&z=12&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="St. Joseph fishing charter overview map"
+                title="St. Joseph fishing charter map"
               ></iframe>
-            </div>
-            <div class="overview-map-actions">
-              <a class="button button-primary" href="https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open St. Joe map</a>
-            </div>
-          </article>
-
-          <article class="panel overview-map-card">
-            <div class="overview-map-head">
-              <div>
-                <div class="eyebrow">Saugatuck / Douglas</div>
-                <h3>Better town energy after the boat.</h3>
-                <p>Best quick read if the group wants a real charter morning plus a more walkable vacation-town afternoon.</p>
-              </div>
-              <div class="tag tag-soft">All pins visible</div>
-            </div>
-            <div class="overview-map-frame">
               <iframe
+                class="map-embed"
+                data-map-frame="saugatuck"
                 src="https://www.google.com/maps?q=Saugatuck+Michigan+fishing+charters&z=12&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="Saugatuck fishing charter overview map"
+                title="Saugatuck fishing charter map"
               ></iframe>
+
+              <div class="map-overlay">
+                <aside class="map-sidebar">
+                  <div class="harbor-summary">
+                    <div class="eyebrow">Strategic Expedition Overview</div>
+                    <div class="eyebrow" id="hero-map-kicker">St. Joseph Harbor</div>
+                    <h3 id="hero-map-title">Sharper fishing-first launch.</h3>
+                    <p id="hero-map-copy">Quick harbor view up top. All the real charter breakdown lives right below.</p>
+                  </div>
+
+                  <div class="venue-list" id="hero-venue-list"></div>
+
+                  <div class="map-action-row">
+                    <a class="button button-primary" id="hero-harbor-map" href="https://www.google.com/maps/search/St.+Joseph+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open Harbor Map</a>
+                    <a class="button button-secondary" href="#directory">Boat Directory</a>
+                  </div>
+                </aside>
+              </div>
             </div>
-            <div class="overview-map-actions">
-              <a class="button button-primary" href="https://www.google.com/maps/search/Saugatuck+Michigan+fishing+charters/" target="_blank" rel="noreferrer">Open Saugatuck map</a>
-            </div>
-          </article>
-        </div>
+          </div>
+        </aside>
       </div>
     </section>
 
