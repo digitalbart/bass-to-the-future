@@ -649,16 +649,24 @@
     }
 
     .sunrise-stage {
+      --season-glow: rgba(255, 211, 106, 0.16);
+      --season-sky: rgba(53, 208, 255, 0.08);
+      --season-lane: rgba(210, 237, 255, 0.08);
+      --season-lane-border: rgba(220, 242, 255, 0.28);
+      --sun-x: 50%;
+      --sun-y: 86px;
+      --light-x: 50%;
       position: relative;
       min-height: 170px;
       padding: 18px 18px 16px;
       border-radius: 24px;
       background:
-        radial-gradient(circle at 50% 16%, rgba(255, 211, 106, 0.16), transparent 18%),
-        linear-gradient(180deg, rgba(53, 208, 255, 0.08), transparent 54%),
+        radial-gradient(circle at var(--light-x) 12%, var(--season-glow), transparent 18%),
+        linear-gradient(180deg, var(--season-sky), transparent 54%),
         rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.07);
       overflow: hidden;
+      transition: background 0.25s ease;
     }
 
     .sunrise-stage::before {
@@ -674,7 +682,7 @@
       position: absolute;
       left: 8%;
       right: 8%;
-      bottom: 56px;
+      bottom: 58px;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
     }
@@ -736,21 +744,13 @@
     }
 
     .sunrise-arc {
-      position: absolute;
-      left: 12%;
-      right: 12%;
-      bottom: 34px;
-      height: 92px;
-      border-top: 2px solid rgba(145, 225, 255, 0.24);
-      border-radius: 999px 999px 0 0;
-      opacity: 0.95;
+      display: none;
     }
 
     .sunrise-orb {
-      --sun-x: 50%;
       position: absolute;
       left: var(--sun-x);
-      bottom: 114px;
+      bottom: var(--sun-y);
       width: 26px;
       height: 26px;
       border-radius: 999px;
@@ -758,6 +758,25 @@
       background: radial-gradient(circle, #fff6d9 0%, #ffd36a 58%, rgba(255, 211, 106, 0.2) 100%);
       box-shadow: 0 0 40px rgba(255, 211, 106, 0.36);
       z-index: 2;
+      transition: left 0.2s ease, bottom 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .sunrise-time-float {
+      position: absolute;
+      left: var(--sun-x);
+      bottom: calc(var(--sun-y) + 34px);
+      transform: translateX(-50%);
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(6, 16, 32, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f4f9ff;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      z-index: 2;
+      transition: left 0.2s ease, bottom 0.2s ease;
+      white-space: nowrap;
     }
 
     .sunrise-lane {
@@ -767,9 +786,25 @@
       bottom: 58px;
       height: 40px;
       border-radius: 999px;
-      background: rgba(210, 237, 255, 0.08);
-      border: 1px solid rgba(220, 242, 255, 0.28);
+      background: var(--season-lane);
+      border: 1px solid var(--season-lane-border);
       box-shadow: 0 0 24px rgba(142, 230, 255, 0.12);
+      transition: left 0.2s ease, width 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .sunrise-haze {
+      position: absolute;
+      left: var(--sun-x);
+      bottom: 58px;
+      width: 170px;
+      height: 58px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 220, 143, 0.18) 0%, rgba(255, 220, 143, 0.08) 42%, transparent 76%);
+      filter: blur(6px);
+      z-index: 1;
+      transition: left 0.2s ease, opacity 0.2s ease;
+      opacity: 0.82;
     }
 
     .sunrise-foot {
@@ -783,6 +818,28 @@
       color: var(--muted);
       font-size: 0.8rem;
       z-index: 2;
+    }
+
+    .sunrise-phase-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(6, 16, 32, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #eef5ff;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .sunrise-phase-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #35d0ff;
+      box-shadow: 0 0 16px rgba(53, 208, 255, 0.55);
     }
 
     .season-meta-rail {
@@ -1829,6 +1886,103 @@
       font-weight: 800;
     }
 
+    .rules-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 22px;
+    }
+
+    .rules-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .limits-board {
+      display: grid;
+      gap: 18px;
+    }
+
+    .limits-lead {
+      max-width: 34ch;
+    }
+
+    .limits-summary-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .limits-summary-chip {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .limits-summary-chip strong {
+      display: block;
+      font-size: 1.2rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .limits-summary-chip span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .limits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .limit-card {
+      padding: 16px;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(53, 208, 255, 0.06), transparent 58%),
+        rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      min-height: 100%;
+    }
+
+    .limit-card strong {
+      display: block;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .limit-card .eyebrow {
+      margin: 0;
+    }
+
+    .limit-cap {
+      display: inline-flex;
+      align-items: center;
+      align-self: start;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(53, 208, 255, 0.12);
+      border: 1px solid rgba(53, 208, 255, 0.24);
+      color: #eef5ff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .limit-card p {
+      margin: 0;
+      color: #d8e5fb;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
     .cost-box {
       display: grid;
       gap: 12px;
@@ -2399,6 +2553,7 @@
     @media (max-width: 1024px) {
       .hero-grid,
       .overview-grid,
+      .rules-grid,
       .ops-grid,
       .host-grid,
       .charter-grid,
@@ -2417,6 +2572,8 @@
 
       .toggle-grid,
       .cost-meta-grid,
+      .limits-summary-strip,
+      .limits-grid,
       .conditions-grid,
       .season-row,
       .compare-widget-row,
@@ -2430,6 +2587,10 @@
 
       .preset-stack {
         grid-template-columns: 1fr;
+      }
+
+      .limit-card[style] {
+        grid-column: auto !important;
       }
 
     }
@@ -2905,6 +3066,10 @@
                   <div class="eyebrow">Sunrise Read</div>
                   <strong id="bite-preset-month">September</strong>
                   <span id="bite-preset-harbor">St. Joseph</span>
+                  <div class="sunrise-phase-chip">
+                    <span class="sunrise-phase-dot" aria-hidden="true"></span>
+                    <span id="bite-stage-phase">Gray-light push</span>
+                  </div>
                 </div>
                 <div class="sunrise-times">
                   <div class="sunrise-time-pill">
@@ -2918,7 +3083,9 @@
                 </div>
               </div>
               <div class="sunrise-arc" aria-hidden="true"></div>
+              <div class="sunrise-time-float" id="bite-sunrise-time-float">06:43</div>
               <div class="sunrise-lane" id="bite-sunrise-lane" aria-hidden="true"></div>
+              <div class="sunrise-haze" id="bite-sunrise-haze" aria-hidden="true"></div>
               <div class="sunrise-orb" id="bite-sunrise-orb" aria-hidden="true"></div>
               <div class="sunrise-foot">
                 <span>Pre-dawn setup</span>
@@ -3374,14 +3541,14 @@
         <p class="muted">Useful details that should stay visible instead of getting buried.</p>
       </div>
 
-      <div class="overview-grid">
-        <article class="panel list-card">
+      <div class="rules-grid">
+        <article class="panel list-card rules-card">
           <div class="eyebrow">Michigan trip rules</div>
-          <p>Checked against the 2026 Michigan DNR regulations and license pages for the parts most relevant to a Lake Michigan salmon trip.</p>
           <ul class="bullet-list">
             <li>Anglers age 17 and up need a Michigan fishing license. The 2026 license year runs from April 1, 2026 through March 31, 2027.</li>
             <li>Daily all-species license is $10 for residents or nonresidents, and the purchaser sets the 24-hour start time.</li>
             <li>Annual nonresident all-species license is $76, plus the $1 DNR Sportcard fee listed by the state.</li>
+            <li>For Great Lakes trout and salmon, Lake Michigan is open all year and the general minimum size is 10 inches, but lake trout use a separate management-unit table.</li>
             <li>If anyone plans to fish inland trout or salmon waters before or after the charter, the 2026 digest says to check the county exceptions and Michigan Fishing Maps because seasons and tackle rules can change by waterbody.</li>
             <li>The 2026 regulations also clarified bead fishing for trout and salmon: a bead on the hook, or pegged no more than 4 inches above a single-pointed hook, counts as an artificial lure.</li>
             <li>Most charter crews allow moderate beer or wine, but hard liquor is commonly prohibited.</li>
@@ -3392,14 +3559,67 @@
           </div>
         </article>
 
-        <article class="panel list-card">
-          <div class="eyebrow">Pack like a pro</div>
-          <ul class="bullet-list">
-            <li>Polarized sunglasses, a non-cotton layer, and soft-soled shoes with grip.</li>
-            <li>Small cooler for transport after fish cleaning if the captain does not provide storage bags.</li>
-            <li>Motion-sickness plan before the boat leaves, not after the lake turns on you.</li>
-            <li>Cash for mate tip, launch snacks, and any cook-your-catch fee.</li>
-          </ul>
+        <article class="panel list-card limits-board">
+          <div class="eyebrow">Lake Michigan daily limits</div>
+          <div class="limits-summary-strip">
+            <div class="limits-summary-chip">
+              <strong>5 fish</strong>
+              <span>Total trout + salmon per angler per day</span>
+            </div>
+            <div class="limits-summary-chip">
+              <strong>5 max</strong>
+              <span>Chinook, Coho, or Pink can fill the whole box</span>
+            </div>
+            <div class="limits-summary-chip">
+              <strong>3 max</strong>
+              <span>Steelhead, Brown, and Atlantic each cap at 3</span>
+            </div>
+          </div>
+          <div class="limits-grid">
+            <article class="limit-card">
+              <div class="eyebrow">Salmon</div>
+              <strong>Chinook salmon</strong>
+              <span class="limit-cap">Up to 5</span>
+              <p>Can fill the whole 5-fish trout-and-salmon box by itself.</p>
+            </article>
+            <article class="limit-card">
+              <div class="eyebrow">Salmon</div>
+              <strong>Coho salmon</strong>
+              <span class="limit-cap">Up to 5</span>
+              <p>Also allowed to fill the whole daily trout-and-salmon box.</p>
+            </article>
+            <article class="limit-card">
+              <div class="eyebrow">Salmon</div>
+              <strong>Pink salmon</strong>
+              <span class="limit-cap">Up to 5</span>
+              <p>Allowed up to the same full 5-fish daily Great Lakes total.</p>
+            </article>
+            <article class="limit-card">
+              <div class="eyebrow">Trout</div>
+              <strong>Rainbow trout / steelhead</strong>
+              <span class="limit-cap">Max 3</span>
+              <p>Hard cap of 3 per day even though the total trout-and-salmon box is 5.</p>
+            </article>
+            <article class="limit-card">
+              <div class="eyebrow">Trout</div>
+              <strong>Brown trout</strong>
+              <span class="limit-cap">Max 3</span>
+              <p>Same 3-fish species cap inside the overall 5-fish daily box.</p>
+            </article>
+            <article class="limit-card">
+              <div class="eyebrow">Salmon</div>
+              <strong>Atlantic salmon</strong>
+              <span class="limit-cap">Max 3</span>
+              <p>Also capped at 3 per day on the Great Lakes.</p>
+            </article>
+            <article class="limit-card" style="grid-column: 1 / -1;">
+              <div class="eyebrow">Double-check item</div>
+              <strong>Lake trout / splake</strong>
+              <span class="limit-cap">Unit-specific</span>
+              <p>Follow the separate Lake Trout Management Unit table in the 2026 digest. This is the one to confirm against the exact St. Joe or Saugatuck-area port before fishing.</p>
+            </article>
+          </div>
+          <div class="quote">Simple version: 5 total trout and salmon per person, with Chinook or Coho able to fill that whole box, while steelhead, brown trout, and Atlantic salmon stay capped at 3 each.</div>
         </article>
       </div>
     </section>
@@ -4445,6 +4665,36 @@
       return bitePresetData[biteState.location]?.[biteState.month];
     }
 
+    function getBiteSeasonTheme() {
+      const themes = {
+        july: {
+          glow: "rgba(255, 198, 120, 0.18)",
+          sky: "rgba(86, 187, 255, 0.12)",
+          lane: "rgba(255, 230, 170, 0.1)",
+          laneBorder: "rgba(255, 230, 170, 0.32)"
+        },
+        august: {
+          glow: "rgba(255, 211, 106, 0.18)",
+          sky: "rgba(53, 208, 255, 0.1)",
+          lane: "rgba(255, 223, 150, 0.1)",
+          laneBorder: "rgba(255, 233, 180, 0.3)"
+        },
+        september: {
+          glow: "rgba(255, 214, 132, 0.16)",
+          sky: "rgba(53, 208, 255, 0.08)",
+          lane: "rgba(210, 237, 255, 0.08)",
+          laneBorder: "rgba(220, 242, 255, 0.28)"
+        },
+        october: {
+          glow: "rgba(255, 180, 112, 0.2)",
+          sky: "rgba(109, 147, 255, 0.1)",
+          lane: "rgba(255, 214, 160, 0.08)",
+          laneBorder: "rgba(255, 214, 160, 0.24)"
+        }
+      };
+      return themes[biteState.month] || themes.september;
+    }
+
     function updateBitePresetChips() {
       biteLocationButtons.forEach((button) => {
         button.classList.toggle("is-active", button.dataset.biteLocation === biteState.location);
@@ -4501,6 +4751,14 @@
     }
 
     function syncBitePresetSummary(preset) {
+      const stage = document.querySelector(".sunrise-stage");
+      const theme = getBiteSeasonTheme();
+      if (stage) {
+        stage.style.setProperty("--season-glow", theme.glow);
+        stage.style.setProperty("--season-sky", theme.sky);
+        stage.style.setProperty("--season-lane", theme.lane);
+        stage.style.setProperty("--season-lane-border", theme.laneBorder);
+      }
       document.getElementById("bite-preset-harbor").textContent = bitePresetData[biteState.location].label;
       document.getElementById("bite-preset-month").textContent = preset.label;
       document.getElementById("bite-preset-sunrise").textContent = formatMinutesToTime(preset.sunrise);
@@ -4587,6 +4845,41 @@
       document.getElementById("bite-depth").textContent = model.depth;
       document.getElementById("bite-water").textContent = preset.water;
       document.getElementById("bite-weather").textContent = model.weather;
+      document.getElementById("bite-stage-phase").textContent = model.phase;
+
+      const min = Number(biteTimeRange.min);
+      const max = Number(biteTimeRange.max);
+      const progress = (totalMinutes - min) / (max - min);
+      const clampedProgress = Math.max(0, Math.min(1, progress));
+      const sunX = 14 + (clampedProgress * 72);
+      const riseStrength = Math.max(0, 1 - Math.abs(totalMinutes - preset.sunrise) / 150);
+      const lift = Math.sin(clampedProgress * Math.PI) * 32;
+      const baseHeight = 76 + lift;
+      const sunriseOrb = document.getElementById("bite-sunrise-orb");
+      if (sunriseOrb) {
+        sunriseOrb.style.setProperty("--sun-x", `${sunX}%`);
+        sunriseOrb.style.setProperty("--sun-y", `${baseHeight}px`);
+        sunriseOrb.style.setProperty("--light-x", `${sunX}%`);
+        sunriseOrb.style.transform = `translateX(-50%) scale(${0.92 + (model.score / 220)})`;
+      }
+
+      const stage = document.querySelector(".sunrise-stage");
+      if (stage) {
+        stage.style.setProperty("--light-x", `${sunX}%`);
+      }
+
+      const sunriseHaze = document.getElementById("bite-sunrise-haze");
+      if (sunriseHaze) {
+        sunriseHaze.style.left = `${sunX}%`;
+        sunriseHaze.style.opacity = String(0.42 + (riseStrength * 0.48));
+      }
+
+      const sunriseTimeFloat = document.getElementById("bite-sunrise-time-float");
+      if (sunriseTimeFloat) {
+        sunriseTimeFloat.textContent = timeText;
+        sunriseTimeFloat.style.left = `${sunX}%`;
+        sunriseTimeFloat.style.bottom = `${baseHeight + 34}px`;
+      }
 
       const scoreLabel = document.getElementById("bite-score-label");
       if (model.score >= 85) {
