@@ -158,12 +158,6 @@
       align-items: stretch;
     }
 
-    .map-overview-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
     .panel {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -257,54 +251,6 @@
       min-height: 100%;
       overflow: hidden;
       background: linear-gradient(160deg, rgba(9, 24, 47, 0.98), rgba(6, 14, 27, 0.98));
-    }
-
-    .overview-map-card {
-      padding: 18px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .overview-map-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .overview-map-head h3 {
-      margin: 8px 0 4px;
-      font-size: 1.9rem;
-      letter-spacing: -0.05em;
-    }
-
-    .overview-map-head p {
-      margin: 0;
-      color: #d8e5fb;
-      line-height: 1.55;
-    }
-
-    .overview-map-frame {
-      position: relative;
-      min-height: 560px;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .overview-map-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .overview-map-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
     }
 
     .map-stage {
@@ -618,6 +564,7 @@
 
     .console-grid {
       grid-template-columns: 320px 1fr;
+      align-items: start;
     }
 
     .port-grid {
@@ -647,6 +594,10 @@
       display: grid;
       gap: 12px;
       align-content: start;
+      max-height: 880px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 4px;
     }
 
     .fleet-group-label {
@@ -720,6 +671,36 @@
       color: #d8e5fb;
       line-height: 1.72;
       margin-bottom: 18px;
+    }
+
+    .console-media-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .console-photo,
+    .console-map-frame {
+      width: 100%;
+      min-height: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .console-photo {
+      object-fit: cover;
+      display: block;
+    }
+
+    .console-map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      border: 0;
+      display: block;
     }
 
     .data-grid {
@@ -1174,7 +1155,6 @@
 
     @media (max-width: 1024px) {
       .hero-grid,
-      .map-overview-grid,
       .overview-grid,
       .ops-grid,
       .host-grid,
@@ -1243,6 +1223,10 @@
       }
 
       .data-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .console-media-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1541,10 +1525,27 @@
                 the boat details are visible, and the dock/contact info are current enough to turn straight into a booking.
               </p>
 
+              <div class="console-media-grid">
+                <img class="console-photo" id="console-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg" alt="Sea Hawk charter boat photo">
+                <div class="console-map-frame">
+                  <iframe
+                    id="console-embed"
+                    src="https://www.google.com/maps?q=Sea+Hawk+Fishing+Charters+St.+Joseph+1000+Riverview+Dr+Benton+Harbor+MI&z=16&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Sea Hawk map"
+                  ></iframe>
+                </div>
+              </div>
+
               <div class="data-grid">
                 <div class="data-item">
                   <strong>Rate Snapshot</strong>
                   <span id="console-rate">$900 for 1-4 anglers, 7-hour morning trip</span>
+                </div>
+                <div class="data-item">
+                  <strong>Captain / Crew</strong>
+                  <span id="console-captain">Captain Russ Clark</span>
                 </div>
                 <div class="data-item">
                   <strong>Boat / Platform</strong>
@@ -2226,6 +2227,63 @@
         site: "https://www.originatorcharters.com/",
         call: "tel:2692072551"
       },
+      bigbird: {
+        port: "St. Joseph",
+        name: "Big Bird",
+        tagline: "Visual-first St. Joseph pick with strong social and gallery coverage.",
+        badge: "Visual pick",
+        copy:
+          "Big Bird stands out if the group wants a St. Joseph option with a stronger public visual footprint. The boat type, morning rates, and social presence are all easy to verify, which helps when people want to feel the charter before they book it.",
+        rate: "7-hour AM $900 for 1-4, $1,000 for 5, $1,100 for 6",
+        boat: "34' SeaRay 340 Express Cruiser",
+        window: "Late summer and early fall salmon mornings with clear AM pricing ladder",
+        contact: "Pier 1000 / Anchors Way area • 269-243-0633",
+        review: "Official site links out to Facebook, Instagram, and Tripadvisor, giving it a stronger public trail than most.",
+        fit: "Groups who want a visible, easy-to-vet St. Joseph option with a polished online footprint.",
+        quote: "This is the one that feels easiest to pass around in a group text because the visuals and social proof are already there.",
+        map: "https://www.google.com/maps/search/Big+Bird+Charters+St.+Joseph+MI/",
+        reviews: "https://www.google.com/search?q=Big+Bird+Charters+St.+Joseph+reviews",
+        site: "https://www.bigbirdcharters.com/",
+        call: "tel:2692430633"
+      },
+      coldwater: {
+        port: "St. Joseph",
+        name: "Coldwater Charters",
+        tagline: "Veteran multi-boat St. Joseph operator with current salmon pricing.",
+        badge: "Fleet pick",
+        copy:
+          "Coldwater is less polished visually than some of the others, but it earns its slot because the rates are still live and the salmon-focused boat setup is easy to compare. If the group is shopping practical options instead of brand polish, this one belongs in the board.",
+        rate: "7-hour AM $900 for 1-4; PM 5-hour $800 for 1-4",
+        boat: "31' Tiara fleet: Salmon Express II / III",
+        window: "Late August and early September mornings remain the cleanest salmon read",
+        contact: "690 Fisherman's Rd, St. Joseph • 517-617-0282",
+        review: "Published rates are still current enough to support a real comparison, even if the site feels old-school.",
+        fit: "Groups who care more about a practical salmon charter comparison than a premium-looking website.",
+        quote: "Useful because it gives the group one more serious St. Joseph pricing benchmark instead of just the headline names.",
+        map: "https://www.google.com/maps/search/Coldwater+Charters+St.+Joseph+MI/",
+        reviews: "https://www.google.com/search?q=Coldwater+Charters+St.+Joseph+reviews",
+        site: "https://coldwatercharters.com/",
+        call: "tel:5176170282"
+      },
+      fishstalker: {
+        port: "St. Joseph",
+        name: "Fish Stalker",
+        tagline: "Clear value play with modern site updates and catch-and-cook tie-in.",
+        badge: "Value pick",
+        copy:
+          "Fish Stalker is one of the better value reads in the St. Joseph area because the current site makes the pricing easy to trust and the captain info is visible. It also plays nicely with the post-trip food angle because of the catch-and-cook connection.",
+        rate: "5-hour $700 / $775 / $850; 7-hour $800 / $875 / $975",
+        boat: "31' Tiara trolling platform",
+        window: "Good fit for late-summer salmon and trout groups that want simpler pricing choices",
+        contact: "Brian's Marina, 285 Anchors Way • 269-425-8651",
+        review: "Modern site with active 2026 updates, clear packages, and a stronger current feel than many older charter pages.",
+        fit: "Price-aware groups that still want a legit salmon charter and easy booking info.",
+        quote: "This is the one that helps if someone in the group asks for a solid option that looks a little less expensive without feeling sketchy.",
+        map: "https://www.google.com/maps/search/Fish+Stalker+Charters+St.+Joseph+MI/",
+        reviews: "https://www.google.com/search?q=Fish+Stalker+Charters+St.+Joseph+reviews",
+        site: "https://fishstalker.net/",
+        call: "tel:2694258651"
+      },
       miryha: {
         port: "Saugatuck",
         name: "MIRYHA",
@@ -2245,7 +2303,7 @@
         site: "https://saugatuckcharterfishing.com/",
         call: "tel:6168360439"
       },
-      bestchance: {
+      bestchancetoo: {
         port: "Saugatuck",
         name: "Best Chance Too",
         tagline: "Tournament-grade Saugatuck operator with the strongest competitive reputation.",
@@ -2263,6 +2321,63 @@
         reviews: "https://www.google.com/search?q=Best+Chance+Too+Saugatuck+reviews",
         site: "https://www.bestchancetoo.com/",
         call: "tel:6162924812"
+      },
+      bestchance: {
+        port: "Saugatuck",
+        name: "Best Chance",
+        tagline: "Lower-entry Best Chance fleet option with the same strong marina setup.",
+        badge: "Mid-tier",
+        copy:
+          "Best Chance gives the group a more approachable entry point into the same Saugatuck fleet. If you want the same dock flow and a proven operator but do not need the top-end flagship, this is the cleaner middle lane.",
+        rate: "Half-day $750 / $850 / $950; full-day $950 / $1,050 / $1,150",
+        boat: "30' Sea Ray Weekender",
+        window: "Prime late-summer morning salmon trips with half-day and full-day flexibility",
+        contact: "650 S Water Street, Saugatuck • 616-218-4718",
+        review: "Benefits from the same fleet reputation and booking setup as Best Chance Too, just at a friendlier starting point.",
+        fit: "Groups who want Saugatuck and a proven fleet but do not need the premium flagship.",
+        quote: "A strong middle answer when the group wants something real without instantly jumping to the most expensive boat.",
+        map: "https://www.google.com/maps/search/Best+Chance+Saugatuck+MI/",
+        reviews: "https://www.google.com/search?q=Best+Chance+Charter+Fishing+Saugatuck+reviews",
+        site: "https://www.bestchancetoo.com/",
+        call: "tel:6162184718"
+      },
+      bestchancejr: {
+        port: "Saugatuck",
+        name: "Best Chance Jr.",
+        tagline: "Newest Best Chance fleet boat with the same core rate ladder and marina flow.",
+        badge: "Fleet alt",
+        copy:
+          "Best Chance Jr. works as the backup or alternate move if the group wants the Best Chance fleet specifically but needs another boat in the program. It keeps the same marina logic and near-identical price structure.",
+        rate: "Half-day $750 / $850 / $950; full-day $950 / $1,050 / $1,150",
+        boat: "30' Sea Ray Weekender",
+        window: "Late-summer salmon timing with the same general Best Chance trip flow",
+        contact: "650 S Water Street, Saugatuck • 616-218-4638",
+        review: "Useful because it broadens the Best Chance family choices without changing the basic booking logic.",
+        fit: "Groups that like the Best Chance setup and want another legitimate option from the same dock.",
+        quote: "Good to have on the board because it turns one Saugatuck fleet into multiple actual booking shots.",
+        map: "https://www.google.com/maps/search/Best+Chance+Jr+Saugatuck+MI/",
+        reviews: "https://www.google.com/search?q=Best+Chance+Jr+Saugatuck+reviews",
+        site: "https://www.bestchancetoo.com/",
+        call: "tel:6162184638"
+      },
+      bluechip: {
+        port: "Saugatuck",
+        name: "Blue Chip",
+        tagline: "Big Lake Outfitters charter boat with clean published day structures.",
+        badge: "Alt pick",
+        copy:
+          "Blue Chip belongs in the mix because Big Lake Outfitters publishes direct half-day and full-day pricing and anchors the boat inside a broader Saugatuck outfitter operation. It is a cleaner logistics play than it first looks.",
+        rate: "Half-day $800 for 1-4, $1,000 for 5-6; full-day $1,000 / $1,200",
+        boat: "31' Open Tiara",
+        window: "Good Saugatuck late-summer salmon and trout option with simple trip formats",
+        contact: "640 Water Street, Saugatuck • 269-857-4762",
+        review: "Published rates, direct phone booking, and a downtown outfitter presence make it easy to compare on logistics.",
+        fit: "Groups who like having a charter tied into a bigger local outfitter and tackle hub.",
+        quote: "Useful when the group wants Saugatuck but also likes the idea of a broader local base instead of a single-boat site.",
+        map: "https://www.google.com/maps/search/Big+Lake+Outfitters+Saugatuck+MI/",
+        reviews: "https://www.google.com/search?q=Big+Lake+Outfitters+Saugatuck+reviews",
+        site: "https://www.biglakeoutfitters.com/charterfishing",
+        call: "tel:2698574762"
       }
     };
 
@@ -2272,6 +2387,12 @@
     const mapChips = [...document.querySelectorAll(".map-chip")];
     const mapFrames = [...document.querySelectorAll(".map-embed")];
     const heroVenueList = document.getElementById("hero-venue-list");
+    const venueLookup = Object.values(heroMapData)
+      .flatMap((group) => group.venues)
+      .reduce((acc, venue) => {
+        acc[venue.id] = venue;
+        return acc;
+      }, {});
     let activeHeroMap = "stjoe";
 
     function renderHeroVenueList(key) {
@@ -2361,13 +2482,16 @@
 
     function setCharter(key) {
       const charter = charterData[key];
+      const venue = venueLookup[key] || {};
       if (!charter) return;
+      const embedSrc = venue.embed || `https://www.google.com/maps?q=${encodeURIComponent(`${charter.name} ${charter.port} Michigan`)}&z=14&output=embed`;
 
       document.getElementById("console-port").textContent = charter.port;
       document.getElementById("console-name").textContent = charter.name;
       document.getElementById("console-tagline").textContent = charter.tagline;
       document.getElementById("console-badge").textContent = charter.badge;
       document.getElementById("console-copy").textContent = charter.copy;
+      document.getElementById("console-captain").textContent = venue.captain || "See official listing";
       document.getElementById("console-rate").textContent = charter.rate;
       document.getElementById("console-boat").textContent = charter.boat;
       document.getElementById("console-window").textContent = charter.window;
@@ -2379,6 +2503,10 @@
       document.getElementById("console-reviews").href = charter.reviews;
       document.getElementById("console-site").href = charter.site;
       document.getElementById("console-call").href = charter.call;
+      document.getElementById("console-photo").src = venue.photo || "https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg";
+      document.getElementById("console-photo").alt = `${charter.name} charter boat photo`;
+      document.getElementById("console-embed").src = embedSrc;
+      document.getElementById("console-embed").title = `${charter.name} map`;
 
       fleetButtons.forEach((button) => {
         button.classList.toggle("is-active", button.dataset.charter === key);
