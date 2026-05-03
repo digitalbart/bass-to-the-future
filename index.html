@@ -795,6 +795,14 @@
       font-size: 2rem;
     }
 
+    .console-header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
     .console-copy {
       color: #d8e5fb;
       line-height: 1.72;
@@ -2235,40 +2243,6 @@
             </div>
           </div>
         </aside>
-
-        <article class="panel timeline-card">
-          <div class="eyebrow">Morning attack plan</div>
-          <div class="timeline">
-            <div class="timeline-step">
-              <time>05:15</time>
-              <div>
-                <strong>Dock arrival</strong>
-                <p>Show up early, get gear settled, take motion meds before boarding if anyone needs them.</p>
-              </div>
-            </div>
-            <div class="timeline-step">
-              <time>06:00</time>
-              <div>
-                <strong>Lines in</strong>
-                <p>Gray light is prime. Expect the first couple of hours to matter most for active staging salmon.</p>
-              </div>
-            </div>
-            <div class="timeline-step">
-              <time>13:00</time>
-              <div>
-                <strong>Return and clean fish</strong>
-                <p>Mate handles filleting while the group resets, tips out, and decides on the lunch plan.</p>
-              </div>
-            </div>
-            <div class="timeline-step">
-              <time>14:30</time>
-              <div>
-                <strong>Catch-and-cook meal</strong>
-                <p>Take the cleaned fillets to a participating local restaurant for the payoff meal.</p>
-              </div>
-            </div>
-          </div>
-        </article>
       </div>
 
       <article class="panel compare-widget">
@@ -2373,8 +2347,6 @@
       <div class="panel intel-panel">
         <div class="tab-bar" role="tablist" aria-label="Trip Console Tabs">
           <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet" id="btn-fleet">Boat Directory</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-dates" id="btn-dates">Dates</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ports" id="btn-ports">Conditions</button>
           <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-booking" id="btn-booking">Booking Flow</button>
         </div>
 
@@ -2432,6 +2404,9 @@
                   <div class="eyebrow" id="console-port">St. Joseph</div>
                   <h4 id="console-name">Sea Hawk</h4>
                   <div class="muted" id="console-tagline">High-action salmon focus with verified current rates.</div>
+                  <div class="console-header-meta">
+                    <span class="compare-rating-pill" id="console-rating-pill">4.8★ Google (87)</span>
+                  </div>
                 </div>
                 <div class="tag tag-primary" id="console-badge">Top pick</div>
               </div>
@@ -2533,108 +2508,6 @@
           </div>
         </section>
 
-        <section class="tab-panel" role="tabpanel" id="tab-dates" aria-labelledby="btn-dates">
-          <div class="calendar-grid">
-            <article class="calendar-card">
-              <div class="eyebrow">Window A</div>
-              <h4>Friday, August 21 to Sunday, August 30, 2026</h4>
-              <p>Best choice if your group wants the strongest chance at staging salmon before Labor Day traffic picks up too much.</p>
-              <div class="chip-row">
-                <span class="chip good">Best balance</span>
-                <span class="chip warn">Book early</span>
-              </div>
-            </article>
-            <article class="calendar-card">
-              <div class="eyebrow">Window B</div>
-              <h4>Thursday, September 3 to Monday, September 7, 2026</h4>
-              <p>Very strong holiday window, but marinas, restaurants, and rooms can get tighter. Great if the group wants full town energy.</p>
-              <div class="chip-row">
-                <span class="chip good">Prime run timing</span>
-                <span class="chip warn">Holiday pricing pressure</span>
-              </div>
-            </article>
-            <article class="calendar-card">
-              <div class="eyebrow">Backup Plan</div>
-              <h4>Midweek mornings win</h4>
-              <p>If you can go Tuesday through Thursday, you usually get cleaner booking options, easier lodging, and less harbor congestion.</p>
-              <div class="chip-row">
-                <span class="chip good">Cleaner logistics</span>
-                <span class="chip good">Often easier to rebook</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="tab-panel" role="tabpanel" id="tab-ports" aria-labelledby="btn-ports">
-          <div class="conditions-grid">
-            <article class="conditions-card">
-              <div class="eyebrow">St. Joseph Marine Snapshot</div>
-              <h4>Checked Saturday, May 2, 2026</h4>
-              <p>Official NOAA nearshore forecast for the St. Joseph side. This is the planning snapshot to pair with the captain’s final weather call the day before launch.</p>
-              <div class="conditions-meta">
-                <span class="conditions-pill">Water temp: 50°F</span>
-                <span class="conditions-pill">Tonight: 2 ft or less</span>
-                <span class="conditions-pill">Sunday advisory</span>
-              </div>
-              <ul>
-                <li>Tonight: southwest 10 to 15 knots, partly cloudy, waves 2 feet or less.</li>
-                <li>Sunday: southwest 15 to 20 knots with gusts up to 25, waves 2 to 4 feet.</li>
-                <li>Monday: southwest 5 to 15 knots, sunny, waves 1 to 2 feet.</li>
-              </ul>
-              <div class="cta-row">
-                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KIWX.html" target="_blank" rel="noreferrer">NOAA forecast</a>
-                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=stdm4" target="_blank" rel="noreferrer">St. Joseph temp</a>
-              </div>
-            </article>
-            <article class="conditions-card">
-              <div class="eyebrow">Saugatuck / Holland Snapshot</div>
-              <h4>Checked Saturday, May 2, 2026</h4>
-              <p>Official NOAA nearshore forecast for South Haven to Holland plus the Holland station reading, which makes the Saugatuck side a lot more useful than a generic weather card.</p>
-              <div class="conditions-meta">
-                <span class="conditions-pill">Water temp: 48.7°F</span>
-                <span class="conditions-pill">Tonight: 2 to 3 ft</span>
-                <span class="conditions-pill">Sunday: 4 to 6 ft</span>
-              </div>
-              <ul>
-                <li>Tonight: southwest 15 to 25 knots, partly cloudy, waves 2 to 3 feet.</li>
-                <li>Sunday: southwest up to 30 knots, chance of showers, waves 4 to 6 feet.</li>
-                <li>Monday: southwest 15 to 25 knots, mostly sunny, waves building 2 to 4 feet.</li>
-              </ul>
-              <div class="cta-row">
-                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KGRR.html" target="_blank" rel="noreferrer">NOAA forecast</a>
-                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=hlnm4" target="_blank" rel="noreferrer">Holland temp</a>
-              </div>
-            </article>
-          </div>
-          <article class="conditions-card seasonal-conditions">
-            <div class="eyebrow">Monthly Seasonal Planner</div>
-            <h4>Daily NOAA up top, monthly run read below.</h4>
-            <p>This quick chart turns the day-by-day weather tab into a fuller planning view. The seasonal weights are based on the current charter calendars and the late-summer staging pattern this trip is built around.</p>
-            <div class="season-chart">
-              <div class="season-row">
-                <div class="season-month">July</div>
-                <div class="season-track"><div class="season-fill" style="width: 46%;"></div></div>
-                <div class="season-copy">Coho, steelhead, and mixed trout. Good warm-water action, less of the mature staging push.</div>
-              </div>
-              <div class="season-row">
-                <div class="season-month">Aug</div>
-                <div class="season-track"><div class="season-fill" style="width: 88%;"></div></div>
-                <div class="season-copy">Strong run-up month. Mature kings begin stacking near harbor mouths and morning starts matter more.</div>
-              </div>
-              <div class="season-row">
-                <div class="season-month">Sep</div>
-                <div class="season-track"><div class="season-fill" style="width: 97%;"></div></div>
-                <div class="season-copy">Peak staging energy for this concept. Best month for a serious salmon-first weekend if weather lines up.</div>
-              </div>
-              <div class="season-row">
-                <div class="season-month">Oct</div>
-                <div class="season-track"><div class="season-fill" style="width: 54%;"></div></div>
-                <div class="season-copy">Still fishable in spots, but much less clean for the exact late-summer harbor plan this page is built around.</div>
-              </div>
-            </div>
-          </article>
-        </section>
-
         <section class="tab-panel" role="tabpanel" id="tab-booking" aria-labelledby="btn-booking">
           <div class="booking-grid">
             <article class="booking-card">
@@ -2662,118 +2535,128 @@
       </div>
     </section>
 
-    <section class="section" id="charters">
+    <section class="section" id="dates">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">03 // Charter Board</div>
-          <h3>Four sourced options, cleaned up and corrected.</h3>
+          <div class="eyebrow">03 // Dates</div>
+          <h3>Keep the trip windows visible.</h3>
         </div>
-        <p class="muted">The weaker placeholders are gone. These now line up with current websites and local listings.</p>
+        <p class="muted">The booking windows matter enough that they should sit in the page flow, not inside a hidden tab.</p>
       </div>
 
-      <div class="charter-grid">
-        <article class="panel charter-card">
-          <div class="charter-top">
-            <div>
-              <div class="tag tag-soft">St. Joseph</div>
-              <h4>Sea Hawk</h4>
-              <div class="muted">Best for high-action salmon focus</div>
-            </div>
-            <div class="tag tag-primary">Top pick</div>
-          </div>
-          <div class="quote">
-            Legendary for keeping guests on active fish and strong for groups who want the “book the best guide”
-            answer without overthinking it.
-          </div>
-          <ul class="bullet-list">
-            <li>Typical rate: about $900 for a 7-hour morning trip for up to 4, then extra per added guest.</li>
-            <li>Includes tackle, bait, and fish cleaning on most standard trips.</li>
-            <li>Best fit for anglers who care more about the fishing than the marina scene.</li>
-          </ul>
-          <div class="cta-row">
-            <a class="button button-secondary" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open map</a>
-            <a class="button button-secondary" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+      <div class="calendar-grid">
+        <article class="calendar-card">
+          <div class="eyebrow">Window A</div>
+          <h4>Friday, August 21 to Sunday, August 30, 2026</h4>
+          <p>Best choice if your group wants the strongest chance at staging salmon before Labor Day traffic picks up too much.</p>
+          <div class="chip-row">
+            <span class="chip good">Best balance</span>
+            <span class="chip warn">Book early</span>
           </div>
         </article>
-
-        <article class="panel charter-card">
-          <div class="charter-top">
-            <div>
-              <div class="tag tag-soft">St. Joseph</div>
-              <h4>Originator</h4>
-              <div class="muted">Best for stability and bigger-water comfort</div>
-            </div>
-            <div class="tag tag-primary">Big boat</div>
-          </div>
-          <div class="quote">
-            Originator’s 36' Tiara plus hard top, heat, A/C, and wide fishing deck make it the strongest comfort-and-space
-            answer on the St. Joseph side.
-          </div>
-          <ul class="bullet-list">
-            <li>Current St. Joseph listing shows a 6-hour trip at $900 for 1-4, then $1,000 for 5 and $1,100 for 6.</li>
-            <li>Best platform for a crew that values deck space, wider weather margin, and easy movement onboard.</li>
-            <li>Good match for larger groups or mixed-experience anglers.</li>
-          </ul>
-          <div class="cta-row">
-            <a class="button button-secondary" href="https://www.google.com/maps/search/Originator+Fishing+Charter+St.+Joseph+MI/" target="_blank" rel="noreferrer">Open map</a>
-            <a class="button button-secondary" href="https://www.google.com/search?q=Originator+Fishing+Charter+St.+Joseph+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+        <article class="calendar-card">
+          <div class="eyebrow">Window B</div>
+          <h4>Thursday, September 3 to Monday, September 7, 2026</h4>
+          <p>Very strong holiday window, but marinas, restaurants, and rooms can get tighter. Great if the group wants full town energy.</p>
+          <div class="chip-row">
+            <span class="chip good">Prime run timing</span>
+            <span class="chip warn">Holiday pricing pressure</span>
           </div>
         </article>
-
-        <article class="panel charter-card">
-          <div class="charter-top">
-            <div>
-              <div class="tag tag-soft">Saugatuck</div>
-              <h4>MIRYHA</h4>
-              <div class="muted">Best for classic Saugatuck salmon chartering</div>
-            </div>
-            <div class="tag tag-primary">Easy pick</div>
-          </div>
-          <div class="quote">
-            Captain Mike’s operation is a cleaner sourced Saugatuck pick here: established local presence, direct pricing,
-            and a good fit for groups that want real fishing without a hyper-tournament tone.
-          </div>
-          <ul class="bullet-list">
-            <li>Current pricing shows half-day trips at $900 for 1-4 and full-day trips at $1,100 for 1-4.</li>
-            <li>Strong fit for a group that wants Saugatuck charm with a captain who knows those local waters deeply.</li>
-            <li>Helpful if the trip is as much about the town day as the actual catch.</li>
-          </ul>
-          <div class="cta-row">
-            <a class="button button-secondary" href="https://www.google.com/maps/search/MIRYHA+Charters+Saugatuck+MI/" target="_blank" rel="noreferrer">Open map</a>
-            <a class="button button-secondary" href="https://www.google.com/search?q=MIRYHA+Charters+Saugatuck+reviews" target="_blank" rel="noreferrer">Read reviews</a>
-          </div>
-        </article>
-
-        <article class="panel charter-card">
-          <div class="charter-top">
-            <div>
-              <div class="tag tag-soft">Saugatuck</div>
-              <h4>Best Chance Too</h4>
-              <div class="muted">Best for tournament-caliber execution</div>
-            </div>
-            <div class="tag tag-primary">Premium</div>
-          </div>
-          <div class="quote">
-            If the group wants the decorated-name answer in Saugatuck, this is it. The tournament pedigree and 36' Tiara
-            setup make it the sharpest high-performance option in town.
-          </div>
-          <ul class="bullet-list">
-            <li>Current site shows 7-hour Best Chance Too pricing at $950 for 1-2, $1,050 for 3-4, and $1,150 for 5-6.</li>
-            <li>Appeals to anglers who want modern electronics, disciplined trolling, and serious competitive energy.</li>
-            <li>Best if “we want the strongest boat team available” is the deciding factor.</li>
-          </ul>
-          <div class="cta-row">
-            <a class="button button-secondary" href="https://www.google.com/maps/search/Best+Chance+Too+Saugatuck+MI/" target="_blank" rel="noreferrer">Open map</a>
-            <a class="button button-secondary" href="https://www.google.com/search?q=Best+Chance+Too+Saugatuck+reviews" target="_blank" rel="noreferrer">Read reviews</a>
+        <article class="calendar-card">
+          <div class="eyebrow">Backup Plan</div>
+          <h4>Midweek mornings win</h4>
+          <p>If you can go Tuesday through Thursday, you usually get cleaner booking options, easier lodging, and less harbor congestion.</p>
+          <div class="chip-row">
+            <span class="chip good">Cleaner logistics</span>
+            <span class="chip good">Often easier to rebook</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="conditions">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">04 // Rules And Prep</div>
+          <div class="eyebrow">04 // Conditions</div>
+          <h3>Weather and water, visible in the main flow.</h3>
+        </div>
+        <p class="muted">Daily NOAA snapshots plus the monthly seasonal read, without hiding them behind tabs.</p>
+      </div>
+
+      <div class="conditions-grid">
+        <article class="conditions-card">
+          <div class="eyebrow">St. Joseph Marine Snapshot</div>
+          <h4>Checked Saturday, May 2, 2026</h4>
+          <p>Official NOAA nearshore forecast for the St. Joseph side. This is the planning snapshot to pair with the captain’s final weather call the day before launch.</p>
+          <div class="conditions-meta">
+            <span class="conditions-pill">Water temp: 50°F</span>
+            <span class="conditions-pill">Tonight: 2 ft or less</span>
+            <span class="conditions-pill">Sunday advisory</span>
+          </div>
+          <ul>
+            <li>Tonight: southwest 10 to 15 knots, partly cloudy, waves 2 feet or less.</li>
+            <li>Sunday: southwest 15 to 20 knots with gusts up to 25, waves 2 to 4 feet.</li>
+            <li>Monday: southwest 5 to 15 knots, sunny, waves 1 to 2 feet.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KIWX.html" target="_blank" rel="noreferrer">NOAA forecast</a>
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=stdm4" target="_blank" rel="noreferrer">St. Joseph temp</a>
+          </div>
+        </article>
+        <article class="conditions-card">
+          <div class="eyebrow">Saugatuck / Holland Snapshot</div>
+          <h4>Checked Saturday, May 2, 2026</h4>
+          <p>Official NOAA nearshore forecast for South Haven to Holland plus the Holland station reading, which makes the Saugatuck side a lot more useful than a generic weather card.</p>
+          <div class="conditions-meta">
+            <span class="conditions-pill">Water temp: 48.7°F</span>
+            <span class="conditions-pill">Tonight: 2 to 3 ft</span>
+            <span class="conditions-pill">Sunday: 4 to 6 ft</span>
+          </div>
+          <ul>
+            <li>Tonight: southwest 15 to 25 knots, partly cloudy, waves 2 to 3 feet.</li>
+            <li>Sunday: southwest up to 30 knots, chance of showers, waves 4 to 6 feet.</li>
+            <li>Monday: southwest 15 to 25 knots, mostly sunny, waves building 2 to 4 feet.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KGRR.html" target="_blank" rel="noreferrer">NOAA forecast</a>
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=hlnm4" target="_blank" rel="noreferrer">Holland temp</a>
+          </div>
+        </article>
+      </div>
+      <article class="conditions-card seasonal-conditions">
+        <div class="eyebrow">Monthly Seasonal Planner</div>
+        <h4>Daily NOAA up top, monthly run read below.</h4>
+        <p>This quick chart turns the day-by-day weather tab into a fuller planning view. The seasonal weights are based on the current charter calendars and the late-summer staging pattern this trip is built around.</p>
+        <div class="season-chart">
+          <div class="season-row">
+            <div class="season-month">July</div>
+            <div class="season-track"><div class="season-fill" style="width: 46%;"></div></div>
+            <div class="season-copy">Coho, steelhead, and mixed trout. Good warm-water action, less of the mature staging push.</div>
+          </div>
+          <div class="season-row">
+            <div class="season-month">Aug</div>
+            <div class="season-track"><div class="season-fill" style="width: 88%;"></div></div>
+            <div class="season-copy">Strong run-up month. Mature kings begin stacking near harbor mouths and morning starts matter more.</div>
+          </div>
+          <div class="season-row">
+            <div class="season-month">Sep</div>
+            <div class="season-track"><div class="season-fill" style="width: 97%;"></div></div>
+            <div class="season-copy">Peak staging energy for this concept. Best month for a serious salmon-first weekend if weather lines up.</div>
+          </div>
+          <div class="season-row">
+            <div class="season-month">Oct</div>
+            <div class="season-track"><div class="season-fill" style="width: 54%;"></div></div>
+            <div class="season-copy">Still fishable in spots, but much less clean for the exact late-summer harbor plan this page is built around.</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="after-trip">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">05 // Rules And Prep</div>
           <h3>The stuff that saves the day.</h3>
         </div>
         <p class="muted">Useful details that should stay visible instead of getting buried.</p>
@@ -2805,7 +2688,7 @@
     <section class="section" id="after-trip">
       <div class="section-heading">
         <div>
-          <div class="eyebrow">05 // After The Boat</div>
+          <div class="eyebrow">06 // After The Boat</div>
           <h3>Use the page for trip decisions, not dev notes.</h3>
         </div>
         <p class="muted">This section now stays inside the trip world and helps the group decide what happens after lines come in.</p>
@@ -3993,6 +3876,11 @@
       document.getElementById("console-port").textContent = charter.port;
       document.getElementById("console-name").textContent = charter.name;
       document.getElementById("console-tagline").textContent = charter.tagline;
+      const consoleRatingPill = document.getElementById("console-rating-pill");
+      if (consoleRatingPill) {
+        consoleRatingPill.textContent = rating ? rating.label : "No major rating surfaced";
+        consoleRatingPill.classList.toggle("is-empty", !rating || rating.value === null);
+      }
       document.getElementById("console-badge").textContent = charter.badge;
       document.getElementById("console-copy").textContent = charter.copy;
       document.getElementById("console-captain").textContent = venue.captain || "See official listing";
