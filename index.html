@@ -614,10 +614,10 @@
 
     .season-planner-head {
       display: grid;
-      grid-template-columns: minmax(300px, 0.74fr) minmax(500px, 0.9fr);
-      gap: 14px;
+      grid-template-columns: minmax(300px, 0.68fr) minmax(480px, 0.8fr);
+      gap: 18px;
       align-items: start;
-      padding: 16px;
+      padding: 18px 18px 16px;
       border-radius: 24px;
       background:
         linear-gradient(135deg, rgba(53, 208, 255, 0.08), transparent 42%),
@@ -644,36 +644,38 @@
 
     .preset-stack {
       display: grid;
-      gap: 10px;
-      grid-template-columns: minmax(160px, 0.9fr) minmax(180px, 0.96fr);
+      gap: 12px;
+      grid-template-columns: minmax(150px, 0.76fr) minmax(210px, 1fr) minmax(390px, 1.54fr);
       align-self: start;
       justify-self: start;
-      width: min(100%, 680px);
+      width: min(100%, 860px);
     }
 
     .preset-group {
       display: grid;
       gap: 6px;
-      padding: 10px 12px;
-      border-radius: 18px;
+      padding: 12px 14px;
+      border-radius: 20px;
       background: rgba(6, 16, 32, 0.42);
       border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
     }
 
     .preset-group:last-child {
-      grid-column: 1 / -1;
+      grid-column: auto;
     }
 
     .preset-group-season {
-      grid-column: 1 / -1;
+      grid-column: auto;
     }
 
     .season-planner-title {
       display: grid;
-      gap: 10px;
+      gap: 14px;
       align-content: start;
       min-height: 100%;
-      padding-right: 6px;
+      padding-right: 10px;
+      max-width: 420px;
     }
 
     .preset-label {
@@ -687,9 +689,10 @@
 
     .preset-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 8px;
       align-items: center;
+      white-space: nowrap;
     }
 
     .preset-transport {
@@ -698,9 +701,11 @@
       justify-content: flex-start;
       grid-column: 1 / 2;
       align-self: start;
+      margin-top: -4px;
     }
 
     .preset-chip {
+      flex: 0 0 auto;
       appearance: none;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.04);
