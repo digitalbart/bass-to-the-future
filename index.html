@@ -258,8 +258,9 @@
     .bite-widget-copy p {
       margin: 0;
       color: #dbe9ff;
-      line-height: 1.7;
-      max-width: 62ch;
+      line-height: 1.5;
+      max-width: 56ch;
+      font-size: 0.96rem;
     }
 
     .bite-timeline {
@@ -643,22 +644,24 @@
 
     .season-meta-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 12px;
     }
 
-    .season-meta-card {
+    .sunrise-stage {
       position: relative;
-      padding: 13px 14px;
-      border-radius: 16px;
+      min-height: 170px;
+      padding: 18px 18px 16px;
+      border-radius: 24px;
       background:
-        linear-gradient(180deg, rgba(53, 208, 255, 0.06), transparent 56%),
+        radial-gradient(circle at 50% 16%, rgba(255, 211, 106, 0.16), transparent 18%),
+        linear-gradient(180deg, rgba(53, 208, 255, 0.08), transparent 54%),
         rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.07);
       overflow: hidden;
     }
 
-    .season-meta-card::before {
+    .sunrise-stage::before {
       content: "";
       position: absolute;
       inset: 0 0 auto 0;
@@ -666,12 +669,145 @@
       background: linear-gradient(90deg, rgba(53, 208, 255, 0.95), rgba(145, 225, 255, 0.28));
     }
 
-    .season-meta-card strong {
+    .sunrise-stage::after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    }
+
+    .sunrise-stage-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sunrise-stage-copy strong {
       display: block;
-      margin-top: 5px;
-      font-size: 1.08rem;
+      margin-top: 6px;
+      font-size: 1.65rem;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .sunrise-stage-copy span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .sunrise-times {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: end;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sunrise-time-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(6, 16, 32, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      min-width: 110px;
+    }
+
+    .sunrise-time-pill span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .sunrise-time-pill strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .sunrise-arc {
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: 34px;
+      height: 92px;
+      border-top: 2px solid rgba(145, 225, 255, 0.24);
+      border-radius: 999px 999px 0 0;
+      opacity: 0.95;
+    }
+
+    .sunrise-orb {
+      --sun-x: 50%;
+      position: absolute;
+      left: var(--sun-x);
+      bottom: 114px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, #fff6d9 0%, #ffd36a 58%, rgba(255, 211, 106, 0.2) 100%);
+      box-shadow: 0 0 40px rgba(255, 211, 106, 0.36);
+      z-index: 2;
+    }
+
+    .sunrise-lane {
+      position: absolute;
+      left: var(--lane-left, 34%);
+      width: var(--lane-width, 20%);
+      bottom: 58px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(210, 237, 255, 0.08);
+      border: 1px solid rgba(220, 242, 255, 0.28);
+      box-shadow: 0 0 24px rgba(142, 230, 255, 0.12);
+    }
+
+    .sunrise-foot {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      z-index: 2;
+    }
+
+    .season-meta-rail {
+      display: grid;
+      gap: 10px;
+    }
+
+    .season-meta-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(6, 16, 32, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: grid;
+      gap: 4px;
+    }
+
+    .season-meta-card strong {
+      font-size: 1.1rem;
       letter-spacing: -0.04em;
-      line-height: 1.08;
+      line-height: 1.06;
+    }
+
+    .season-meta-card .muted {
+      font-size: 0.86rem;
+      line-height: 1.35;
     }
 
     .season-impact-grid {
@@ -702,6 +838,11 @@
       color: var(--muted);
       line-height: 1.48;
       font-size: 0.92rem;
+    }
+
+    .season-impact-card .eyebrow {
+      margin-bottom: 8px;
+      opacity: 0.72;
     }
 
     .hero-harbor-grid {
@@ -2287,6 +2428,10 @@
         grid-template-columns: 1fr;
       }
 
+      .preset-stack {
+        grid-template-columns: 1fr;
+      }
+
     }
 
     @media (max-width: 720px) {
@@ -2353,6 +2498,16 @@
 
       .season-planner-title h2 {
         font-size: 2.2rem;
+      }
+
+      .sunrise-stage-top,
+      .sunrise-foot {
+        display: grid;
+        gap: 10px;
+      }
+
+      .sunrise-times {
+        justify-content: start;
       }
 
       .bite-time {
@@ -2744,36 +2899,49 @@
           </div>
 
           <div class="season-meta-grid">
-            <div class="season-meta-card">
-              <div class="eyebrow">Current harbor</div>
-              <strong id="bite-preset-harbor">St. Joseph</strong>
+            <div class="sunrise-stage">
+              <div class="sunrise-stage-top">
+                <div class="sunrise-stage-copy">
+                  <div class="eyebrow">Sunrise Read</div>
+                  <strong id="bite-preset-month">September</strong>
+                  <span id="bite-preset-harbor">St. Joseph</span>
+                </div>
+                <div class="sunrise-times">
+                  <div class="sunrise-time-pill">
+                    <span>Sunrise</span>
+                    <strong id="bite-preset-sunrise">07:24</strong>
+                  </div>
+                  <div class="sunrise-time-pill">
+                    <span>Gray Light</span>
+                    <strong id="bite-preset-window">06:39-07:54</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sunrise-arc" aria-hidden="true"></div>
+              <div class="sunrise-lane" id="bite-sunrise-lane" aria-hidden="true"></div>
+              <div class="sunrise-orb" id="bite-sunrise-orb" aria-hidden="true"></div>
+              <div class="sunrise-foot">
+                <span>Pre-dawn setup</span>
+                <span>Gray-light push</span>
+                <span>Sun-up taper</span>
+              </div>
             </div>
-            <div class="season-meta-card">
-              <div class="eyebrow">Current month</div>
-              <strong id="bite-preset-month">September</strong>
-            </div>
-            <div class="season-meta-card">
-              <div class="eyebrow">Representative sunrise</div>
-              <strong id="bite-preset-sunrise">07:24</strong>
-            </div>
-            <div class="season-meta-card">
-              <div class="eyebrow">Gray-light lane</div>
-              <strong id="bite-preset-window">06:39-07:54</strong>
-            </div>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <strong id="bite-stat-species">Kings staging</strong>
-              <span class="muted" id="bite-stat-species-copy">Mature salmon are setting up near the harbor mouth.</span>
-            </div>
-            <div class="stat">
-              <strong id="bite-stat-arrival">06:25</strong>
-              <span class="muted" id="bite-stat-arrival-copy">Best dock-arrival target for the first clean low-light pass.</span>
-            </div>
-            <div class="stat">
-              <strong id="bite-stat-water">58-64°F</strong>
-              <span class="muted" id="bite-stat-water-copy">Typical near-harbor surface band for this preset.</span>
+            <div class="season-meta-rail">
+              <div class="season-meta-card">
+                <div class="eyebrow">Species</div>
+                <strong id="bite-stat-species">Kings staging</strong>
+                <span class="muted" id="bite-stat-species-copy">Peak staging salmon</span>
+              </div>
+              <div class="season-meta-card">
+                <div class="eyebrow">Dock target</div>
+                <strong id="bite-stat-arrival">06:44</strong>
+                <span class="muted" id="bite-stat-arrival-copy">Best arrival target for the first clean pass.</span>
+              </div>
+              <div class="season-meta-card">
+                <div class="eyebrow">Surface band</div>
+                <strong id="bite-stat-water">58-64°F</strong>
+                <span class="muted" id="bite-stat-water-copy">Typical surface band for the active preset.</span>
+              </div>
             </div>
           </div>
 
@@ -4375,6 +4543,17 @@
       if (greylight) {
         greylight.style.left = `${left}%`;
         greylight.style.width = `${width}%`;
+      }
+
+      const sunriseOrb = document.getElementById("bite-sunrise-orb");
+      if (sunriseOrb) {
+        sunriseOrb.style.setProperty("--sun-x", `${((preset.sunrise - min) / (max - min)) * 100}%`);
+      }
+
+      const sunriseLane = document.getElementById("bite-sunrise-lane");
+      if (sunriseLane) {
+        sunriseLane.style.setProperty("--lane-left", `${left}%`);
+        sunriseLane.style.setProperty("--lane-width", `${width}%`);
       }
     }
 
