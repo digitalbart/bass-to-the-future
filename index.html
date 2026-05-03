@@ -649,6 +649,16 @@
       align-content: start;
     }
 
+    .fleet-group-label {
+      padding: 8px 6px 0;
+      color: var(--cyan-2);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+    }
+
     .fleet-option {
       appearance: none;
       width: 100%;
@@ -1357,7 +1367,7 @@
       <div class="section-heading">
         <div>
           <div class="eyebrow">01 // Full Harbor Directory</div>
-          <h3>The real shit: every charter grouped by harbor.</h3>
+          <h3>Every charter grouped by harbor.</h3>
         </div>
         <p class="muted">Top stays quick. This layer is where the whole group can compare boats, captains, pricing, dock logistics, and map/review links without hunting around.</p>
       </div>
@@ -1471,6 +1481,7 @@
         <section class="tab-panel is-active" role="tabpanel" id="tab-fleet" aria-labelledby="btn-fleet">
           <div class="console-grid">
             <div class="fleet-list">
+              <div class="fleet-group-label">St. Joseph / Benton Harbor</div>
               <button class="fleet-option is-active" type="button" data-charter="seahawk">
                 <strong>Sea Hawk</strong>
                 <span>St. Joseph flagship. Strongest verified morning-rate info and an easy top pick.</span>
@@ -1479,13 +1490,39 @@
                 <strong>Originator</strong>
                 <span>36' Tiara with hard top, wide deck, heat and A/C. Comfort-first St. Joe choice.</span>
               </button>
+              <button class="fleet-option" type="button" data-charter="bigbird">
+                <strong>Big Bird</strong>
+                <span>34' SeaRay with strong gallery coverage and clear late-summer rates.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="coldwater">
+                <strong>Coldwater Charters</strong>
+                <span>Veteran multi-boat operator with two 31' Tiara salmon platforms.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="fishstalker">
+                <strong>Fish Stalker</strong>
+                <span>Modern value-focused St. Joseph option with clear 5-hour and 7-hour pricing.</span>
+              </button>
+
+              <div class="fleet-group-label">Saugatuck / Douglas</div>
               <button class="fleet-option" type="button" data-charter="miryha">
                 <strong>MIRYHA</strong>
                 <span>Saugatuck captain with strong local reputation and a full-day / half-day price ladder.</span>
               </button>
-              <button class="fleet-option" type="button" data-charter="bestchance">
+              <button class="fleet-option" type="button" data-charter="bestchancetoo">
                 <strong>Best Chance Too</strong>
                 <span>Tournament-heavy Saugatuck option with the most aggressive competitive pedigree.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="bestchance">
+                <strong>Best Chance</strong>
+                <span>30' Sea Ray with a lower entry price and the same strong fleet program.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="bestchancejr">
+                <strong>Best Chance Jr.</strong>
+                <span>Newest Best Chance fleet boat with the same marina setup and price ladder.</span>
+              </button>
+              <button class="fleet-option" type="button" data-charter="bluechip">
+                <strong>Blue Chip</strong>
+                <span>Big Lake Outfitters 31' Open Tiara with direct published half-day and full-day pricing.</span>
               </button>
             </div>
 
