@@ -279,6 +279,14 @@
       margin-bottom: 14px;
     }
 
+    .bite-slider-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: end;
+    }
+
     .bite-time {
       font-size: 2.4rem;
       font-weight: 800;
@@ -293,6 +301,26 @@
       color: #eef5ff;
       font-size: 0.84rem;
       font-weight: 700;
+    }
+
+    .bite-play-toggle {
+      appearance: none;
+      border: 1px solid rgba(53, 208, 255, 0.28);
+      background: rgba(53, 208, 255, 0.12);
+      color: #eef8ff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .bite-play-toggle:hover {
+      background: rgba(53, 208, 255, 0.18);
+      border-color: rgba(53, 208, 255, 0.42);
+      transform: translateY(-1px);
     }
 
     .bite-track-wrap {
@@ -763,6 +791,36 @@
       white-space: nowrap;
     }
 
+    .sunrise-peak-tag {
+      position: absolute;
+      left: var(--sun-x);
+      bottom: calc(var(--sun-y) + 72px);
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(6, 16, 32, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #eef5ff;
+      font-size: 0.84rem;
+      font-weight: 700;
+      z-index: 2;
+      transition: left 0.2s ease, bottom 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .sunrise-peak-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #35d0ff;
+      box-shadow: 0 0 16px rgba(53, 208, 255, 0.55);
+      flex: 0 0 auto;
+    }
+
     .sunrise-lane {
       position: absolute;
       left: var(--lane-left, 34%);
@@ -776,21 +834,6 @@
       transition: left 0.2s ease, width 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
-    .sunrise-haze {
-      position: absolute;
-      left: var(--sun-x);
-      bottom: 58px;
-      width: 170px;
-      height: 58px;
-      transform: translateX(-50%);
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(255, 220, 143, 0.18) 0%, rgba(255, 220, 143, 0.08) 42%, transparent 76%);
-      filter: blur(6px);
-      z-index: 1;
-      transition: left 0.2s ease, opacity 0.2s ease;
-      opacity: 0.82;
-    }
-
     .sunrise-foot {
       position: absolute;
       left: 18px;
@@ -802,28 +845,6 @@
       color: var(--muted);
       font-size: 0.8rem;
       z-index: 2;
-    }
-
-    .sunrise-phase-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(6, 16, 32, 0.48);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #eef5ff;
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .sunrise-phase-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #35d0ff;
-      box-shadow: 0 0 16px rgba(53, 208, 255, 0.55);
     }
 
     .season-meta-rail {
@@ -3079,10 +3100,6 @@
                   <div class="eyebrow" id="bite-stage-label">Sunrise Read</div>
                   <strong id="bite-preset-month">September</strong>
                   <span id="bite-preset-harbor">St. Joseph</span>
-                  <div class="sunrise-phase-chip">
-                    <span class="sunrise-phase-dot" aria-hidden="true"></span>
-                    <span id="bite-stage-phase">Gray-light push</span>
-                  </div>
                 </div>
                 <div class="sunrise-times">
                   <div class="sunrise-time-pill">
@@ -3097,8 +3114,8 @@
               </div>
               <div class="sunrise-arc" aria-hidden="true"></div>
               <div class="sunrise-time-float" id="bite-sunrise-time-float">06:43</div>
+              <div class="sunrise-peak-tag" id="bite-sunrise-peak-tag">Gray-light push</div>
               <div class="sunrise-lane" id="bite-sunrise-lane" aria-hidden="true"></div>
-              <div class="sunrise-haze" id="bite-sunrise-haze" aria-hidden="true"></div>
               <div class="sunrise-orb" id="bite-sunrise-orb" aria-hidden="true"></div>
               <div class="sunrise-foot">
                 <span id="bite-foot-left">Pre-dawn setup</span>
@@ -3133,7 +3150,10 @@
               <div class="bite-timeline">
                 <div class="bite-slider-head">
                   <div class="bite-time" id="bite-time-label">05:15</div>
-                  <div class="bite-phase" id="bite-phase-label">Gray light peak</div>
+                  <div class="bite-slider-meta">
+                    <div class="bite-phase" id="bite-phase-label">Gray light peak</div>
+                    <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false">Play</button>
+                  </div>
                 </div>
                 <div class="bite-track-wrap">
                   <div class="bite-track">
@@ -4532,6 +4552,7 @@
     const costLicenseSelect = document.getElementById("cost-license");
     const costMealCheckbox = document.getElementById("cost-meal");
     const biteTimeRange = document.getElementById("bite-time-range");
+    const bitePlayToggle = document.getElementById("bite-play-toggle");
     const bitePeriodButtons = [...document.querySelectorAll("[data-bite-period]")];
     const biteLocationButtons = [...document.querySelectorAll("[data-bite-location]")];
     const biteMonthButtons = [...document.querySelectorAll("[data-bite-month]")];
@@ -4555,6 +4576,9 @@
       location: "stjoe",
       month: "september"
     };
+    let biteIsPlaying = false;
+    let biteAnimationFrame = null;
+    let biteLastTick = 0;
     const bitePresetData = {
       stjoe: {
         label: "St. Joseph",
@@ -4761,9 +4785,12 @@
     }
 
     function formatMinutesToTime(totalMinutes) {
-      const hours = Math.floor(totalMinutes / 60);
-      const minutes = totalMinutes % 60;
-      return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+      const normalized = ((totalMinutes % 1440) + 1440) % 1440;
+      const hours24 = Math.floor(normalized / 60);
+      const minutes = normalized % 60;
+      const suffix = hours24 >= 12 ? "PM" : "AM";
+      const hours12 = (hours24 % 12) || 12;
+      return `${hours12}:${String(minutes).padStart(2, "0")} ${suffix}`;
     }
 
     function getActiveBitePreset() {
@@ -4950,7 +4977,9 @@
       document.getElementById("bite-impact-location").textContent = preset.locationEffect;
       document.getElementById("bite-impact-season-title").textContent = `${preset.label} changes the shape of the morning.`;
       document.getElementById("bite-impact-season").textContent = preset.seasonEffect;
-      document.getElementById("bite-impact-time-title").textContent = `Sunrise is around ${formatMinutesToTime(preset.sunrise)} for this preset.`;
+      document.getElementById("bite-impact-time-title").textContent = biteState.period === "sunset"
+        ? `Sunset is around ${formatMinutesToTime(preset.sunset)} for this preset.`
+        : `Sunrise is around ${formatMinutesToTime(preset.sunrise)} for this preset.`;
       document.getElementById("bite-impact-time").textContent = preset.timeEffect;
     }
 
@@ -4981,7 +5010,7 @@
 
       const sunriseOrb = document.getElementById("bite-sunrise-orb");
       if (sunriseOrb) {
-        sunriseOrb.style.setProperty("--sun-x", `${((preset.sunrise - min) / (max - min)) * 100}%`);
+        sunriseOrb.style.setProperty("--sun-x", `${((windowPreset.anchor - min) / (max - min)) * 100}%`);
       }
 
       const sunriseLane = document.getElementById("bite-sunrise-lane");
@@ -5023,7 +5052,6 @@
       document.getElementById("bite-depth").textContent = model.depth;
       document.getElementById("bite-water").textContent = preset.water;
       document.getElementById("bite-weather").textContent = model.weather;
-      document.getElementById("bite-stage-phase").textContent = model.phase;
 
       const min = Number(biteTimeRange.min);
       const max = Number(biteTimeRange.max);
@@ -5071,20 +5099,18 @@
         stage.style.setProperty("--light-x", `${sunX}%`);
       }
 
-      const sunriseHaze = document.getElementById("bite-sunrise-haze");
-      if (sunriseHaze) {
-        sunriseHaze.style.left = `${sunX}%`;
-        const hazeStrength = biteState.period === "sunset"
-          ? (0.28 + (riseStrength * 0.54) + (postProgress * 0.1))
-          : (0.28 + (riseStrength * 0.58));
-        sunriseHaze.style.opacity = String(Math.min(0.9, hazeStrength));
-      }
-
       const sunriseTimeFloat = document.getElementById("bite-sunrise-time-float");
       if (sunriseTimeFloat) {
         sunriseTimeFloat.textContent = timeText;
         sunriseTimeFloat.style.left = `${sunX}%`;
         sunriseTimeFloat.style.bottom = `${baseHeight + 34}px`;
+      }
+
+      const sunrisePeakTag = document.getElementById("bite-sunrise-peak-tag");
+      if (sunrisePeakTag) {
+        sunrisePeakTag.textContent = model.phase;
+        sunrisePeakTag.style.left = `${sunX}%`;
+        sunrisePeakTag.style.bottom = `${baseHeight + 72}px`;
       }
 
       const scoreLabel = document.getElementById("bite-score-label");
@@ -5098,6 +5124,57 @@
         scoreLabel.textContent = "Usable water, but the easy first-light edge is fading and captain adjustments matter more.";
       } else {
         scoreLabel.textContent = "More grind than surge. You are leaning on deeper precision and less on a clean low-light shove.";
+      }
+    }
+
+    function syncBitePlayToggle() {
+      if (!bitePlayToggle) return;
+      bitePlayToggle.textContent = biteIsPlaying ? "Pause" : "Play";
+      bitePlayToggle.setAttribute("aria-pressed", biteIsPlaying ? "true" : "false");
+    }
+
+    function stopBitePlayback() {
+      biteIsPlaying = false;
+      biteLastTick = 0;
+      if (biteAnimationFrame) {
+        window.cancelAnimationFrame(biteAnimationFrame);
+        biteAnimationFrame = null;
+      }
+      syncBitePlayToggle();
+    }
+
+    function animateBiteWidget(timestamp) {
+      if (!biteIsPlaying || !biteTimeRange) return;
+      if (document.hidden) {
+        biteAnimationFrame = window.requestAnimationFrame(animateBiteWidget);
+        return;
+      }
+      if (!biteLastTick) biteLastTick = timestamp;
+      if (timestamp - biteLastTick > 1400) {
+        const min = Number(biteTimeRange.min);
+        const max = Number(biteTimeRange.max);
+        let next = Number(biteTimeRange.value) + 15;
+        if (next > max) next = min;
+        biteTimeRange.value = String(next);
+        renderBiteWidget();
+        biteLastTick = timestamp;
+      }
+      biteAnimationFrame = window.requestAnimationFrame(animateBiteWidget);
+    }
+
+    function startBitePlayback() {
+      if (biteIsPlaying) return;
+      biteIsPlaying = true;
+      biteLastTick = 0;
+      syncBitePlayToggle();
+      biteAnimationFrame = window.requestAnimationFrame(animateBiteWidget);
+    }
+
+    function toggleBitePlayback() {
+      if (biteIsPlaying) {
+        stopBitePlayback();
+      } else {
+        startBitePlayback();
       }
     }
 
@@ -5568,6 +5645,7 @@
     biteLocationButtons.forEach((button) => {
       button.addEventListener("click", () => {
         biteState.location = button.dataset.biteLocation;
+        stopBitePlayback();
         applyBitePreset(true);
       });
     });
@@ -5575,6 +5653,7 @@
     bitePeriodButtons.forEach((button) => {
       button.addEventListener("click", () => {
         biteState.period = button.dataset.bitePeriod;
+        stopBitePlayback();
         applyBitePreset(true);
       });
     });
@@ -5582,40 +5661,19 @@
     biteMonthButtons.forEach((button) => {
       button.addEventListener("click", () => {
         biteState.month = button.dataset.biteMonth;
+        stopBitePlayback();
         applyBitePreset(true);
       });
     });
 
     if (biteTimeRange) {
       biteTimeRange.addEventListener("input", renderBiteWidget);
-      let biteDirection = 1;
-      let biteLastTick = 0;
-      function animateBiteWidget(timestamp) {
-        if (!biteTimeRange) return;
-        if (document.hidden) {
-          window.requestAnimationFrame(animateBiteWidget);
-          return;
-        }
-        if (!biteLastTick) biteLastTick = timestamp;
-        if (timestamp - biteLastTick > 1400) {
-          const min = Number(biteTimeRange.min);
-          const max = Number(biteTimeRange.max);
-          let next = Number(biteTimeRange.value) + (biteDirection * 15);
-          if (next >= max) {
-            biteDirection = -1;
-            next = max;
-          } else if (next <= min) {
-            biteDirection = 1;
-            next = min;
-          }
-          biteTimeRange.value = String(next);
-          renderBiteWidget();
-          biteLastTick = timestamp;
-        }
-        window.requestAnimationFrame(animateBiteWidget);
-      }
       applyBitePreset(true);
-      window.requestAnimationFrame(animateBiteWidget);
+    }
+
+    if (bitePlayToggle) {
+      bitePlayToggle.addEventListener("click", toggleBitePlayback);
+      syncBitePlayToggle();
     }
 
     const compareWidgetList = document.getElementById("compare-widget-list");
