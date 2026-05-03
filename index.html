@@ -664,6 +664,10 @@
       grid-column: 1 / -1;
     }
 
+    .preset-group-season {
+      grid-column: 1 / -1;
+    }
+
     .season-planner-title {
       display: grid;
       gap: 10px;
@@ -3111,10 +3115,12 @@
               <div class="season-planner-title">
                 <div class="eyebrow">Strategic Expedition Overview</div>
                 <h2>Season + harbor bite planner.</h2>
-                <p>
-                  Flip month and harbor, then scrub the clock. The widget shifts the bite window using representative
-                  sunrise timing, seasonal staging patterns, and the different St. Joe vs. Saugatuck setup.
-                </p>
+                <div class="preset-transport">
+                  <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false" data-state="pause">
+                    <span class="bite-play-icon" aria-hidden="true"></span>
+                    <span id="bite-play-label">Pause</span>
+                  </button>
+                </div>
               </div>
               <div class="preset-stack">
                 <div class="preset-group">
@@ -3131,7 +3137,7 @@
                     <button class="preset-chip" type="button" data-bite-location="saugatuck">Saugatuck</button>
                   </div>
                 </div>
-                <div class="preset-group">
+                <div class="preset-group preset-group-season">
                   <div class="preset-label">Season preset</div>
                   <div class="preset-row" id="bite-month-row">
                     <button class="preset-chip" type="button" data-bite-month="july">July</button>
@@ -3139,12 +3145,6 @@
                     <button class="preset-chip is-active" type="button" data-bite-month="september">September</button>
                     <button class="preset-chip" type="button" data-bite-month="october">October</button>
                   </div>
-                </div>
-                <div class="preset-transport">
-                  <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false" data-state="pause">
-                    <span class="bite-play-icon" aria-hidden="true"></span>
-                    <span id="bite-play-label">Pause</span>
-                  </button>
                 </div>
               </div>
             </div>
