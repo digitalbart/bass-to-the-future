@@ -8,6 +8,16 @@
     name="description"
     content="A polished trip brief for a late-summer Lake Michigan salmon charter out of St. Joseph or Saugatuck."
   >
+  <meta name="theme-color" content="#08111f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Salmon Run 2026 | Lake Michigan Trip Brief">
+  <meta property="og:description" content="Fleet intel, rates, captains, maps, and current nearshore conditions for a St. Joseph or Saugatuck salmon charter weekend.">
+  <meta property="og:image" content="bestchancetoo.jpg">
+  <meta property="og:image:alt" content="Lake Michigan salmon charter group posing with fish at sunset">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Salmon Run 2026 | Lake Michigan Trip Brief">
+  <meta name="twitter:description" content="Fleet intel, rates, captains, maps, and current nearshore conditions for a St. Joseph or Saugatuck salmon charter weekend.">
+  <meta name="twitter:image" content="bestchancetoo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -145,6 +155,35 @@
       align-items: center;
       color: var(--muted);
       font-size: 0.82rem;
+    }
+
+    .share-button {
+      appearance: none;
+      border: 1px solid rgba(53, 208, 255, 0.28);
+      background: linear-gradient(135deg, rgba(53, 208, 255, 0.18), rgba(53, 208, 255, 0.08));
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .share-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(53, 208, 255, 0.48);
+      background: linear-gradient(135deg, rgba(53, 208, 255, 0.24), rgba(53, 208, 255, 0.1));
+    }
+
+    .share-button svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
     }
 
     .hero {
@@ -555,7 +594,7 @@
     }
 
     .console-grid,
-    .port-grid,
+    .conditions-grid,
     .booking-grid,
     .calendar-grid {
       display: grid;
@@ -567,7 +606,7 @@
       align-items: start;
     }
 
-    .port-grid {
+    .conditions-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -582,7 +621,7 @@
     .fleet-list,
     .console-card,
     .calendar-card,
-    .port-card,
+    .conditions-card,
     .booking-card {
       padding: 22px;
       border-radius: 24px;
@@ -633,7 +672,7 @@
     .fleet-option strong,
     .console-card h4,
     .calendar-card h4,
-    .port-card h4,
+    .conditions-card h4,
     .booking-card h4 {
       display: block;
       margin-bottom: 8px;
@@ -741,7 +780,7 @@
 
     .booking-card p,
     .calendar-card p,
-    .port-card p {
+    .conditions-card p {
       color: #d8e5fb;
       line-height: 1.7;
     }
@@ -750,6 +789,34 @@
       color: var(--cyan-2);
       display: inline-block;
       margin-bottom: 8px;
+    }
+
+    .conditions-card ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: #d8e5fb;
+      line-height: 1.7;
+    }
+
+    .conditions-card li + li {
+      margin-top: 8px;
+    }
+
+    .conditions-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .conditions-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(53, 208, 255, 0.1);
+      border: 1px solid rgba(53, 208, 255, 0.24);
+      color: #eef5ff;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     .section-heading {
@@ -1161,7 +1228,7 @@
       .charter-grid,
       .harbor-directory-grid,
       .console-grid,
-      .port-grid,
+      .conditions-grid,
       .booking-grid,
       .calendar-grid {
         grid-template-columns: 1fr;
@@ -1292,6 +1359,15 @@
         <span>Late Aug / Early Sep</span>
         <span>St. Joseph + Saugatuck</span>
         <span>Lake Michigan</span>
+        <button class="share-button" id="share-trip" type="button" aria-label="Share this trip brief">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 8l-6 4 6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12h8.5a2.5 2.5 0 0 0 0-5H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 16h2.5a2.5 2.5 0 0 1 0 5H9a2.5 2.5 0 0 1 0-5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 3v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span id="share-trip-label">Share</span>
+        </button>
       </div>
     </div>
   </header>
@@ -1449,7 +1525,7 @@
       <div class="section-heading">
         <div>
           <div class="eyebrow">03 // Trip Console</div>
-          <h3>Maps, reviews, rates, date windows, and booking moves.</h3>
+          <h3>Maps, reviews, rates, conditions, and booking moves.</h3>
         </div>
         <p class="muted">This is the expanded planning layer you were aiming for at the start.</p>
       </div>
@@ -1458,7 +1534,7 @@
         <div class="tab-bar" role="tablist" aria-label="Trip Console Tabs">
           <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet" id="btn-fleet">Fleet Intel</button>
           <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-dates" id="btn-dates">Dates</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ports" id="btn-ports">Town Ops</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-ports" id="btn-ports">Conditions</button>
           <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-booking" id="btn-booking">Booking Flow</button>
         </div>
 
@@ -1548,6 +1624,10 @@
                   <span id="console-captain">Captain Russ Clark</span>
                 </div>
                 <div class="data-item">
+                  <strong>Trip Timing</strong>
+                  <span id="console-trip">7-hour morning trip with early dock report and first-light lines-in</span>
+                </div>
+                <div class="data-item">
                   <strong>Boat / Platform</strong>
                   <span id="console-boat">36' Tiara, built for big-water stability</span>
                 </div>
@@ -1556,12 +1636,24 @@
                   <span id="console-window">Late August through early September for staging Chinook and Coho</span>
                 </div>
                 <div class="data-item">
+                  <strong>Target Fish</strong>
+                  <span id="console-species">Chinook, Coho, steelhead, and lake trout</span>
+                </div>
+                <div class="data-item">
                   <strong>Dock + Contact</strong>
                   <span id="console-contact">Pier 1000 Marina, Benton Harbor • 269-208-3923</span>
                 </div>
                 <div class="data-item">
                   <strong>Review Angle</strong>
                   <span id="console-review">Official site surfaces recent Google review testimonials and a 4.8 rating.</span>
+                </div>
+                <div class="data-item">
+                  <strong>Booking Policy</strong>
+                  <span id="console-policy">$300 deposit due when booking; fish cleaning included on listed trips</span>
+                </div>
+                <div class="data-item">
+                  <strong>Web / Social Read</strong>
+                  <span id="console-social">Official site links its live Google listing and current review pull-through.</span>
                 </div>
                 <div class="data-item">
                   <strong>Best For</strong>
@@ -1616,35 +1708,43 @@
         </section>
 
         <section class="tab-panel" role="tabpanel" id="tab-ports" aria-labelledby="btn-ports">
-          <div class="port-grid">
-            <article class="port-card">
-              <div class="eyebrow">St. Joseph Ops</div>
-              <h4>Performance-first launch town</h4>
-              <p>Choose this harbor if the group mainly cares about maximizing the salmon shot and keeping charter selection tight and efficient.</p>
-              <ul class="bullet-list">
-                <li>Primary charter cluster: Sea Hawk and Originator.</li>
-                <li>Best Google Maps actions: marinas, charter docks, bluff dining, nearby hotels.</li>
-                <li>Good for an early dock report and less “tourist day” pressure.</li>
+          <div class="conditions-grid">
+            <article class="conditions-card">
+              <div class="eyebrow">St. Joseph Marine Snapshot</div>
+              <h4>Checked Saturday, May 2, 2026</h4>
+              <p>Official NOAA nearshore forecast for the St. Joseph side. This is the planning snapshot to pair with the captain’s final weather call the day before launch.</p>
+              <div class="conditions-meta">
+                <span class="conditions-pill">Water temp: 50°F</span>
+                <span class="conditions-pill">Tonight: 2 ft or less</span>
+                <span class="conditions-pill">Sunday advisory</span>
+              </div>
+              <ul>
+                <li>Tonight: southwest 10 to 15 knots, partly cloudy, waves 2 feet or less.</li>
+                <li>Sunday: southwest 15 to 20 knots with gusts up to 25, waves 2 to 4 feet.</li>
+                <li>Monday: southwest 5 to 15 knots, sunny, waves 1 to 2 feet.</li>
               </ul>
               <div class="cta-row">
-                <a class="button button-secondary" href="https://www.google.com/maps/search/St.+Joseph+MI+marina/" target="_blank" rel="noreferrer">Marinas</a>
-                <a class="button button-secondary" href="https://www.google.com/maps/search/restaurants+near+St.+Joseph+MI+bluff/" target="_blank" rel="noreferrer">Dining</a>
-                <a class="button button-secondary" href="https://www.google.com/maps/search/hotels+near+St.+Joseph+MI+marina/" target="_blank" rel="noreferrer">Hotels</a>
+                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KIWX.html" target="_blank" rel="noreferrer">NOAA forecast</a>
+                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=stdm4" target="_blank" rel="noreferrer">St. Joseph temp</a>
               </div>
             </article>
-            <article class="port-card">
-              <div class="eyebrow">Saugatuck Ops</div>
-              <h4>Vacation-town launch with better hangout energy</h4>
-              <p>Choose this side if the charter is part of a bigger social weekend and you want easier riverfront walking, bars, and downtown movement.</p>
-              <ul class="bullet-list">
-                <li>Primary charter cluster: MIRYHA and Best Chance Too.</li>
-                <li>Good fit for “boat in the morning, town in the afternoon.”</li>
-                <li>Worth booking rooms early for prime late-summer weekends.</li>
+            <article class="conditions-card">
+              <div class="eyebrow">Saugatuck / Holland Snapshot</div>
+              <h4>Checked Saturday, May 2, 2026</h4>
+              <p>Official NOAA nearshore forecast for South Haven to Holland plus the Holland station reading, which makes the Saugatuck side a lot more useful than a generic weather card.</p>
+              <div class="conditions-meta">
+                <span class="conditions-pill">Water temp: 48.7°F</span>
+                <span class="conditions-pill">Tonight: 2 to 3 ft</span>
+                <span class="conditions-pill">Sunday: 4 to 6 ft</span>
+              </div>
+              <ul>
+                <li>Tonight: southwest 15 to 25 knots, partly cloudy, waves 2 to 3 feet.</li>
+                <li>Sunday: southwest up to 30 knots, chance of showers, waves 4 to 6 feet.</li>
+                <li>Monday: southwest 15 to 25 knots, mostly sunny, waves building 2 to 4 feet.</li>
               </ul>
               <div class="cta-row">
-                <a class="button button-secondary" href="https://www.google.com/maps/search/Saugatuck+MI+marina/" target="_blank" rel="noreferrer">Marinas</a>
-                <a class="button button-secondary" href="https://www.google.com/maps/search/restaurants+near+Water+St+Saugatuck+MI/" target="_blank" rel="noreferrer">Dining</a>
-                <a class="button button-secondary" href="https://www.google.com/maps/search/hotels+near+Saugatuck+MI+downtown/" target="_blank" rel="noreferrer">Hotels</a>
+                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KGRR.html" target="_blank" rel="noreferrer">NOAA forecast</a>
+                <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=hlnm4" target="_blank" rel="noreferrer">Holland temp</a>
               </div>
             </article>
           </div>
@@ -2044,7 +2144,7 @@
             contact: "690 Fisherman's Rd, St. Joseph • 517-617-0282",
             review: "Rates page is still live and current enough to support a serious comparison, though the site is less polished.",
             socials: "More old-school than social-first, but the published rates still make it easy to compare.",
-            photo: "",
+            photo: "coldwatercharters.jpg",
             map: "https://www.google.com/maps/search/Coldwater+Charters+St.+Joseph+MI/",
             reviews: "https://www.google.com/search?q=Coldwater+Charters+St.+Joseph+reviews",
             site: "https://coldwatercharters.com/",
@@ -2093,7 +2193,7 @@
             contact: "650 S Water Street, Saugatuck • 616-292-4812",
             review: "Official site emphasizes 40+ years and major tournament success around Lake Michigan.",
             socials: "The site spotlights the Engel crew and tournament legacy front and center.",
-            photo: "https://static.wixstatic.com/media/7aa0c4_59c2353028c042c8b3b4482448fba483f000.jpg/v1/fill/w_1280,h_720,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa0c4_59c2353028c042c8b3b4482448fba483f000.jpg",
+            photo: "bestchancetoo.jpg",
             map: "https://www.google.com/maps/search/Best+Chance+Too+Saugatuck+MI/",
             reviews: "https://www.google.com/search?q=Best+Chance+Too+Saugatuck+reviews",
             site: "https://www.bestchancetoo.com/",
@@ -2135,7 +2235,7 @@
             contact: "650 S Water Street, Saugatuck • 616-218-4638",
             review: "Good fallback if the flagship is booked and you still want the Best Chance program.",
             socials: "Newest boat in the Best Chance family with the same main booking and marina setup.",
-            photo: "https://static.wixstatic.com/media/7aa0c4_38e49948986747f2b43b12d7d7f67da3~mv2.jpeg/v1/fill/w_1280,h_720,al_c,q_85,enc_avif,quality_auto/7aa0c4_38e49948986747f2b43b12d7d7f67da3~mv2.jpeg",
+            photo: "bestchangej.avif",
             map: "https://www.google.com/maps/search/Best+Chance+Jr+Saugatuck+MI/",
             reviews: "https://www.google.com/search?q=Best+Chance+Jr+Saugatuck+reviews",
             site: "https://www.bestchancetoo.com/",
@@ -2197,10 +2297,14 @@
         copy:
           "Sea Hawk’s current site makes this one easy to trust for planning: the morning trip is clearly listed, the boat details are visible, and the dock and contact info are straightforward enough to turn directly into a booking.",
         rate: "$900 for 1-4 anglers, 7-hour morning trip",
+        trip: "7-hour morning trip; dock address active; site lists daily contact hours from 6 AM to 9 PM",
         boat: "36' Tiara with advanced electronics and fish-cleaning included",
         window: "August and September are listed for Chinook and Coho on the current fish calendar",
+        species: "Chinook, Coho, steelhead, and lake trout",
         contact: "Pier 1000 Marina, Benton Harbor • 269-208-3923",
         review: "Official site surfaces recent Google reviews and a visible 4.8 rating display.",
+        policy: "$300 deposit due the day you book; fish cleaning included on listed trips",
+        social: "Official site links a live Google business profile and current review pull-through.",
         fit: "Groups that want the cleanest \"book a killer captain and go\" answer.",
         quote: "\"Over 40 years\" plus a clearly posted rates page gives this option the least guesswork for the group.",
         map: "https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D",
@@ -2216,10 +2320,14 @@
         copy:
           "Originator is the strongest answer if you want big-water comfort and a premium-feeling platform without leaving the St. Joseph zone. The public listings clearly call out the 36' Tiara, climate control, and six-person pricing ladder.",
         rate: "$900 for 1-4, $1,000 for 5, $1,100 for 6",
+        trip: "6-hour lake trip or fish limit, 7 AM to 1 PM; afternoon charters quoted direct",
         boat: "36' Tiara with hard top, 14' deck, heat and A/C",
         window: "Lake Michigan charter season targets salmon and trout from spring into fall",
+        species: "Salmon and trout on the lake program, plus year-round river options",
         contact: "250 Anchors Way, St. Joseph • 269-207-2551",
         review: "Regional tourism listing shows current 2026 reviews and active booking info.",
+        policy: "$200 deposit due within 7 days; four-week notice for full refund; gratuity extra",
+        social: "Facebook, TripAdvisor, and Twitter are linked directly from the official site.",
         fit: "Crews that want more room, weather cushion, and a polished charter platform.",
         quote: "This is the easiest answer when somebody in the group asks, \"Which boat feels the most legit and comfortable?\"",
         map: "https://www.google.com/maps/search/Originator+Fishing+Charter+St.+Joseph+MI/",
@@ -2235,10 +2343,14 @@
         copy:
           "Big Bird stands out if the group wants a St. Joseph option with a stronger public visual footprint. The boat type, morning rates, and social presence are all easy to verify, which helps when people want to feel the charter before they book it.",
         rate: "7-hour AM $900 for 1-4, $1,000 for 5, $1,100 for 6",
+        trip: "7-hour morning structure with group-size pricing published on the official site",
         boat: "34' SeaRay 340 Express Cruiser",
         window: "Late summer and early fall salmon mornings with clear AM pricing ladder",
+        species: "Lake Michigan salmon and trout mix during late-summer morning runs",
         contact: "Pier 1000 / Anchors Way area • 269-243-0633",
         review: "Official site links out to Facebook, Instagram, and Tripadvisor, giving it a stronger public trail than most.",
+        policy: "Call or text booking flow; rates posted by party size on the public site",
+        social: "Strongest social footprint in this St. Joseph group: Facebook, Instagram, and Tripadvisor.",
         fit: "Groups who want a visible, easy-to-vet St. Joseph option with a polished online footprint.",
         quote: "This is the one that feels easiest to pass around in a group text because the visuals and social proof are already there.",
         map: "https://www.google.com/maps/search/Big+Bird+Charters+St.+Joseph+MI/",
@@ -2254,10 +2366,14 @@
         copy:
           "Coldwater is less polished visually than some of the others, but it earns its slot because the rates are still live and the salmon-focused boat setup is easy to compare. If the group is shopping practical options instead of brand polish, this one belongs in the board.",
         rate: "7-hour AM $900 for 1-4; PM 5-hour $800 for 1-4",
+        trip: "7-hour morning and 5-hour afternoon salmon formats across the Tiara fleet",
         boat: "31' Tiara fleet: Salmon Express II / III",
         window: "Late August and early September mornings remain the cleanest salmon read",
+        species: "Salmon-focused Lake Michigan spread with trout mixed in by season",
         contact: "690 Fisherman's Rd, St. Joseph • 517-617-0282",
         review: "Published rates are still current enough to support a real comparison, even if the site feels old-school.",
+        policy: "Practical call-first booking style; useful as a direct price benchmark against the headline boats",
+        social: "Mostly an official-site and review-search operator rather than a heavy social brand.",
         fit: "Groups who care more about a practical salmon charter comparison than a premium-looking website.",
         quote: "Useful because it gives the group one more serious St. Joseph pricing benchmark instead of just the headline names.",
         map: "https://www.google.com/maps/search/Coldwater+Charters+St.+Joseph+MI/",
@@ -2273,10 +2389,14 @@
         copy:
           "Fish Stalker is one of the better value reads in the St. Joseph area because the current site makes the pricing easy to trust and the captain info is visible. It also plays nicely with the post-trip food angle because of the catch-and-cook connection.",
         rate: "5-hour $700 / $775 / $850; 7-hour $800 / $875 / $975",
+        trip: "5-hour trips run AM or PM; 7-hour trip is AM only",
         boat: "31' Tiara trolling platform",
         window: "Good fit for late-summer salmon and trout groups that want simpler pricing choices",
+        species: "Lake Michigan salmon and trout",
         contact: "Brian's Marina, 285 Anchors Way • 269-425-8651",
         review: "Modern site with active 2026 updates, clear packages, and a stronger current feel than many older charter pages.",
+        policy: "Reserve online or by phone; pricing is clearly posted and paired with a booking page",
+        social: "Freshest-feeling site in this group, with gallery, boat page, booking page, and catch-and-cook tie-in.",
         fit: "Price-aware groups that still want a legit salmon charter and easy booking info.",
         quote: "This is the one that helps if someone in the group asks for a solid option that looks a little less expensive without feeling sketchy.",
         map: "https://www.google.com/maps/search/Fish+Stalker+Charters+St.+Joseph+MI/",
@@ -2292,10 +2412,14 @@
         copy:
           "MIRYHA gives the page a better sourced Saugatuck option than the original draft had. There is a direct price ladder, a named captain, and a strong fit for groups that want a real charter plus a more laid-back town flow.",
         rate: "$900 half-day for 1-4, $1,100 full-day for 1-4",
+        trip: "Half-day and full-day formats; captain confirms the seasonal departure slot directly",
         boat: "Large-group Saugatuck platform for up to six passengers",
         window: "Late summer fits the local king, coho, steelhead, and lake trout mix",
+        species: "King salmon, coho, steelhead, and lake trout",
         contact: "868 Holland St, Saugatuck • 616-836-0439",
         review: "Saugatuck tourism and the charter site both position it as a local staple.",
+        policy: "Direct-call booking with Captain Mike; simple half-day and full-day ladder on the site",
+        social: "Official site cross-links social channels and keeps the captain identity front and center.",
         fit: "Groups that want the Saugatuck version of a dependable, low-drama booking.",
         quote: "If the plan is fish hard in the morning and have an actual town day after, this slot makes sense.",
         map: "https://www.google.com/maps/search/MIRYHA+Charters+Saugatuck+MI/",
@@ -2311,10 +2435,14 @@
         copy:
           "Best Chance Too is the sharpest Saugatuck answer for the group that wants the most serious tournament DNA. The current site publishes rate ladders for all-day and half-day trips and leans hard into the charter team’s tournament record.",
         rate: "$950 for 1-2, $1,050 for 3-4, $1,150 for 5-6",
+        trip: "Flagship 7-hour charter structure with party-size ladder published directly on the site",
         boat: "36' Tiara with Humminbird autopilot, radar, Fish Hawk, and Optimum downriggers",
         window: "Prime late-summer morning starts with full-day and half-day options",
+        species: "Kings, coho, trout, and tournament-style salmon target mix",
         contact: "650 S Water Street, Saugatuck • 616-292-4812",
         review: "Official site emphasizes 40+ years and major tournament success around Lake Michigan.",
+        policy: "Direct captain booking; flagship pricing is clearly posted by party size",
+        social: "Site leans into tournament pedigree and crew identity more than generic travel copy.",
         fit: "Crews chasing the most hard-core fishing reputation in Saugatuck.",
         quote: "This is the one you pick when somebody says, \"Who are the killers over there?\"",
         map: "https://www.google.com/maps/search/Best+Chance+Too+Saugatuck+MI/",
@@ -2330,10 +2458,14 @@
         copy:
           "Best Chance gives the group a more approachable entry point into the same Saugatuck fleet. If you want the same dock flow and a proven operator but do not need the top-end flagship, this is the cleaner middle lane.",
         rate: "Half-day $750 / $850 / $950; full-day $950 / $1,050 / $1,150",
+        trip: "Half-day and full-day pricing with the same fleet dock setup as the flagship",
         boat: "30' Sea Ray Weekender",
         window: "Prime late-summer morning salmon trips with half-day and full-day flexibility",
+        species: "Salmon and trout program under the Best Chance fleet umbrella",
         contact: "650 S Water Street, Saugatuck • 616-218-4718",
         review: "Benefits from the same fleet reputation and booking setup as Best Chance Too, just at a friendlier starting point.",
+        policy: "Lower entry price but same straightforward direct-call booking logic",
+        social: "Shares the main fleet site, visuals, and tournament-adjacent reputation.",
         fit: "Groups who want Saugatuck and a proven fleet but do not need the premium flagship.",
         quote: "A strong middle answer when the group wants something real without instantly jumping to the most expensive boat.",
         map: "https://www.google.com/maps/search/Best+Chance+Saugatuck+MI/",
@@ -2349,10 +2481,14 @@
         copy:
           "Best Chance Jr. works as the backup or alternate move if the group wants the Best Chance fleet specifically but needs another boat in the program. It keeps the same marina logic and near-identical price structure.",
         rate: "Half-day $750 / $850 / $950; full-day $950 / $1,050 / $1,150",
+        trip: "Half-day and full-day ladder mirrored across the Best Chance fleet",
         boat: "30' Sea Ray Weekender",
         window: "Late-summer salmon timing with the same general Best Chance trip flow",
+        species: "Salmon and trout program under the same Saugatuck fleet setup",
         contact: "650 S Water Street, Saugatuck • 616-218-4638",
         review: "Useful because it broadens the Best Chance family choices without changing the basic booking logic.",
+        policy: "Same direct-call booking setup and same general rate ladder as Best Chance",
+        social: "Shares the same fleet website and dock identity, which makes it easy to compare.",
         fit: "Groups that like the Best Chance setup and want another legitimate option from the same dock.",
         quote: "Good to have on the board because it turns one Saugatuck fleet into multiple actual booking shots.",
         map: "https://www.google.com/maps/search/Best+Chance+Jr+Saugatuck+MI/",
@@ -2368,10 +2504,14 @@
         copy:
           "Blue Chip belongs in the mix because Big Lake Outfitters publishes direct half-day and full-day pricing and anchors the boat inside a broader Saugatuck outfitter operation. It is a cleaner logistics play than it first looks.",
         rate: "Half-day $800 for 1-4, $1,000 for 5-6; full-day $1,000 / $1,200",
+        trip: "Half-day runs 6 hours dock-to-dock at 6 or 7 AM / 1 or 2 PM; full-day runs 8 hours",
         boat: "31' Open Tiara",
         window: "Good Saugatuck late-summer salmon and trout option with simple trip formats",
+        species: "Salmon, trout, walleye, and smallmouth are all called out on the outfitter site",
         contact: "640 Water Street, Saugatuck • 269-857-4762",
         review: "Published rates, direct phone booking, and a downtown outfitter presence make it easy to compare on logistics.",
+        policy: "2% SACA fee added; cancel at least 7 days ahead; weather cancellations can be rescheduled",
+        social: "Backed by Big Lake Outfitters' downtown store and active Facebook presence.",
         fit: "Groups who like having a charter tied into a bigger local outfitter and tackle hub.",
         quote: "Useful when the group wants Saugatuck but also likes the idea of a broader local base instead of a single-boat site.",
         map: "https://www.google.com/maps/search/Big+Lake+Outfitters+Saugatuck+MI/",
@@ -2387,6 +2527,8 @@
     const mapChips = [...document.querySelectorAll(".map-chip")];
     const mapFrames = [...document.querySelectorAll(".map-embed")];
     const heroVenueList = document.getElementById("hero-venue-list");
+    const shareTripButton = document.getElementById("share-trip");
+    const shareTripLabel = document.getElementById("share-trip-label");
     const venueLookup = Object.values(heroMapData)
       .flatMap((group) => group.venues)
       .reduce((acc, venue) => {
@@ -2493,10 +2635,14 @@
       document.getElementById("console-copy").textContent = charter.copy;
       document.getElementById("console-captain").textContent = venue.captain || "See official listing";
       document.getElementById("console-rate").textContent = charter.rate;
+      document.getElementById("console-trip").textContent = charter.trip;
       document.getElementById("console-boat").textContent = charter.boat;
       document.getElementById("console-window").textContent = charter.window;
+      document.getElementById("console-species").textContent = charter.species;
       document.getElementById("console-contact").textContent = charter.contact;
       document.getElementById("console-review").textContent = charter.review;
+      document.getElementById("console-policy").textContent = charter.policy;
+      document.getElementById("console-social").textContent = charter.social;
       document.getElementById("console-fit").textContent = charter.fit;
       document.getElementById("console-quote").textContent = charter.quote;
       document.getElementById("console-map").href = charter.map;
@@ -2514,7 +2660,11 @@
     }
 
     fleetButtons.forEach((button) => {
-      button.addEventListener("click", () => setCharter(button.dataset.charter));
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        setCharter(button.dataset.charter);
+        button.blur();
+      });
     });
 
     mapChips.forEach((chip) => {
@@ -2532,6 +2682,35 @@
         });
       });
     });
+
+    if (shareTripButton) {
+      shareTripButton.addEventListener("click", async () => {
+        const shareData = {
+          title: "Salmon Run 2026 | Lake Michigan Trip Brief",
+          text: "Fleet intel, rates, captains, maps, and current conditions for the St. Joe and Saugatuck salmon trip.",
+          url: window.location.href
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+            shareTripLabel.textContent = "Shared";
+          } else if (navigator.clipboard?.writeText) {
+            await navigator.clipboard.writeText(`${shareData.title}\n${shareData.text}\n${shareData.url}`);
+            shareTripLabel.textContent = "Copied";
+          } else {
+            window.prompt("Copy this trip link", shareData.url);
+            shareTripLabel.textContent = "Ready";
+          }
+        } catch (error) {
+          shareTripLabel.textContent = "Share";
+        }
+
+        window.setTimeout(() => {
+          shareTripLabel.textContent = "Share";
+        }, 1800);
+      });
+    }
 
     renderHarborDirectory("directory-stjoe", "stjoe");
     renderHarborDirectory("directory-saugatuck", "saugatuck");
