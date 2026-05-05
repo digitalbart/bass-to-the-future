@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salmon Run 2026 | Lake Michigan Trip Brief</title>
-  <meta
-    name="description"
-    content="A polished trip brief for a late-summer Lake Michigan salmon charter out of St. Joseph or Saugatuck."
-  >
+  <meta name="description"
+    content="A polished trip brief for a late-summer Lake Michigan salmon charter out of St. Joseph or Saugatuck.">
   <meta name="theme-color" content="#08111f">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Salmon Run 2026 | Lake Michigan Trip Brief">
-  <meta property="og:description" content="Fleet intel, rates, captains, maps, and current nearshore conditions for a St. Joseph or Saugatuck salmon charter weekend.">
+  <meta property="og:description"
+    content="Fleet intel, rates, captains, maps, and current nearshore conditions for a St. Joseph or Saugatuck salmon charter weekend.">
   <meta property="og:image" content="bestchancetoo.jpg">
   <meta property="og:image:alt" content="Lake Michigan salmon charter group posing with fish at sunset">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Salmon Run 2026 | Lake Michigan Trip Brief">
-  <meta name="twitter:description" content="Fleet intel, rates, captains, maps, and current nearshore conditions for a St. Joseph or Saugatuck salmon charter weekend.">
+  <meta name="twitter:description"
+    content="Fleet intel, rates, captains, maps, and current nearshore conditions for a St. Joseph or Saugatuck salmon charter weekend.">
   <meta name="twitter:image" content="bestchancetoo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+    rel="stylesheet">
   <style>
     :root {
       --bg: #08111f;
@@ -532,6 +532,35 @@
       font-family: "Space Grotesk", sans-serif;
     }
 
+    .bite-target-mix {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .bite-target-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(53, 208, 255, 0.08);
+      border: 1px solid rgba(53, 208, 255, 0.18);
+      color: #eaf7ff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .bite-target-chip::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #35d0ff;
+      box-shadow: 0 0 12px rgba(53, 208, 255, 0.45);
+    }
+
     .stat {
       position: relative;
       padding: 14px;
@@ -614,7 +643,7 @@
 
     .season-planner-head {
       display: grid;
-      grid-template-columns: minmax(300px, 0.68fr) minmax(480px, 0.8fr);
+      grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1fr);
       gap: 18px;
       align-items: start;
       padding: 18px 18px 16px;
@@ -643,12 +672,14 @@
     }
 
     .preset-stack {
-      display: grid;
+      display: flex;
       gap: 12px;
-      grid-template-columns: minmax(150px, 0.76fr) minmax(210px, 1fr) minmax(390px, 1.54fr);
+      align-items: stretch;
       align-self: start;
       justify-self: start;
-      width: min(100%, 860px);
+      flex-wrap: nowrap;
+      width: 100%;
+      min-width: 0;
     }
 
     .preset-group {
@@ -661,12 +692,19 @@
       backdrop-filter: blur(10px);
     }
 
-    .preset-group:last-child {
-      grid-column: auto;
+    .preset-group-window {
+      flex: 0 1 180px;
+      min-width: 0;
+    }
+
+    .preset-group-harbor {
+      flex: 0 1 220px;
+      min-width: 0;
     }
 
     .preset-group-season {
-      grid-column: auto;
+      flex: 1 1 300px;
+      min-width: 0;
     }
 
     .season-planner-title {
@@ -676,6 +714,7 @@
       min-height: 100%;
       padding-right: 10px;
       max-width: 420px;
+      min-width: 0;
     }
 
     .preset-label {
@@ -690,9 +729,10 @@
     .preset-row {
       display: flex;
       flex-wrap: nowrap;
-      gap: 8px;
+      gap: 6px;
       align-items: center;
       white-space: nowrap;
+      min-width: 0;
     }
 
     .preset-transport {
@@ -710,11 +750,11 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.04);
       color: var(--text);
-      padding: 8px 12px;
+      padding: 8px 11px;
       border-radius: 999px;
       font: inherit;
       font-weight: 700;
-      font-size: 0.94rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
     }
@@ -739,12 +779,10 @@
       --season-sky: rgba(53, 208, 255, 0.08);
       --season-lane: rgba(210, 237, 255, 0.08);
       --season-lane-border: rgba(220, 242, 255, 0.28);
-      --sun-x: 50%;
-      --sun-y: 86px;
       --light-x: 50%;
       position: relative;
-      min-height: 170px;
-      padding: 18px 18px 16px;
+      min-height: 140px;
+      padding: 18px 18px 14px;
       border-radius: 24px;
       background:
         radial-gradient(circle at var(--light-x) 12%, var(--season-glow), transparent 18%),
@@ -768,7 +806,7 @@
       position: absolute;
       left: 8%;
       right: 8%;
-      bottom: 58px;
+      bottom: 52px;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
     }
@@ -776,7 +814,7 @@
     .sunrise-stage-top {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
       align-items: start;
       position: relative;
       z-index: 2;
@@ -799,113 +837,98 @@
 
     .sunrise-times {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: end;
-      gap: 8px;
+      gap: 0;
       position: relative;
       z-index: 2;
+      padding: 4px 0 0 18px;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .sunrise-time-pill {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(6, 16, 32, 0.48);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      min-width: 110px;
+      padding: 0 18px 0 0;
+      margin-right: 18px;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      min-width: 0;
+      position: relative;
+    }
+
+    .sunrise-time-pill::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      right: 0;
+      width: 1px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .sunrise-time-pill:last-child {
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    .sunrise-time-pill:last-child::after {
+      display: none;
     }
 
     .sunrise-time-pill span {
       display: block;
-      color: var(--muted);
-      font-size: 0.74rem;
+      color: #9bb1cb;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
+      font-weight: 700;
     }
 
     .sunrise-time-pill strong {
       display: block;
       margin-top: 4px;
-      font-size: 1rem;
-      letter-spacing: -0.03em;
-    }
-
-    .sunrise-arc {
-      display: none;
-    }
-
-    .sunrise-orb {
-      position: absolute;
-      left: var(--sun-x);
-      bottom: var(--sun-y);
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, #fff6d9 0%, #ffd36a 58%, rgba(255, 211, 106, 0.2) 100%);
-      box-shadow: 0 0 40px rgba(255, 211, 106, 0.36);
-      z-index: 2;
-      transition: left 0.2s ease, bottom 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-    }
-
-    .sunrise-time-float {
-      position: absolute;
-      left: var(--sun-x);
-      bottom: calc(var(--sun-y) + 34px);
-      transform: translateX(-50%);
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(6, 16, 32, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #f4f9ff;
-      font-size: 0.84rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      z-index: 2;
-      transition: left 0.2s ease, bottom 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .sunrise-peak-tag {
-      position: absolute;
-      left: var(--sun-x);
-      bottom: calc(var(--sun-y) + 72px);
-      transform: translateX(-50%);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(6, 16, 32, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #eef5ff;
-      font-size: 0.84rem;
-      font-weight: 700;
-      z-index: 2;
-      transition: left 0.2s ease, bottom 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .sunrise-peak-tag::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #35d0ff;
-      box-shadow: 0 0 16px rgba(53, 208, 255, 0.55);
-      flex: 0 0 auto;
+      font-size: 1.28rem;
+      letter-spacing: -0.04em;
+      color: #f5fbff;
     }
 
     .sunrise-foot {
       position: absolute;
       left: 18px;
       right: 18px;
-      bottom: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 0.8rem;
+      bottom: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
       z-index: 2;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sunrise-foot span {
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      display: block;
+      text-align: center;
+      min-height: 38px;
+      transition: color 0.2s ease;
+    }
+
+    .sunrise-foot span+span {
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sunrise-foot span.is-active {
+      color: #ffd98d;
+    }
+
+    .sunrise-foot span.is-active::before {
+      content: "";
+      display: block;
+      height: 2px;
+      margin: -15px auto 12px;
+      width: 64px;
+      background: linear-gradient(90deg, rgba(255, 214, 132, 0.24), rgba(255, 214, 132, 0.95), rgba(255, 214, 132, 0.24));
     }
 
     .season-meta-rail {
@@ -1637,7 +1660,7 @@
       line-height: 1.7;
     }
 
-    .conditions-card li + li {
+    .conditions-card li+li {
       margin-top: 8px;
     }
 
@@ -2646,6 +2669,7 @@
     }
 
     @media (max-width: 1024px) {
+
       .hero-grid,
       .overview-grid,
       .rules-grid,
@@ -2935,6 +2959,7 @@
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="shell">
@@ -2948,10 +2973,13 @@
         <span>Lake Michigan</span>
         <button class="share-button" id="share-trip" type="button" aria-label="Share this trip brief">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M15 8l-6 4 6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 12h8.5a2.5 2.5 0 0 0 0-5H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15 16h2.5a2.5 2.5 0 0 1 0 5H9a2.5 2.5 0 0 1 0-5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 3v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M15 8l-6 4 6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M9 12h8.5a2.5 2.5 0 0 0 0-5H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M15 16h2.5a2.5 2.5 0 0 1 0 5H9a2.5 2.5 0 0 1 0-5h6" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 3v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
           </svg>
           <span id="share-trip-label">Share</span>
         </button>
@@ -2972,17 +3000,20 @@
         <aside class="panel list-card" id="cost-lab-panel">
           <div class="eyebrow">Dynamic cost lab</div>
           <div class="cost-lab-hero">
-            <img id="cost-hero-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg" alt="Selected charter image">
+            <img id="cost-hero-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg"
+              alt="Selected charter image">
             <div>
               <div class="eyebrow" id="cost-hero-port">St. Joseph</div>
               <h4 id="cost-hero-name">Sea Hawk</h4>
-              <p id="cost-hero-copy">Synced to the active fleet pick so the price math stays tied to the actual charter, harbor, trip format, and contact logic you are looking at above.</p>
+              <p id="cost-hero-copy">Synced to the active fleet pick so the price math stays tied to the actual charter,
+                harbor, trip format, and contact logic you are looking at above.</p>
               <div class="cost-lab-badges">
                 <span class="cost-lab-badge" id="cost-hero-captain">Captain Russ Clark</span>
                 <span class="cost-lab-badge" id="cost-hero-boat">36' Tiara</span>
                 <span class="cost-lab-badge" id="cost-hero-review">Visible Google rating and rates page</span>
               </div>
-              <div class="muted" style="margin-top:12px;font-size:0.9rem;">Change the boat here, in Boat Directory, or in the compare rows below and the same selected charter stays synced across the page.</div>
+              <div class="muted" style="margin-top:12px;font-size:0.9rem;">Change the boat here, in Boat Directory, or
+                in the compare rows below and the same selected charter stays synced across the page.</div>
             </div>
           </div>
 
@@ -3106,7 +3137,8 @@
             <div class="eyebrow">Fleet comparison</div>
             <h4>Cross-compare all boats at the current group size.</h4>
           </div>
-          <p class="muted">Each row uses the live widget settings above, then lines the boats up by estimated per-person spend.</p>
+          <p class="muted">Each row uses the live widget settings above, then lines the boats up by estimated per-person
+            spend.</p>
         </div>
         <div class="compare-widget-list" id="compare-widget-list"></div>
       </article>
@@ -3119,23 +3151,24 @@
             <div class="season-planner-head">
               <div class="season-planner-title">
                 <div class="eyebrow">Strategic Expedition Overview</div>
-                <h2>Season + harbor bite planner.</h2>
+                <h2> bite planner.</h2>
                 <div class="preset-transport">
-                  <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false" data-state="pause">
+                  <!-- <button class="bite-play-toggle" id="bite-play-toggle" type="button" aria-pressed="false"
+                    data-state="pause">
                     <span class="bite-play-icon" aria-hidden="true"></span>
                     <span id="bite-play-label">Pause</span>
-                  </button>
+                  </button> -->
                 </div>
               </div>
               <div class="preset-stack">
-                <div class="preset-group">
+                <div class="preset-group preset-group-window">
                   <div class="preset-label">Window preset</div>
                   <div class="preset-row" id="bite-period-row">
                     <button class="preset-chip is-active" type="button" data-bite-period="dawn">Dawn</button>
                     <button class="preset-chip" type="button" data-bite-period="sunset">Sunset</button>
                   </div>
                 </div>
-                <div class="preset-group">
+                <div class="preset-group preset-group-harbor">
                   <div class="preset-label">Harbor preset</div>
                   <div class="preset-row" id="bite-location-row">
                     <button class="preset-chip is-active" type="button" data-bite-location="stjoe">St. Joe</button>
@@ -3155,65 +3188,19 @@
             </div>
           </div>
 
-          <div class="season-meta-grid">
-            <div class="sunrise-stage">
-              <div class="sunrise-stage-top">
-                <div class="sunrise-stage-copy">
-                  <div class="eyebrow" id="bite-stage-label">Sunrise Read</div>
-                  <strong id="bite-preset-month">September</strong>
-                  <span id="bite-preset-harbor">St. Joseph</span>
-                </div>
-                <div class="sunrise-times">
-                  <div class="sunrise-time-pill">
-                    <span id="bite-time-pill-label">Sunrise</span>
-                    <strong id="bite-preset-sunrise">07:24</strong>
-                  </div>
-                  <div class="sunrise-time-pill">
-                    <span id="bite-window-pill-label">Gray Light</span>
-                    <strong id="bite-preset-window">06:39-07:54</strong>
-                  </div>
-                </div>
-              </div>
-              <div class="sunrise-arc" aria-hidden="true"></div>
-              <div class="sunrise-time-float" id="bite-sunrise-time-float">06:43</div>
-              <div class="sunrise-peak-tag" id="bite-sunrise-peak-tag">Gray-light push</div>
-              <div class="sunrise-orb" id="bite-sunrise-orb" aria-hidden="true"></div>
-              <div class="sunrise-foot">
-                <span id="bite-foot-left">Pre-dawn setup</span>
-                <span id="bite-foot-center">Gray-light push</span>
-                <span id="bite-foot-right">Sun-up taper</span>
-              </div>
-            </div>
-            <div class="season-meta-rail">
-              <div class="season-meta-card">
-                <div class="eyebrow">Species</div>
-                <strong id="bite-stat-species">Kings staging</strong>
-                <span class="muted" id="bite-stat-species-copy">Peak staging salmon</span>
-              </div>
-              <div class="season-meta-card">
-                <div class="eyebrow">Dock target</div>
-                <strong id="bite-stat-arrival">06:44</strong>
-                <span class="muted" id="bite-stat-arrival-copy">Best arrival target for the first clean pass.</span>
-              </div>
-              <div class="season-meta-card">
-                <div class="eyebrow">Surface band</div>
-                <strong id="bite-stat-water">58-64°F</strong>
-                <span class="muted" id="bite-stat-water-copy">Typical surface band for the active preset.</span>
-              </div>
-            </div>
-          </div>
-
           <div class="bite-widget">
             <div class="bite-widget-copy">
               <div class="eyebrow">Bite Window Widget</div>
-              <h3 id="bite-headline">Track the sunrise push before the fish slide deeper.</h3>
-              <p id="bite-summary">This preset favors a disciplined early pass: low-angle light, staging kings near harbor structure, and a better top-third water-column shot before the sun climbs.</p>
+              <h3 id="bite-headline">Track the fish .</h3>
+              <p id="bite-summary">This preset favors a disciplined early pass: low-angle light, staging kings near
+                harbor structure, and a better top-third water-column shot before the sun climbs.</p>
               <div class="bite-timeline">
                 <div class="bite-slider-head">
                   <div class="bite-time" id="bite-time-label">05:15</div>
                   <div class="bite-slider-meta">
                     <div class="bite-phase" id="bite-phase-label">Gray light peak</div>
-                    <button class="bite-play-toggle bite-play-toggle-inline" type="button" aria-pressed="false" data-state="pause">
+                    <button class="bite-play-toggle bite-play-toggle-inline" type="button" aria-pressed="false"
+                      data-state="pause">
                       <span class="bite-play-icon" aria-hidden="true"></span>
                       <span class="bite-play-label">Pause</span>
                     </button>
@@ -3223,7 +3210,8 @@
                   <div class="bite-track">
                     <div class="bite-greylight" aria-hidden="true"></div>
                   </div>
-                  <input class="bite-range" id="bite-time-range" type="range" min="255" max="780" step="15" value="435" aria-label="Fishing bite time of day slider">
+                  <input class="bite-range" id="bite-time-range" type="range" min="255" max="780" step="15" value="435"
+                    aria-label="Fishing bite time of day slider">
                 </div>
                 <div class="bite-scale">
                   <span id="bite-scale-1">04:45</span>
@@ -3250,6 +3238,14 @@
 
               <div class="bite-signal-grid">
                 <div class="bite-signal">
+                  <strong>Target Mix</strong>
+                  <div class="bite-target-mix" id="bite-target-mix">
+                    <span class="bite-target-chip">King salmon</span>
+                    <span class="bite-target-chip">Coho</span>
+                    <span class="bite-target-chip">Steelhead</span>
+                  </div>
+                </div>
+                <div class="bite-signal">
                   <strong>Sunlight</strong>
                   <span id="bite-sunlight">Low-angle gray light</span>
                 </div>
@@ -3273,17 +3269,21 @@
             <article class="season-impact-card">
               <div class="eyebrow">What location changes</div>
               <strong id="bite-impact-location-title">St. Joe runs slightly cleaner for the direct salmon shot.</strong>
-              <span id="bite-impact-location">St. Joseph tends to fit the sharper harbor-mouth king setup, while Saugatuck leans a little more weather-sensitive and town-friendly once the boat is done.</span>
+              <span id="bite-impact-location">St. Joseph tends to fit the sharper harbor-mouth king setup, while
+                Saugatuck leans a little more weather-sensitive and town-friendly once the boat is done.</span>
             </article>
             <article class="season-impact-card">
               <div class="eyebrow">What the month changes</div>
               <strong id="bite-impact-season-title">September pushes the classic staging window.</strong>
-              <span id="bite-impact-season">As the season moves from July into October, sunrise shifts later, surface temperatures fall, and the fish move from scattered summer water toward tighter pre-spawn structure.</span>
+              <span id="bite-impact-season">As the season moves from July into October, sunrise shifts later, surface
+                temperatures fall, and the fish move from scattered summer water toward tighter pre-spawn
+                structure.</span>
             </article>
             <article class="season-impact-card">
               <div class="eyebrow">What time of day changes</div>
               <strong id="bite-impact-time-title">Gray light is the easiest screenshot window.</strong>
-              <span id="bite-impact-time">Before and just after sunrise, low-angle light keeps fish higher and more aggressive. Once the sun gets up, captains usually have to work deeper and troll more precisely.</span>
+              <span id="bite-impact-time">Before and just after sunrise, low-angle light keeps fish higher and more
+                aggressive. Once the sun gets up, captains usually have to work deeper and troll more precisely.</span>
             </article>
           </div>
         </section>
@@ -3296,13 +3296,16 @@
           <div class="eyebrow">02 // Boat Directory</div>
           <h3>All boats, grouped in one dense planning panel.</h3>
         </div>
-        <p class="muted">One place for boat details, maps, rates, captains, review sources, conditions, and booking flow.</p>
+        <p class="muted">One place for boat details, maps, rates, captains, review sources, conditions, and booking
+          flow.</p>
       </div>
 
       <div class="panel intel-panel">
         <div class="tab-bar" role="tablist" aria-label="Trip Console Tabs">
-          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet" id="btn-fleet">Boat Directory</button>
-          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-booking" id="btn-booking">Booking Flow</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-fleet"
+            id="btn-fleet">Boat Directory</button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-booking"
+            id="btn-booking">Booking Flow</button>
         </div>
 
         <section class="tab-panel is-active" role="tabpanel" id="tab-fleet" aria-labelledby="btn-fleet">
@@ -3368,34 +3371,28 @@
 
               <p class="console-copy" id="console-copy">
                 Sea Hawk’s current site makes this one easy to trust for planning: the morning trip is clearly listed,
-                the boat details are visible, and the dock/contact info are current enough to turn straight into a booking.
+                the boat details are visible, and the dock/contact info are current enough to turn straight into a
+                booking.
               </p>
 
               <div class="console-media-grid">
-                <img class="console-photo" id="console-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg" alt="Sea Hawk charter boat photo">
+                <img class="console-photo" id="console-photo"
+                  src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg"
+                  alt="Sea Hawk charter boat photo">
                 <div class="console-map-frame">
-                  <iframe
-                    id="console-embed"
+                  <iframe id="console-embed"
                     src="https://www.google.com/maps?q=Sea+Hawk+Fishing+Charters+St.+Joseph+1000+Riverview+Dr+Benton+Harbor+MI&z=16&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Sea Hawk map"
-                  ></iframe>
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sea Hawk map"></iframe>
                 </div>
               </div>
 
               <div class="console-video-block" id="console-video-block">
                 <div class="eyebrow">Boat Video</div>
                 <div class="console-video-frame">
-                  <iframe
-                    id="console-video-embed"
-                    src=""
-                    loading="lazy"
+                  <iframe id="console-video-embed" src="" loading="lazy"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    title="Boat video"
-                  ></iframe>
+                    allowfullscreen title="Boat video"></iframe>
                 </div>
                 <div class="console-video-note" id="console-video-note">Verified boat or charter footage.</div>
               </div>
@@ -3431,7 +3428,8 @@
                 </div>
                 <div class="data-item">
                   <strong>Review Angle</strong>
-                  <span id="console-review">Official site surfaces recent Google review testimonials and a 4.8 rating.</span>
+                  <span id="console-review">Official site surfaces recent Google review testimonials and a 4.8
+                    rating.</span>
                 </div>
                 <div class="data-item">
                   <strong>Booking Policy</strong>
@@ -3439,7 +3437,8 @@
                 </div>
                 <div class="data-item">
                   <strong>Web / Social Read</strong>
-                  <span id="console-social">Official site links its live Google listing and current review pull-through.</span>
+                  <span id="console-social">Official site links its live Google listing and current review
+                    pull-through.</span>
                 </div>
                 <div class="data-item">
                   <strong>Video</strong>
@@ -3456,20 +3455,30 @@
               </div>
 
               <div class="console-links">
-                <a class="button button-primary" id="console-map" href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open Google Maps</a>
-                <a class="button button-secondary" id="console-reviews" href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank" rel="noreferrer">Open reviews</a>
-                <a class="button button-secondary" id="console-youtube" href="https://www.youtube.com/results?search_query=Sea+Hawk+Fishing+Charters+St.+Joseph" target="_blank" rel="noreferrer">YouTube</a>
-                <a class="button button-secondary" id="console-site" href="https://fishseahawk.com/" target="_blank" rel="noreferrer">Open official site</a>
+                <a class="button button-primary" id="console-map"
+                  href="https://www.google.com/maps/place/Sea+Hawk+Fishing+Charters+St.+Joseph/@42.1006854,-86.466241,785m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8810c429a630b97d:0xe21c2941318d1621!8m2!3d42.1006854!4d-86.466241!16s%2Fg%2F1tgx763c?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank" rel="noreferrer">Open Google Maps</a>
+                <a class="button button-secondary" id="console-reviews"
+                  href="https://www.google.com/search?q=Sea+Hawk+Fishing+Charters+St.+Joseph+reviews" target="_blank"
+                  rel="noreferrer">Open reviews</a>
+                <a class="button button-secondary" id="console-youtube"
+                  href="https://www.youtube.com/results?search_query=Sea+Hawk+Fishing+Charters+St.+Joseph"
+                  target="_blank" rel="noreferrer">YouTube</a>
+                <a class="button button-secondary" id="console-site" href="https://fishseahawk.com/" target="_blank"
+                  rel="noreferrer">Open official site</a>
                 <a class="button button-secondary" id="console-call" href="tel:2692083923">Call captain</a>
               </div>
 
               <div class="console-cost-snapshot">
                 <div class="eyebrow">Linked Cost Snapshot</div>
                 <div class="console-cost-grid">
-                  <img class="console-cost-photo" id="console-cost-photo" src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg" alt="Sea Hawk boat preview">
+                  <img class="console-cost-photo" id="console-cost-photo"
+                    src="https://fishseahawk.com/wp-content/uploads/2025/03/lake_pics_55.jpg"
+                    alt="Sea Hawk boat preview">
                   <div class="console-cost-copy">
                     <strong id="console-cost-name">Sea Hawk • 7 hr morning</strong>
-                    <span id="console-cost-copy">4 anglers, daily license, meal on, 20% mate tip. This stays synced with the full cost lab below.</span>
+                    <span id="console-cost-copy">4 anglers, daily license, meal on, 20% mate tip. This stays synced with
+                      the full cost lab below.</span>
                   </div>
                   <div class="console-cost-total">
                     <strong id="console-cost-total">$320</strong>
@@ -3517,14 +3526,16 @@
           <div class="eyebrow">03 // Dates</div>
           <h3>Keep the trip windows visible.</h3>
         </div>
-        <p class="muted">The booking windows matter enough that they should sit in the page flow, not inside a hidden tab.</p>
+        <p class="muted">The booking windows matter enough that they should sit in the page flow, not inside a hidden
+          tab.</p>
       </div>
 
       <div class="calendar-grid">
         <article class="calendar-card">
           <div class="eyebrow">Window A</div>
           <h4>Friday, August 21 to Sunday, August 30, 2026</h4>
-          <p>Best choice if your group wants the strongest chance at staging salmon before Labor Day traffic picks up too much.</p>
+          <p>Best choice if your group wants the strongest chance at staging salmon before Labor Day traffic picks up
+            too much.</p>
           <div class="chip-row">
             <span class="chip good">Best balance</span>
             <span class="chip warn">Book early</span>
@@ -3533,7 +3544,8 @@
         <article class="calendar-card">
           <div class="eyebrow">Window B</div>
           <h4>Thursday, September 3 to Monday, September 7, 2026</h4>
-          <p>Very strong holiday window, but marinas, restaurants, and rooms can get tighter. Great if the group wants full town energy.</p>
+          <p>Very strong holiday window, but marinas, restaurants, and rooms can get tighter. Great if the group wants
+            full town energy.</p>
           <div class="chip-row">
             <span class="chip good">Prime run timing</span>
             <span class="chip warn">Holiday pricing pressure</span>
@@ -3542,7 +3554,8 @@
         <article class="calendar-card">
           <div class="eyebrow">Backup Plan</div>
           <h4>Midweek mornings win</h4>
-          <p>If you can go Tuesday through Thursday, you usually get cleaner booking options, easier lodging, and less harbor congestion.</p>
+          <p>If you can go Tuesday through Thursday, you usually get cleaner booking options, easier lodging, and less
+            harbor congestion.</p>
           <div class="chip-row">
             <span class="chip good">Cleaner logistics</span>
             <span class="chip good">Often easier to rebook</span>
@@ -3564,7 +3577,8 @@
         <article class="conditions-card">
           <div class="eyebrow">St. Joseph Marine Snapshot</div>
           <h4>Checked Saturday, May 2, 2026</h4>
-          <p>Official NOAA nearshore forecast for the St. Joseph side. This is the planning snapshot to pair with the captain’s final weather call the day before launch.</p>
+          <p>Official NOAA nearshore forecast for the St. Joseph side. This is the planning snapshot to pair with the
+            captain’s final weather call the day before launch.</p>
           <div class="conditions-meta">
             <span class="conditions-pill">Water temp: 50°F</span>
             <span class="conditions-pill">Tonight: 2 ft or less</span>
@@ -3576,14 +3590,17 @@
             <li>Monday: southwest 5 to 15 knots, sunny, waves 1 to 2 feet.</li>
           </ul>
           <div class="cta-row">
-            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KIWX.html" target="_blank" rel="noreferrer">NOAA forecast</a>
-            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=stdm4" target="_blank" rel="noreferrer">St. Joseph temp</a>
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KIWX.html"
+              target="_blank" rel="noreferrer">NOAA forecast</a>
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=stdm4"
+              target="_blank" rel="noreferrer">St. Joseph temp</a>
           </div>
         </article>
         <article class="conditions-card">
           <div class="eyebrow">Saugatuck / Holland Snapshot</div>
           <h4>Checked Saturday, May 2, 2026</h4>
-          <p>Official NOAA nearshore forecast for South Haven to Holland plus the Holland station reading, which makes the Saugatuck side a lot more useful than a generic weather card.</p>
+          <p>Official NOAA nearshore forecast for South Haven to Holland plus the Holland station reading, which makes
+            the Saugatuck side a lot more useful than a generic weather card.</p>
           <div class="conditions-meta">
             <span class="conditions-pill">Water temp: 48.7°F</span>
             <span class="conditions-pill">Tonight: 2 to 3 ft</span>
@@ -3595,35 +3612,50 @@
             <li>Monday: southwest 15 to 25 knots, mostly sunny, waves building 2 to 4 feet.</li>
           </ul>
           <div class="cta-row">
-            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KGRR.html" target="_blank" rel="noreferrer">NOAA forecast</a>
-            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=hlnm4" target="_blank" rel="noreferrer">Holland temp</a>
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/data/Forecasts/FZUS53.KGRR.html"
+              target="_blank" rel="noreferrer">NOAA forecast</a>
+            <a class="button button-secondary" href="https://www.ndbc.noaa.gov/station_page.php?station=hlnm4"
+              target="_blank" rel="noreferrer">Holland temp</a>
           </div>
         </article>
       </div>
       <article class="conditions-card seasonal-conditions">
         <div class="eyebrow">Monthly Seasonal Planner</div>
         <h4>Daily NOAA up top, monthly run read below.</h4>
-        <p>This quick chart turns the day-by-day weather tab into a fuller planning view. The seasonal weights are based on the current charter calendars and the late-summer staging pattern this trip is built around.</p>
+        <p>This quick chart turns the day-by-day weather tab into a fuller planning view. The seasonal weights are based
+          on the current charter calendars and the late-summer staging pattern this trip is built around.</p>
         <div class="season-chart">
           <div class="season-row">
             <div class="season-month">July</div>
-            <div class="season-track"><div class="season-fill" style="width: 46%;"></div></div>
-            <div class="season-copy">Coho, steelhead, and mixed trout. Good warm-water action, less of the mature staging push.</div>
+            <div class="season-track">
+              <div class="season-fill" style="width: 46%;"></div>
+            </div>
+            <div class="season-copy">Coho, steelhead, and mixed trout. Good warm-water action, less of the mature
+              staging push.</div>
           </div>
           <div class="season-row">
             <div class="season-month">Aug</div>
-            <div class="season-track"><div class="season-fill" style="width: 88%;"></div></div>
-            <div class="season-copy">Strong run-up month. Mature kings begin stacking near harbor mouths and morning starts matter more.</div>
+            <div class="season-track">
+              <div class="season-fill" style="width: 88%;"></div>
+            </div>
+            <div class="season-copy">Strong run-up month. Mature kings begin stacking near harbor mouths and morning
+              starts matter more.</div>
           </div>
           <div class="season-row">
             <div class="season-month">Sep</div>
-            <div class="season-track"><div class="season-fill" style="width: 97%;"></div></div>
-            <div class="season-copy">Peak staging energy for this concept. Best month for a serious salmon-first weekend if weather lines up.</div>
+            <div class="season-track">
+              <div class="season-fill" style="width: 97%;"></div>
+            </div>
+            <div class="season-copy">Peak staging energy for this concept. Best month for a serious salmon-first weekend
+              if weather lines up.</div>
           </div>
           <div class="season-row">
             <div class="season-month">Oct</div>
-            <div class="season-track"><div class="season-fill" style="width: 54%;"></div></div>
-            <div class="season-copy">Still fishable in spots, but much less clean for the exact late-summer harbor plan this page is built around.</div>
+            <div class="season-track">
+              <div class="season-fill" style="width: 54%;"></div>
+            </div>
+            <div class="season-copy">Still fishable in spots, but much less clean for the exact late-summer harbor plan
+              this page is built around.</div>
           </div>
         </div>
       </article>
@@ -3642,17 +3674,26 @@
         <article class="panel list-card rules-card">
           <div class="eyebrow">Michigan trip rules</div>
           <ul class="bullet-list">
-            <li>Anglers age 17 and up need a Michigan fishing license. The 2026 license year runs from April 1, 2026 through March 31, 2027.</li>
-            <li>Daily all-species license is $10 for residents or nonresidents, and the purchaser sets the 24-hour start time.</li>
+            <li>Anglers age 17 and up need a Michigan fishing license. The 2026 license year runs from April 1, 2026
+              through March 31, 2027.</li>
+            <li>Daily all-species license is $10 for residents or nonresidents, and the purchaser sets the 24-hour start
+              time.</li>
             <li>Annual nonresident all-species license is $76, plus the $1 DNR Sportcard fee listed by the state.</li>
-            <li>For Great Lakes trout and salmon, Lake Michigan is open all year and the general minimum size is 10 inches, but lake trout use a separate management-unit table.</li>
-            <li>If anyone plans to fish inland trout or salmon waters before or after the charter, the 2026 digest says to check the county exceptions and Michigan Fishing Maps because seasons and tackle rules can change by waterbody.</li>
-            <li>The 2026 regulations also clarified bead fishing for trout and salmon: a bead on the hook, or pegged no more than 4 inches above a single-pointed hook, counts as an artificial lure.</li>
+            <li>For Great Lakes trout and salmon, Lake Michigan is open all year and the general minimum size is 10
+              inches, but lake trout use a separate management-unit table.</li>
+            <li>If anyone plans to fish inland trout or salmon waters before or after the charter, the 2026 digest says
+              to check the county exceptions and Michigan Fishing Maps because seasons and tackle rules can change by
+              waterbody.</li>
+            <li>The 2026 regulations also clarified bead fishing for trout and salmon: a bead on the hook, or pegged no
+              more than 4 inches above a single-pointed hook, counts as an artificial lure.</li>
             <li>Most charter crews allow moderate beer or wine, but hard liquor is commonly prohibited.</li>
           </ul>
           <div class="cta-row">
-            <a class="button button-secondary" href="https://www.michigan.gov/dnr/things-to-do/fishing/license-info" target="_blank" rel="noreferrer">License info</a>
-            <a class="button button-secondary" href="https://www.michigan.gov/dnr/-/media/Project/Websites/dnr/Documents/LED/digests/2026-Michigan-Fishing-Regulations_web_accessible.pdf" target="_blank" rel="noreferrer">2026 regs PDF</a>
+            <a class="button button-secondary" href="https://www.michigan.gov/dnr/things-to-do/fishing/license-info"
+              target="_blank" rel="noreferrer">License info</a>
+            <a class="button button-secondary"
+              href="https://www.michigan.gov/dnr/-/media/Project/Websites/dnr/Documents/LED/digests/2026-Michigan-Fishing-Regulations_web_accessible.pdf"
+              target="_blank" rel="noreferrer">2026 regs PDF</a>
           </div>
         </article>
 
@@ -3680,12 +3721,13 @@
                   <strong>Chinook salmon</strong>
                 </div>
                 <svg class="limit-fish salmon" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <ellipse cx="43" cy="20" rx="27" ry="11" fill="currentColor"/>
-                  <path d="M67 20c8-3 15-8 21-12l-4 12 4 12c-6-4-13-9-21-12Z" fill="currentColor"/>
-                  <path d="M28 13c4-4 8-6 13-7-2 3-2 5 0 8-4-1-8-1-13-1Z" fill="#f4d995" opacity=".72"/>
-                  <path d="M38 10c6 2 10 5 15 10-6-1-11-1-17 1 2-4 2-7 2-11Z" fill="#f8e4af" opacity=".36"/>
-                  <circle cx="28" cy="18" r="2" fill="#0b1830"/>
-                  <path d="M18 22c4 2 8 3 12 3" stroke="#0b1830" stroke-width="1.8" stroke-linecap="round" opacity=".45"/>
+                  <ellipse cx="43" cy="20" rx="27" ry="11" fill="currentColor" />
+                  <path d="M67 20c8-3 15-8 21-12l-4 12 4 12c-6-4-13-9-21-12Z" fill="currentColor" />
+                  <path d="M28 13c4-4 8-6 13-7-2 3-2 5 0 8-4-1-8-1-13-1Z" fill="#f4d995" opacity=".72" />
+                  <path d="M38 10c6 2 10 5 15 10-6-1-11-1-17 1 2-4 2-7 2-11Z" fill="#f8e4af" opacity=".36" />
+                  <circle cx="28" cy="18" r="2" fill="#0b1830" />
+                  <path d="M18 22c4 2 8 3 12 3" stroke="#0b1830" stroke-width="1.8" stroke-linecap="round"
+                    opacity=".45" />
                 </svg>
               </div>
               <span class="limit-cap">Up to 5</span>
@@ -3698,11 +3740,12 @@
                   <strong>Coho salmon</strong>
                 </div>
                 <svg class="limit-fish salmon" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <ellipse cx="44" cy="20" rx="25" ry="9.5" fill="currentColor"/>
-                  <path d="M67 20c8-4 15-8 21-12l-4 12 4 12c-6-4-13-8-21-12Z" fill="currentColor"/>
-                  <path d="M40 12c5 2 9 4 12 8-5-1-10 0-14 1 2-3 2-6 2-9Z" fill="#fff1c7" opacity=".34"/>
-                  <circle cx="29" cy="18.5" r="2" fill="#0b1830"/>
-                  <path d="M20 21.5c4 1 7 2 11 2" stroke="#0b1830" stroke-width="1.6" stroke-linecap="round" opacity=".42"/>
+                  <ellipse cx="44" cy="20" rx="25" ry="9.5" fill="currentColor" />
+                  <path d="M67 20c8-4 15-8 21-12l-4 12 4 12c-6-4-13-8-21-12Z" fill="currentColor" />
+                  <path d="M40 12c5 2 9 4 12 8-5-1-10 0-14 1 2-3 2-6 2-9Z" fill="#fff1c7" opacity=".34" />
+                  <circle cx="29" cy="18.5" r="2" fill="#0b1830" />
+                  <path d="M20 21.5c4 1 7 2 11 2" stroke="#0b1830" stroke-width="1.6" stroke-linecap="round"
+                    opacity=".42" />
                 </svg>
               </div>
               <span class="limit-cap">Up to 5</span>
@@ -3715,10 +3758,13 @@
                   <strong>Pink salmon</strong>
                 </div>
                 <svg class="limit-fish salmon" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <path d="M18 22c0-7 12-13 28-13 11 0 20 3 24 8 6-1 12-4 18-9l-4 12 4 12c-6-4-12-7-18-9-4 5-13 8-24 8-16 0-28-6-28-13Z" fill="currentColor"/>
-                  <path d="M39 8c6 0 10 4 12 9-5-1-11 0-15 1 3-4 4-7 3-10Z" fill="#ffdba0" opacity=".45"/>
-                  <circle cx="29" cy="18.5" r="2" fill="#0b1830"/>
-                  <path d="M18 22c3 1 7 2 11 2" stroke="#0b1830" stroke-width="1.6" stroke-linecap="round" opacity=".38"/>
+                  <path
+                    d="M18 22c0-7 12-13 28-13 11 0 20 3 24 8 6-1 12-4 18-9l-4 12 4 12c-6-4-12-7-18-9-4 5-13 8-24 8-16 0-28-6-28-13Z"
+                    fill="currentColor" />
+                  <path d="M39 8c6 0 10 4 12 9-5-1-11 0-15 1 3-4 4-7 3-10Z" fill="#ffdba0" opacity=".45" />
+                  <circle cx="29" cy="18.5" r="2" fill="#0b1830" />
+                  <path d="M18 22c3 1 7 2 11 2" stroke="#0b1830" stroke-width="1.6" stroke-linecap="round"
+                    opacity=".38" />
                 </svg>
               </div>
               <span class="limit-cap">Up to 5</span>
@@ -3731,12 +3777,12 @@
                   <strong>Rainbow trout / steelhead</strong>
                 </div>
                 <svg class="limit-fish trout" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <ellipse cx="43" cy="20" rx="25" ry="9.5" fill="currentColor"/>
-                  <path d="M66 20c8-4 14-8 20-12l-4 12 4 12c-6-4-12-8-20-12Z" fill="currentColor"/>
-                  <path d="M24 20h38" stroke="#f6a6c3" stroke-width="3" stroke-linecap="round" opacity=".72"/>
-                  <circle cx="28" cy="18" r="2" fill="#0b1830"/>
-                  <circle cx="39" cy="13" r="1.2" fill="#0b1830" opacity=".28"/>
-                  <circle cx="49" cy="26" r="1.2" fill="#0b1830" opacity=".28"/>
+                  <ellipse cx="43" cy="20" rx="25" ry="9.5" fill="currentColor" />
+                  <path d="M66 20c8-4 14-8 20-12l-4 12 4 12c-6-4-12-8-20-12Z" fill="currentColor" />
+                  <path d="M24 20h38" stroke="#f6a6c3" stroke-width="3" stroke-linecap="round" opacity=".72" />
+                  <circle cx="28" cy="18" r="2" fill="#0b1830" />
+                  <circle cx="39" cy="13" r="1.2" fill="#0b1830" opacity=".28" />
+                  <circle cx="49" cy="26" r="1.2" fill="#0b1830" opacity=".28" />
                 </svg>
               </div>
               <span class="limit-cap">Max 3</span>
@@ -3749,13 +3795,13 @@
                   <strong>Brown trout</strong>
                 </div>
                 <svg class="limit-fish trout" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <ellipse cx="43" cy="20" rx="25" ry="9.5" fill="currentColor"/>
-                  <path d="M66 20c8-4 14-8 20-12l-4 12 4 12c-6-4-12-8-20-12Z" fill="currentColor"/>
-                  <circle cx="29" cy="18" r="2" fill="#0b1830"/>
-                  <circle cx="37" cy="14" r="1.3" fill="#7b5830" opacity=".8"/>
-                  <circle cx="44" cy="22" r="1.3" fill="#7b5830" opacity=".8"/>
-                  <circle cx="51" cy="16" r="1.3" fill="#7b5830" opacity=".8"/>
-                  <circle cx="56" cy="23" r="1.3" fill="#7b5830" opacity=".8"/>
+                  <ellipse cx="43" cy="20" rx="25" ry="9.5" fill="currentColor" />
+                  <path d="M66 20c8-4 14-8 20-12l-4 12 4 12c-6-4-12-8-20-12Z" fill="currentColor" />
+                  <circle cx="29" cy="18" r="2" fill="#0b1830" />
+                  <circle cx="37" cy="14" r="1.3" fill="#7b5830" opacity=".8" />
+                  <circle cx="44" cy="22" r="1.3" fill="#7b5830" opacity=".8" />
+                  <circle cx="51" cy="16" r="1.3" fill="#7b5830" opacity=".8" />
+                  <circle cx="56" cy="23" r="1.3" fill="#7b5830" opacity=".8" />
                 </svg>
               </div>
               <span class="limit-cap">Max 3</span>
@@ -3768,11 +3814,12 @@
                   <strong>Atlantic salmon</strong>
                 </div>
                 <svg class="limit-fish salmon" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <ellipse cx="43" cy="20" rx="24" ry="9" fill="currentColor"/>
-                  <path d="M67 20c8-5 15-9 20-13l-5 13 5 13c-5-4-12-8-20-13Z" fill="currentColor"/>
-                  <path d="M42 12c5 2 9 4 13 8-5-1-10 0-14 1 2-3 2-6 1-9Z" fill="#f9e6b8" opacity=".34"/>
-                  <circle cx="29" cy="18.5" r="2" fill="#0b1830"/>
-                  <path d="M18 22c4 2 8 2 12 2" stroke="#0b1830" stroke-width="1.5" stroke-linecap="round" opacity=".35"/>
+                  <ellipse cx="43" cy="20" rx="24" ry="9" fill="currentColor" />
+                  <path d="M67 20c8-5 15-9 20-13l-5 13 5 13c-5-4-12-8-20-13Z" fill="currentColor" />
+                  <path d="M42 12c5 2 9 4 13 8-5-1-10 0-14 1 2-3 2-6 1-9Z" fill="#f9e6b8" opacity=".34" />
+                  <circle cx="29" cy="18.5" r="2" fill="#0b1830" />
+                  <path d="M18 22c4 2 8 2 12 2" stroke="#0b1830" stroke-width="1.5" stroke-linecap="round"
+                    opacity=".35" />
                 </svg>
               </div>
               <span class="limit-cap">Max 3</span>
@@ -3785,20 +3832,22 @@
                   <strong>Lake trout / splake</strong>
                 </div>
                 <svg class="limit-fish lake" viewBox="0 0 96 40" fill="none" aria-hidden="true">
-                  <ellipse cx="43" cy="20" rx="25" ry="10" fill="currentColor"/>
-                  <path d="M66 20c8-4 14-8 20-12l-4 12 4 12c-6-4-12-8-20-12Z" fill="currentColor"/>
-                  <circle cx="29" cy="18" r="2" fill="#0b1830"/>
-                  <circle cx="38" cy="13" r="1.2" fill="#f3fbff" opacity=".65"/>
-                  <circle cx="47" cy="24" r="1.2" fill="#f3fbff" opacity=".65"/>
-                  <circle cx="54" cy="16" r="1.2" fill="#f3fbff" opacity=".65"/>
-                  <circle cx="58" cy="23" r="1.2" fill="#f3fbff" opacity=".65"/>
+                  <ellipse cx="43" cy="20" rx="25" ry="10" fill="currentColor" />
+                  <path d="M66 20c8-4 14-8 20-12l-4 12 4 12c-6-4-12-8-20-12Z" fill="currentColor" />
+                  <circle cx="29" cy="18" r="2" fill="#0b1830" />
+                  <circle cx="38" cy="13" r="1.2" fill="#f3fbff" opacity=".65" />
+                  <circle cx="47" cy="24" r="1.2" fill="#f3fbff" opacity=".65" />
+                  <circle cx="54" cy="16" r="1.2" fill="#f3fbff" opacity=".65" />
+                  <circle cx="58" cy="23" r="1.2" fill="#f3fbff" opacity=".65" />
                 </svg>
               </div>
               <span class="limit-cap">Unit-specific</span>
-              <p>Follow the separate Lake Trout Management Unit table in the 2026 digest. This is the one to confirm against the exact St. Joe or Saugatuck-area port before fishing.</p>
+              <p>Follow the separate Lake Trout Management Unit table in the 2026 digest. This is the one to confirm
+                against the exact St. Joe or Saugatuck-area port before fishing.</p>
             </article>
           </div>
-          <div class="quote">Simple version: 5 total trout and salmon per person, with Chinook or Coho able to fill that whole box, while steelhead, brown trout, and Atlantic salmon stay capped at 3 each.</div>
+          <div class="quote">Simple version: 5 total trout and salmon per person, with Chinook or Coho able to fill that
+            whole box, while steelhead, brown trout, and Atlantic salmon stay capped at 3 each.</div>
         </article>
       </div>
     </section>
@@ -4662,6 +4711,7 @@
           seasonEffect: "July is less pure staging and more roaming summer water, so speed, temp breaks, and early light matter more than a single tight harbor stack.",
           timeEffect: "Before sunrise the spread can still work high. Once the sun clears the horizon, surface fish often separate faster than in September.",
           speciesCopy: "Coho + steelhead mix",
+          targetMix: ["Coho salmon", "Steelhead", "Lake trout"],
           weather: "Cloud cover and a little chop keep the top-water window open longer in midsummer."
         },
         august: {
@@ -4679,6 +4729,7 @@
           seasonEffect: "August is the bridge month: still some summer spread, but more mature fish are turning into real harbor targets.",
           timeEffect: "The first 45 minutes around sunrise matter more now. After that, fish start sliding and the easy top-water read fades.",
           speciesCopy: "Kings start staging",
+          targetMix: ["King salmon", "Coho salmon", "Steelhead"],
           weather: "Small southwest chop usually helps; bright flat water shortens the easy morning push."
         },
         september: {
@@ -4696,6 +4747,7 @@
           seasonEffect: "September is the sweet spot for mature staging fish before the full spawn push scatters the cleanest harbor setup.",
           timeEffect: "Gray light through shortly after sunrise is the easiest screenshot bite. Full sun usually pushes the fish deeper and tighter.",
           speciesCopy: "Kings staging",
+          targetMix: ["King salmon", "Coho salmon", "Steelhead"],
           weather: "Light chop helps; hard southwest wind can dirty the cleanest inside bite."
         },
         october: {
@@ -4713,6 +4765,7 @@
           seasonEffect: "October is less pure staging and more active transition into the spawn run, which can compress the clean bite windows.",
           timeEffect: "The later sunrise buys more setup time, but once the sun gets up the fish often pin down to tighter lanes and cleaner structure.",
           speciesCopy: "Spawn-push kings",
+          targetMix: ["King salmon", "Coho salmon", "Brown trout"],
           weather: "Cold calm mornings can still fire, but bigger fronts move the pattern around faster."
         }
       },
@@ -4734,6 +4787,7 @@
           seasonEffect: "July is still summer water here, so you are reading temp, bait, and light more than a locked-in staging lane.",
           timeEffect: "Low light is still best, but the morning bite can disperse quicker if the surface slicks off.",
           speciesCopy: "Coho + steelhead mix",
+          targetMix: ["Coho salmon", "Steelhead", "Lake trout"],
           weather: "A little texture on the water helps this side a lot when the sun climbs."
         },
         august: {
@@ -4751,6 +4805,7 @@
           seasonEffect: "August is where the Saugatuck side starts feeling more serious for kings without losing the easier town logistics.",
           timeEffect: "The best bite still clusters around first light, but wind direction matters a little more here than the St. Joe side.",
           speciesCopy: "Kings building",
+          targetMix: ["King salmon", "Coho salmon", "Steelhead"],
           weather: "Chop and cloud cover usually help keep the early lanes honest."
         },
         september: {
@@ -4768,6 +4823,7 @@
           seasonEffect: "September is the most dependable month here for combining a serious charter with a clean late-summer harbor pattern.",
           timeEffect: "Just before and after sunrise is still the premium lane. Once full sun hits, the read usually turns more technical.",
           speciesCopy: "Kings staging",
+          targetMix: ["King salmon", "Coho salmon", "Steelhead"],
           weather: "This side usually wants some texture on the water; slick bright mornings can make the later pass tougher."
         },
         october: {
@@ -4785,6 +4841,7 @@
           seasonEffect: "Fish are more transition-driven now, and the difference between a hot morning and a grind can tighten a lot.",
           timeEffect: "The later sunrise is nice for setup, but once the light gets up you are often working more precise and less forgiving water.",
           speciesCopy: "Transition push",
+          targetMix: ["King salmon", "Coho salmon", "Brown trout"],
           weather: "Cold fronts and bigger wind shifts move the best water around faster this month."
         }
       }
@@ -4798,9 +4855,9 @@
       container.innerHTML = mapData.venues.map((venue) => `
         <article class="boat-card">
           ${venue.photo
-            ? `<img class="boat-card-photo" src="${venue.photo}" alt="${venue.name} charter boat photo" loading="lazy">`
-            : `<div class="boat-card-photo is-placeholder">Official rate + dock info verified</div>`
-          }
+          ? `<img class="boat-card-photo" src="${venue.photo}" alt="${venue.name} charter boat photo" loading="lazy">`
+          : `<div class="boat-card-photo is-placeholder">Official rate + dock info verified</div>`
+        }
           <div class="boat-card-top">
             <div>
               <div class="eyebrow">${venue.harbor}</div>
@@ -4855,6 +4912,23 @@
       const suffix = hours24 >= 12 ? "PM" : "AM";
       const hours12 = (hours24 % 12) || 12;
       return `${hours12}:${String(minutes).padStart(2, "0")} ${suffix}`;
+    }
+
+    function setNodeText(id, value) {
+      const node = document.getElementById(id);
+      if (node) node.textContent = value;
+    }
+
+    function renderBiteTargetMix(preset) {
+      const targetMix = document.getElementById("bite-target-mix");
+      if (!targetMix) return;
+      const targets = preset.targetMix || ["King salmon", "Coho salmon", "Steelhead"];
+      targetMix.replaceChildren(...targets.map((target) => {
+        const chip = document.createElement("span");
+        chip.className = "bite-target-chip";
+        chip.textContent = target;
+        return chip;
+      }));
     }
 
     function getActiveBitePreset() {
@@ -5013,38 +5087,44 @@
       const windowPreset = getActiveBiteWindow(preset);
       const stage = document.querySelector(".sunrise-stage");
       const theme = getBiteSeasonTheme();
+      const firstLight = biteState.period === "sunset"
+        ? windowPreset.anchor - 18
+        : windowPreset.windowStart - 18;
       if (stage) {
         stage.style.setProperty("--season-glow", theme.glow);
         stage.style.setProperty("--season-sky", theme.sky);
         stage.style.setProperty("--season-lane", theme.lane);
         stage.style.setProperty("--season-lane-border", theme.laneBorder);
       }
-      document.getElementById("bite-preset-harbor").textContent = bitePresetData[biteState.location].label;
-      document.getElementById("bite-preset-month").textContent = preset.label;
-      document.getElementById("bite-preset-sunrise").textContent = formatMinutesToTime(windowPreset.anchor);
-      document.getElementById("bite-preset-window").textContent = `${formatMinutesToTime(windowPreset.windowStart)}-${formatMinutesToTime(windowPreset.windowEnd)}`;
-      document.getElementById("bite-stage-label").textContent = windowPreset.stageLabel;
-      document.getElementById("bite-time-pill-label").textContent = windowPreset.pillLabel;
-      document.getElementById("bite-window-pill-label").textContent = windowPreset.windowLabel;
-      document.getElementById("bite-foot-left").textContent = windowPreset.footLeft;
-      document.getElementById("bite-foot-center").textContent = windowPreset.footCenter;
-      document.getElementById("bite-foot-right").textContent = windowPreset.footRight;
-      document.getElementById("bite-stat-species").textContent = preset.speciesCopy;
-      document.getElementById("bite-stat-species-copy").textContent = preset.season;
-      document.getElementById("bite-stat-arrival").textContent = formatMinutesToTime(windowPreset.arrival);
-      document.getElementById("bite-stat-arrival-copy").textContent = `Representative dock-arrival target for ${bitePresetData[biteState.location].label}.`;
-      document.getElementById("bite-stat-water").textContent = preset.water.replace(" near harbor", "").replace(" Holland-side", "");
-      document.getElementById("bite-stat-water-copy").textContent = `Typical surface band for ${preset.label.toLowerCase()} on the ${bitePresetData[biteState.location].label} side.`;
-      document.getElementById("bite-headline").textContent = preset.headline;
-      document.getElementById("bite-summary").textContent = preset.summary;
-      document.getElementById("bite-impact-location-title").textContent = bitePresetData[biteState.location].harborNote;
-      document.getElementById("bite-impact-location").textContent = preset.locationEffect;
-      document.getElementById("bite-impact-season-title").textContent = `${preset.label} changes the shape of the morning.`;
-      document.getElementById("bite-impact-season").textContent = preset.seasonEffect;
-      document.getElementById("bite-impact-time-title").textContent = biteState.period === "sunset"
+      setNodeText("bite-preset-harbor", bitePresetData[biteState.location].label);
+      setNodeText("bite-preset-month", preset.label);
+      setNodeText("bite-preset-sunrise", formatMinutesToTime(windowPreset.anchor));
+      setNodeText("bite-preset-window", `${formatMinutesToTime(windowPreset.windowStart)}-${formatMinutesToTime(windowPreset.windowEnd)}`);
+      setNodeText("bite-preset-first-light", formatMinutesToTime(firstLight));
+      setNodeText("bite-stage-label", windowPreset.stageLabel);
+      setNodeText("bite-time-pill-label", windowPreset.pillLabel);
+      setNodeText("bite-window-pill-label", windowPreset.windowLabel);
+      setNodeText("bite-first-light-pill-label", biteState.period === "sunset" ? "Golden Hour" : "First Light");
+      setNodeText("bite-foot-left", windowPreset.footLeft);
+      setNodeText("bite-foot-center", windowPreset.footCenter);
+      setNodeText("bite-foot-right", windowPreset.footRight);
+      setNodeText("bite-stat-species", preset.speciesCopy);
+      setNodeText("bite-stat-species-copy", preset.season);
+      setNodeText("bite-stat-arrival", formatMinutesToTime(windowPreset.arrival));
+      setNodeText("bite-stat-arrival-copy", `Representative dock-arrival target for ${bitePresetData[biteState.location].label}.`);
+      setNodeText("bite-stat-water", preset.water.replace(" near harbor", "").replace(" Holland-side", ""));
+      setNodeText("bite-stat-water-copy", `Typical surface band for ${preset.label.toLowerCase()} on the ${bitePresetData[biteState.location].label} side.`);
+      setNodeText("bite-headline", preset.headline);
+      setNodeText("bite-summary", preset.summary);
+      setNodeText("bite-impact-location-title", bitePresetData[biteState.location].harborNote);
+      setNodeText("bite-impact-location", preset.locationEffect);
+      setNodeText("bite-impact-season-title", `${preset.label} changes the shape of the morning.`);
+      setNodeText("bite-impact-season", preset.seasonEffect);
+      setNodeText("bite-impact-time-title", biteState.period === "sunset"
         ? `Sunset is around ${formatMinutesToTime(preset.sunset)} for this preset.`
-        : `Sunrise is around ${formatMinutesToTime(preset.sunrise)} for this preset.`;
-      document.getElementById("bite-impact-time").textContent = preset.timeEffect;
+        : `Sunrise is around ${formatMinutesToTime(preset.sunrise)} for this preset.`);
+      setNodeText("bite-impact-time", preset.timeEffect);
+      renderBiteTargetMix(preset);
     }
 
     function syncBiteScale(preset) {
@@ -5072,9 +5152,9 @@
         greylight.style.width = `${width}%`;
       }
 
-      const sunriseOrb = document.getElementById("bite-sunrise-orb");
-      if (sunriseOrb) {
-        sunriseOrb.style.setProperty("--sun-x", `${((windowPreset.anchor - min) / (max - min)) * 100}%`);
+      const sunriseStage = document.querySelector(".sunrise-stage");
+      if (sunriseStage) {
+        sunriseStage.style.setProperty("--sun-x", `${((windowPreset.anchor - min) / (max - min)) * 100}%`);
       }
 
     }
@@ -5145,31 +5225,22 @@
         }
       }
 
-      const sunriseOrb = document.getElementById("bite-sunrise-orb");
-      if (sunriseOrb) {
-        sunriseOrb.style.setProperty("--sun-x", `${sunX}%`);
-        sunriseOrb.style.setProperty("--sun-y", `${baseHeight}px`);
-        sunriseOrb.style.setProperty("--light-x", `${sunX}%`);
-        sunriseOrb.style.transform = `translateX(-50%) scale(${0.92 + (model.score / 220)})`;
-      }
-
       const stage = document.querySelector(".sunrise-stage");
       if (stage) {
         stage.style.setProperty("--light-x", `${sunX}%`);
       }
 
-      const sunriseTimeFloat = document.getElementById("bite-sunrise-time-float");
-      if (sunriseTimeFloat) {
-        sunriseTimeFloat.textContent = timeText;
-        sunriseTimeFloat.style.left = `${sunX}%`;
-        sunriseTimeFloat.style.bottom = `${baseHeight + 34}px`;
-      }
-
-      const sunrisePeakTag = document.getElementById("bite-sunrise-peak-tag");
-      if (sunrisePeakTag) {
-        sunrisePeakTag.textContent = model.phase;
-        sunrisePeakTag.style.left = `${sunX}%`;
-        sunrisePeakTag.style.bottom = `${baseHeight + 72}px`;
+      const footLeft = document.getElementById("bite-foot-left");
+      const footCenter = document.getElementById("bite-foot-center");
+      const footRight = document.getElementById("bite-foot-right");
+      [footLeft, footCenter, footRight].forEach((node) => node && node.classList.remove("is-active"));
+      const phaseText = model.phase.toLowerCase();
+      if (phaseText.includes("gray") || phaseText.includes("golden")) {
+        footCenter?.classList.add("is-active");
+      } else if (phaseText.includes("sun-up") || phaseText.includes("sunrise taper") || phaseText.includes("afterglow") || phaseText.includes("dusk")) {
+        footRight?.classList.add("is-active");
+      } else {
+        footLeft?.classList.add("is-active");
       }
 
       const scoreLabel = document.getElementById("bite-score-label");
@@ -5762,4 +5833,5 @@
     startBitePlayback();
   </script>
 </body>
+
 </html>
